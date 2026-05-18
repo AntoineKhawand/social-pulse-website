@@ -56,12 +56,20 @@ const organizationSchema = {
       "@type": "Country",
       name: "Qatar",
     },
+    {
+      "@type": "Country",
+      name: "United States",
+    },
+    {
+      "@type": "Country",
+      name: "France",
+    },
   ],
   contactPoint: [
     {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "hello@socialpulselb.com",
+      email: "socialpulselb@gmail.com",
       availableLanguage: ["English", "Arabic", "French"],
     },
   ],

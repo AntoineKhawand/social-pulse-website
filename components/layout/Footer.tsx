@@ -16,7 +16,7 @@ const footerLinks = {
   Connect: [
     { label: "Contact", href: "/contact" },
     { label: "Instagram", href: "https://www.instagram.com/socialpulse.lb/", external: true },
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/socialpulselb", external: true },
+    { label: "Email", href: "mailto:socialpulselb@gmail.com", external: false },
   ],
 };
 
@@ -65,7 +65,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-neutral-muted text-sm leading-relaxed max-w-[200px]">
-              The Heartbeat of your Brand — Beirut &amp; GCC.
+              The Heartbeat of your Brand — Lebanon · KSA · UAE · USA.
             </p>
           </div>
 

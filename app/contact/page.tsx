@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 const details = [
   {
     label: "Email",
-    value: "hello@socialpulselb.com",
-    href: "mailto:hello@socialpulselb.com",
+    value: "socialpulselb@gmail.com",
+    href: "mailto:socialpulselb@gmail.com",
   },
   {
     label: "Instagram",
@@ -33,7 +33,7 @@ const details = [
     href: "https://www.linkedin.com/company/socialpulselb",
   },
   { label: "Based in", value: "Beirut, Lebanon", href: null },
-  { label: "Serving", value: "Lebanon · KSA · UAE · Kuwait · Qatar", href: null },
+  { label: "Serving", value: "Lebanon · KSA · UAE · USA · Global", href: null },
   { label: "Response time", value: "Within 24 hours", href: null },
 ];
 

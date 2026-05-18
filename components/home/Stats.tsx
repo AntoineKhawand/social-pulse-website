@@ -5,10 +5,10 @@ import { useInView } from "framer-motion";
 import RevealBlock from "@/components/ui/RevealBlock";
 
 const stats = [
-  { value: 50, suffix: "+", label: "Brands grown" },
-  { value: 320, suffix: "%", label: "Avg. reach increase" },
-  { value: 4, suffix: "M+", label: "Total views delivered" },
-  { value: 12, suffix: "+", label: "Healthcare clients" },
+  { value: 19, suffix: "+", label: "Clients served" },
+  { value: 4, suffix: "", label: "Countries reached" },
+  { value: 10468, suffix: "+", label: "NGO patients covered" },
+  { value: 50, suffix: "K+", label: "Followers built" },
 ];
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
@@ -18,7 +18,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 
   useEffect(() => {
     if (!isInView) return;
-    const duration = 1500;
+    const duration = 1800;
     const steps = 60;
     const increment = target / steps;
     let current = 0;
@@ -32,7 +32,7 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 
   return (
     <span ref={ref} className="tabular-nums">
-      {count}
+      {count.toLocaleString()}
       {suffix}
     </span>
   );

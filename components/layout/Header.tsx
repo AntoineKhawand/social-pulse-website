@@ -144,7 +144,7 @@ export default function Header() {
             </nav>
 
             <div className="mt-auto pb-12">
-              <p className="text-neutral-muted text-sm">hello@socialpulselb.com</p>
+              <p className="text-neutral-muted text-sm">socialpulselb@gmail.com</p>
               <a
                 href="https://www.instagram.com/socialpulse.lb/"
                 target="_blank"
