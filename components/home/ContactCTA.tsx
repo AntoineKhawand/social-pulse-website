@@ -1,7 +1,8 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useRef } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function ContactCTA() {
   const ref = useRef<HTMLElement>(null);
