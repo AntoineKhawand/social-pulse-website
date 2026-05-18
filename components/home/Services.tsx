@@ -33,7 +33,7 @@ const services = [
     id: "04",
     title: "Web Design & Development",
     description:
-      "Conversion-focused websites with personality. We design and build custom Next.js sites that are fast, accessible, beautifully animated, and built to scale.",
+      "Conversion-focused websites with personality. We design and build custom sites that are fast, accessible, beautifully animated, and built to scale.",
     deliverables: ["UX/UI design", "Figma prototypes", "Next.js development", "CMS integration", "SEO setup"],
     icon: "⬡",
   },
@@ -51,11 +51,11 @@ export default function Services() {
   const [active, setActive] = useState<string | null>("01");
 
   return (
-    <section className="py-32 bg-dark-100">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+    <section className="py-20 md:py-32 bg-dark-100">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
 
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-12 md:mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-4">What we do</p>
           <h2 className="font-display font-bold text-5xl md:text-7xl text-white leading-none">
             <SplitText text="Services" />
@@ -68,27 +68,26 @@ export default function Services() {
             const isOpen = active === service.id;
 
             return (
-              <div
-                key={service.id}
-                className="border-b border-dark-300"
-              >
+              <div key={service.id} className="border-b border-dark-300">
                 <button
-                  className="w-full flex items-center gap-6 py-6 md:py-8 text-left group"
+                  className="w-full flex items-center gap-3 md:gap-6 py-5 md:py-8 text-left group"
                   onClick={() => setActive(isOpen ? null : service.id)}
                 >
-                  <span className="text-neutral-mid text-sm font-mono w-8 shrink-0">
+                  <span className="text-neutral-mid text-xs md:text-sm font-mono w-6 md:w-8 shrink-0">
                     {service.id}
                   </span>
-                  <span className="text-2xl text-brand-light w-8 shrink-0">{service.icon}</span>
+                  <span className="text-lg md:text-2xl text-brand-light w-6 md:w-8 shrink-0">
+                    {service.icon}
+                  </span>
                   <span
-                    className={`font-display font-bold text-2xl md:text-4xl transition-colors duration-300 ${
+                    className={`font-display font-bold text-xl sm:text-2xl md:text-4xl transition-colors duration-300 ${
                       isOpen ? "text-white" : "text-neutral-muted group-hover:text-white"
                     }`}
                   >
                     {service.title}
                   </span>
                   <motion.span
-                    className="ml-auto text-neutral-muted text-2xl"
+                    className="ml-auto text-neutral-muted text-xl md:text-2xl shrink-0"
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -105,18 +104,19 @@ export default function Services() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-[88px] pb-8 grid md:grid-cols-2 gap-8">
-                        <p className="text-neutral-muted text-base leading-relaxed">
+                      {/* On mobile: no left padding. On md+: indent to align with title text */}
+                      <div className="pb-6 md:pb-8 md:pl-[88px] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        <p className="text-neutral-muted text-sm md:text-base leading-relaxed">
                           {service.description}
                         </p>
                         <div>
-                          <p className="text-xs uppercase tracking-widest text-neutral-mid mb-4">
+                          <p className="text-xs uppercase tracking-widest text-neutral-mid mb-3 md:mb-4">
                             Deliverables
                           </p>
                           <ul className="flex flex-col gap-2">
                             {service.deliverables.map((d) => (
                               <li key={d} className="flex items-center gap-3 text-sm text-neutral-muted">
-                                <span className="w-1 h-1 rounded-full bg-brand-light" />
+                                <span className="w-1 h-1 rounded-full bg-brand-light shrink-0" />
                                 {d}
                               </li>
                             ))}

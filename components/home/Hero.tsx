@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-
-const words = ["Social.", "Creative.", "Digital."];
 
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -20,7 +18,7 @@ export default function Hero() {
       {/* Background gradient orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-[20%] left-[10%] w-[600px] h-[600px] rounded-full"
+          className="absolute top-[20%] left-[5%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%)",
             filter: "blur(60px)",
@@ -29,7 +27,7 @@ export default function Hero() {
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-[15%] right-[5%] w-[400px] h-[400px] rounded-full"
+          className="absolute bottom-[15%] right-[5%] w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full"
           style={{
             background: "radial-gradient(circle, rgba(196,181,253,0.12) 0%, transparent 70%)",
             filter: "blur(80px)",
@@ -43,32 +41,33 @@ export default function Hero() {
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+          backgroundImage:
+            "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
 
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 pt-32 pb-20"
+        className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 pt-28 md:pt-36 pb-20"
       >
         {/* Eyebrow */}
         <motion.div
-          className="flex items-center gap-3 mb-10"
+          className="flex items-center gap-3 mb-8 md:mb-10"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
         >
-          <span className="w-8 h-px bg-brand-light" />
-          <span className="text-xs uppercase tracking-[0.3em] text-brand-light font-medium">
+          <span className="w-6 md:w-8 h-px bg-brand-light shrink-0" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] text-brand-light font-medium">
             Beirut · GCC · Global
           </span>
         </motion.div>
 
-        {/* Main headline — cycling words */}
+        {/* Main headline */}
         <div className="mb-6 overflow-hidden">
           <motion.h1
-            className="font-display font-bold text-[clamp(3.5rem,10vw,9rem)] leading-[0.9] tracking-tight text-white"
+            className="font-display font-bold text-[clamp(2.8rem,10vw,9rem)] leading-[0.9] tracking-tight text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.6 }}
@@ -96,34 +95,35 @@ export default function Hero() {
           </motion.h1>
         </div>
 
-        {/* Subtext + CTA row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mt-12">
+        {/* Subtext + CTA */}
+        <div className="flex flex-col gap-8 md:gap-10 mt-10 md:mt-12">
           <motion.p
-            className="text-neutral-muted text-lg md:text-xl max-w-lg leading-relaxed"
+            className="text-neutral-muted text-base md:text-xl max-w-lg leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
           >
-            Social Pulse is a full-service creative agency — branding, social media, video
-            production, and web design — built to make brands impossible to ignore.
+            Social Pulse is a full-service creative agency in Beirut — branding, social media,
+            video production, and web design — built to make brands impossible to ignore across
+            Lebanon and the GCC.
           </motion.p>
 
           <motion.div
-            className="flex items-center gap-5"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.1 }}
           >
             <Link
               href="/work"
-              className="px-7 py-4 rounded-full bg-brand text-white font-medium text-sm hover:bg-brand-dark hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-300"
+              className="text-center px-7 py-4 rounded-full bg-brand text-white font-medium text-sm hover:bg-brand-dark hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-300"
               data-cursor-label="View"
             >
               See our work
             </Link>
             <Link
               href="/contact"
-              className="px-7 py-4 rounded-full border border-dark-400 text-white font-medium text-sm hover:border-brand-light transition-all duration-300"
+              className="text-center px-7 py-4 rounded-full border border-dark-400 text-white font-medium text-sm hover:border-brand-light transition-all duration-300"
             >
               Start a project →
             </Link>
@@ -132,7 +132,7 @@ export default function Hero() {
 
         {/* Scroll hint */}
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="hidden md:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}

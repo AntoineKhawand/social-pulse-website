@@ -22,11 +22,16 @@ interface MarqueeProps {
   accent?: boolean;
 }
 
-export default function Marquee({ reverse = false, speed = 30, className, accent = false }: MarqueeProps) {
+export default function Marquee({
+  reverse = false,
+  speed = 30,
+  className,
+  accent = false,
+}: MarqueeProps) {
   const doubled = [...items, ...items];
 
   return (
-    <div className={cn("overflow-hidden py-4 border-y border-dark-200", className)}>
+    <div className={cn("overflow-hidden py-3 md:py-4 border-y border-dark-200", className)}>
       <div
         className={cn(
           "flex whitespace-nowrap gap-0",
@@ -35,10 +40,10 @@ export default function Marquee({ reverse = false, speed = 30, className, accent
         style={{ animationDuration: `${speed}s` }}
       >
         {doubled.map((item, i) => (
-          <span key={i} className="inline-flex items-center gap-4 px-6">
+          <span key={i} className="inline-flex items-center gap-3 md:gap-4 px-4 md:px-6">
             <span
               className={cn(
-                "text-sm font-medium uppercase tracking-widest",
+                "text-[10px] md:text-sm font-medium uppercase tracking-widest",
                 accent ? "text-brand-light" : "text-neutral-muted"
               )}
             >
@@ -46,7 +51,7 @@ export default function Marquee({ reverse = false, speed = 30, className, accent
             </span>
             <span
               className={cn(
-                "w-1.5 h-1.5 rounded-full",
+                "w-1 h-1 md:w-1.5 md:h-1.5 rounded-full shrink-0",
                 accent ? "bg-brand" : "bg-dark-400"
               )}
             />

@@ -11,16 +11,16 @@ export default function FeaturedWork() {
   const ref = useRef<HTMLElement>(null);
 
   return (
-    <section ref={ref} className="py-32 bg-dark">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+    <section ref={ref} className="py-20 md:py-32 bg-dark">
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
 
         {/* Section header */}
-        <div className="flex items-end justify-between mb-20">
+        <div className="flex items-end justify-between mb-12 md:mb-20">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-4">
               Selected Work
             </p>
-            <h2 className="font-display font-bold text-5xl md:text-7xl text-white leading-none">
+            <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl text-white leading-none">
               <SplitText text="Our Portfolio" />
             </h2>
           </div>
@@ -46,8 +46,8 @@ export default function FeaturedWork() {
           ))}
         </div>
 
-        {/* Mobile link */}
-        <div className="mt-12 flex md:hidden">
+        {/* Mobile "view all" link */}
+        <div className="mt-10 flex md:hidden">
           <Link href="/work" className="text-sm text-brand-light">
             View all projects →
           </Link>
@@ -68,14 +68,14 @@ function ProjectRow({ project, index }: { project: (typeof featuredProjects)[0];
   return (
     <motion.div
       ref={ref}
-      className="group relative grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-dark-200 py-16 first:border-t"
+      className="group relative grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-dark-200 py-12 md:py-16 first:border-t"
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
     >
       {/* Image */}
       <div
-        className={`relative h-[360px] md:h-[480px] overflow-hidden rounded-2xl ${
+        className={`relative h-[260px] sm:h-[360px] md:h-[480px] overflow-hidden rounded-2xl ${
           isEven ? "md:order-1" : "md:order-2"
         }`}
       >
@@ -89,29 +89,29 @@ function ProjectRow({ project, index }: { project: (typeof featuredProjects)[0];
           />
         </motion.div>
         {/* Category badge */}
-        <div className="absolute top-5 left-5 px-3 py-1.5 rounded-full bg-dark/70 backdrop-blur-md border border-dark-300 text-xs text-neutral-muted uppercase tracking-widest">
+        <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-dark/70 backdrop-blur-md border border-dark-300 text-xs text-neutral-muted uppercase tracking-widest">
           {project.category}
         </div>
       </div>
 
       {/* Content */}
       <div
-        className={`flex flex-col justify-center px-0 ${
-          isEven ? "md:order-2 md:pl-16" : "md:order-1 md:pr-16"
+        className={`flex flex-col justify-center pt-8 md:pt-0 ${
+          isEven ? "md:order-2 md:pl-12 lg:pl-16" : "md:order-1 md:pr-12 lg:pr-16"
         }`}
       >
         <span className="text-xs text-neutral-mid uppercase tracking-widest mb-4">
           {String(index + 1).padStart(2, "0")} — {project.year}
         </span>
-        <h3 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
+        <h3 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl text-white mb-4 leading-tight">
           {project.title}
         </h3>
-        <p className="text-neutral-muted text-base leading-relaxed mb-8 max-w-sm">
+        <p className="text-neutral-muted text-sm md:text-base leading-relaxed mb-6 md:mb-8 max-w-sm">
           {project.description}
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -124,9 +124,9 @@ function ProjectRow({ project, index }: { project: (typeof featuredProjects)[0];
 
         {/* Result */}
         {project.result && (
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-3 mb-6 md:mb-8">
             <div
-              className="w-2 h-2 rounded-full"
+              className="w-2 h-2 rounded-full shrink-0"
               style={{ backgroundColor: project.accentColor }}
             />
             <p className="text-sm font-medium" style={{ color: project.accentColor }}>
@@ -137,7 +137,7 @@ function ProjectRow({ project, index }: { project: (typeof featuredProjects)[0];
 
         <Link
           href={`/work/${project.slug}`}
-          className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-brand-light transition-colors group/link"
+          className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-brand-light transition-colors group/link w-fit"
           data-cursor-label="View"
         >
           <span className="border-b border-dark-400 group-hover/link:border-brand-light transition-colors pb-0.5">
