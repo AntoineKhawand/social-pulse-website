@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Syne } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,7 +13,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const syne = Syne({
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-syne",
   display: "swap",
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
