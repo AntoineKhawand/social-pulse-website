@@ -4,42 +4,64 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
+// ─── Swap this ID to change the background video ──────────────────────────────
+// Current: Creative Agency Showreel | Unmanned 2024
+// Browse YouTube, copy the ID after ?v= and paste it here.
+const YOUTUBE_VIDEO_ID = "1xYXW0RU7Do";
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
 
   return (
     <section
       ref={ref}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-dark"
     >
-      {/* Background gradient orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-[20%] left-[5%] w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full"
+      {/* ── YouTube video background ──────────────────────────────────────── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <iframe
+          className="absolute"
           style={{
-            background: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%)",
+            top: "50%",
+            left: "50%",
+            width: "100vw",
+            height: "56.25vw",   /* 16:9 */
+            minHeight: "100vh",
+            minWidth: "177.78vh", /* 16:9 inverse */
+            transform: "translate(-50%, -50%)",
+            border: "none",
+          }}
+          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=3`}
+          allow="autoplay; encrypted-media; picture-in-picture"
+          title="Agency showreel background"
+        />
+      </div>
+
+      {/* ── Dark gradient overlay ─────────────────────────────────────────── */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {/* Main dark wash */}
+        <div className="absolute inset-0 bg-dark/75" />
+        {/* Bottom fade to match page background */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-dark to-transparent" />
+        {/* Top fade */}
+        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-dark/60 to-transparent" />
+        {/* Brand purple glow — keeps the site colour identity */}
+        <div
+          className="absolute top-[20%] left-[5%] w-[40vw] h-[40vw] rounded-full pointer-events-none"
+          style={{
+            background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
-          animate={{ scale: [1, 1.15, 1], x: [0, 20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[15%] right-[5%] w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(196,181,253,0.12) 0%, transparent 70%)",
-            filter: "blur(80px)",
-          }}
-          animate={{ scale: [1, 1.2, 1], y: [0, -20, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
       </div>
 
       {/* Grid overlay */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 z-10 pointer-events-none opacity-[0.025]"
         style={{
           backgroundImage:
             "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
@@ -47,9 +69,10 @@ export default function Hero() {
         }}
       />
 
+      {/* ── Content ───────────────────────────────────────────────────────── */}
       <motion.div
-        style={{ y, opacity }}
-        className="relative z-10 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 pt-28 md:pt-36 pb-20"
+        style={{ y: contentY, opacity }}
+        className="relative z-20 max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 pt-28 md:pt-36 pb-20"
       >
         {/* Eyebrow */}
         <motion.div
@@ -95,7 +118,7 @@ export default function Hero() {
           </motion.h1>
         </div>
 
-        {/* Subtext + CTA */}
+        {/* Subtext + CTAs */}
         <div className="flex flex-col gap-8 md:gap-10 mt-10 md:mt-12">
           <motion.p
             className="text-neutral-muted text-base md:text-xl max-w-lg leading-relaxed"
@@ -123,7 +146,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="text-center px-7 py-4 rounded-full border border-dark-400 text-white font-medium text-sm hover:border-brand-light transition-all duration-300"
+              className="text-center px-7 py-4 rounded-full border border-white/20 text-white font-medium text-sm hover:border-brand-light backdrop-blur-sm transition-all duration-300"
             >
               Start a project →
             </Link>
@@ -137,7 +160,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-widest text-neutral-mid">Scroll</span>
+          <span className="text-xs uppercase tracking-widest text-neutral-mid/70">Scroll</span>
           <motion.div
             className="w-px h-12 bg-gradient-to-b from-brand-light to-transparent"
             animate={{ scaleY: [0, 1, 0] }}

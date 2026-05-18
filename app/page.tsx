@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import ClientLogos from "@/components/home/ClientLogos";
 import Marquee from "@/components/home/Marquee";
 import FeaturedWork from "@/components/home/FeaturedWork";
 import Services from "@/components/home/Services";
@@ -10,6 +11,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <ClientLogos />
       <Marquee />
       <FeaturedWork />
       <Stats />
