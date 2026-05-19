@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import CustomCursor from "@/components/ui/CustomCursor";
+import CookieBanner from "@/components/ui/CookieBanner";
 import JsonLd from "@/components/seo/JsonLd";
 
 const inter = Inter({
@@ -120,6 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main id="main-content">{children}</main>
           <Footer />
+          <CookieBanner />
         </SmoothScroll>
       </body>
     </html>
