@@ -41,7 +41,7 @@ export default function WorkPage() {
             <SplitText text="Our Work" />
           </h1>
           <p className="text-neutral-muted text-base md:text-lg max-w-xl leading-relaxed">
-            Projects that moved the needle — for brands across Beirut, Lebanon, and the Gulf.
+            Projects that moved the needle for brands across Beirut, Lebanon, and the Gulf.
             From 0.8% to 4.2% engagement. From zero bookings to +140% in 60 days.
           </p>
         </div>

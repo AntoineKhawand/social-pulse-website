@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     quote:
-      "They rebuilt our brand from the ground up — logo, color palette, and social strategy. We now have 40% higher engagement and a steady stream of reservation requests every week.",
+      "They rebuilt our brand from the ground up. Logo, color palette, and social strategy, all redesigned. We now have 40% higher engagement and a steady stream of reservation requests every week.",
     author: "Restaurant Founder",
     title: "F&B, Beirut",
     initials: "RF",

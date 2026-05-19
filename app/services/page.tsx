@@ -117,7 +117,7 @@ export default function ServicesPage() {
             <SplitText text="What we offer" />
           </h1>
           <p className="text-neutral-muted text-base md:text-xl max-w-xl mt-6 md:mt-8 leading-relaxed">
-            End-to-end creative services that take your brand from idea to impact — in Beirut,
+            End-to-end creative services that take your brand from idea to impact, in Beirut,
             across Lebanon, and throughout the GCC.
           </p>
         </div>
@@ -135,7 +135,7 @@ export default function ServicesPage() {
               <SplitText text="Simple pricing" />
             </h2>
             <p className="text-neutral-muted text-base mt-4 max-w-md">
-              Transparent, scalable packages. No hidden fees — just results.
+              Transparent, scalable packages. No hidden fees, just results.
             </p>
           </div>
 

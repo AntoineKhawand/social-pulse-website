@@ -64,7 +64,7 @@ export default function ContactPage() {
             {/* Details */}
             <div>
               <p className="text-neutral-muted text-sm md:text-base leading-relaxed mb-10 md:mb-12">
-                Tell us about your project — we&apos;ll get back to you within 24 hours with a
+                Tell us about your project and we&apos;ll get back to you within 24 hours with a
                 tailored approach for your brand.
               </p>
               <div className="flex flex-col gap-5 md:gap-8">

@@ -50,7 +50,7 @@ const processSteps = [
   {
     id: "01",
     title: "Discovery",
-    desc: "We dig into your brand, audience, competitors, and goals. No assumptions — just honest research that shapes everything that follows.",
+    desc: "We dig into your brand, audience, competitors, and goals. No assumptions, just honest research that shapes everything that follows.",
   },
   {
     id: "02",
@@ -60,12 +60,12 @@ const processSteps = [
   {
     id: "03",
     title: "Creation",
-    desc: "Our team brings the strategy to life — design, video, copy, development. Built to the highest standard, delivered on time.",
+    desc: "Our team brings the strategy to life: design, video, copy, development. Built to the highest standard, delivered on time.",
   },
   {
     id: "04",
     title: "Launch & Scale",
-    desc: "We deploy, monitor, and optimize. Data informs every iteration as we push your brand further into the market — and keep it there.",
+    desc: "We deploy, monitor, and optimize. Data informs every iteration as we push your brand further into the market and keep it there.",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function AboutPage() {
           <p className="text-neutral-muted text-base md:text-xl max-w-2xl leading-relaxed mt-6 md:mt-8">
             Social Pulse is a Beirut-born creative agency operating across Lebanon and the GCC.
             We partner with ambitious brands to build powerful identities, grow engaged communities,
-            and produce content that actually converts — for retail, medical, hospitality, finance,
+            and produce content that actually converts, for retail, medical, hospitality, finance,
             and lifestyle businesses.
           </p>
         </div>

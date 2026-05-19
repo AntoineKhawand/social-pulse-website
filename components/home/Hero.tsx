@@ -126,8 +126,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
           >
-            Social Pulse is a full-service creative agency in Beirut — branding, social media,
-            video production, and web design — built to make brands impossible to ignore across
+            Social Pulse is a full-service creative agency in Beirut. Branding, social media,
+            video production, and web design built to make brands impossible to ignore across
             Lebanon and the GCC.
           </motion.p>
 

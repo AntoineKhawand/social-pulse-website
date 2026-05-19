@@ -11,7 +11,7 @@ export default function NotFound() {
           Page not found
         </h1>
         <p className="text-neutral-muted mb-10">
-          This page doesn&apos;t exist — but great work does.
+          This page doesn&apos;t exist, but great work does.
         </p>
         <Link
           href="/"

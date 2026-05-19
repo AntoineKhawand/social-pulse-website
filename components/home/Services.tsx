@@ -9,7 +9,7 @@ const services = [
     id: "01",
     title: "Branding & Identity",
     description:
-      "We craft brand systems with presence — from logo and visual identity to brand guidelines, tone of voice, and full rollout across every touchpoint. Built to be remembered.",
+      "We craft brand systems with presence. From logo and visual identity to brand guidelines, tone of voice, and full rollout across every touchpoint. Built to be remembered.",
     deliverables: ["Logo design", "Brand guidelines", "Typography system", "Color palette", "Brand collateral"],
     icon: "◈",
   },
@@ -17,7 +17,7 @@ const services = [
     id: "02",
     title: "Social Media Management",
     description:
-      "Strategy-first content creation and community management. We turn your social channels into growth engines — consistent, creative, and always aligned with your goals.",
+      "Strategy-first content creation and community management. We turn your social channels into growth engines: consistent, creative, and always aligned with your goals.",
     deliverables: ["Monthly content calendars", "Reel production", "Community management", "Paid social campaigns", "Analytics reporting"],
     icon: "◉",
   },
