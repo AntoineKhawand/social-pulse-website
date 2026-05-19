@@ -153,14 +153,14 @@ export default function Hero() {
           >
             <Link
               href="/work"
-              className="text-center px-6 py-4 rounded-full bg-brand text-white font-medium text-sm hover:bg-brand-dark hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] active:scale-95 transition-all duration-300"
+              className="text-center px-7 py-4 rounded-full bg-brand text-white font-medium text-sm hover:bg-brand-dark hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] active:scale-95 transition-all duration-300"
               data-cursor-label="View"
             >
               See our work
             </Link>
             <Link
               href="/contact"
-              className="text-center px-6 py-4 rounded-full border border-white/20 text-white font-medium text-sm hover:border-brand-light active:scale-95 backdrop-blur-sm transition-all duration-300"
+              className="text-center px-7 py-4 rounded-full border border-dark-400 text-white font-medium text-sm hover:border-brand-light active:scale-95 transition-all duration-300"
             >
               Start a project →
             </Link>
