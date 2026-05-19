@@ -15,7 +15,7 @@ const services = [
   },
   {
     id: "02",
-    title: "Social Media Management",
+    title: "Social Media",
     description:
       "Strategy-first content creation and community management. We turn your social channels into growth engines: consistent, creative, and always aligned with your goals.",
     deliverables: ["Monthly content calendars", "Reel production", "Community management", "Paid social campaigns", "Analytics reporting"],
@@ -31,7 +31,7 @@ const services = [
   },
   {
     id: "04",
-    title: "Web Design & Development",
+    title: "Web Design & Dev",
     description:
       "Conversion-focused websites with personality. We design and build custom sites that are fast, accessible, beautifully animated, and built to scale.",
     deliverables: ["UX/UI design", "Figma prototypes", "Next.js development", "CMS integration", "SEO setup"],
@@ -51,13 +51,13 @@ export default function Services() {
   const [active, setActive] = useState<string | null>("01");
 
   return (
-    <section className="py-20 md:py-32 bg-dark-100">
+    <section className="py-16 sm:py-20 md:py-32 bg-dark-100">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
 
         {/* Header */}
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 md:mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-4">What we do</p>
-          <h2 className="font-display font-bold text-5xl md:text-7xl text-white leading-none">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-7xl text-white leading-none">
             <SplitText text="Services" />
           </h2>
         </div>
@@ -70,17 +70,18 @@ export default function Services() {
             return (
               <div key={service.id} className="border-b border-dark-300">
                 <button
-                  className="w-full flex items-center gap-3 md:gap-6 py-5 md:py-8 text-left group"
+                  className="w-full flex items-center gap-3 sm:gap-4 md:gap-6 py-4 sm:py-5 md:py-8 text-left group"
                   onClick={() => setActive(isOpen ? null : service.id)}
+                  aria-expanded={isOpen}
                 >
-                  <span className="text-neutral-mid text-xs md:text-sm font-mono w-6 md:w-8 shrink-0">
+                  <span className="text-neutral-mid text-xs font-mono w-6 shrink-0">
                     {service.id}
                   </span>
-                  <span className="text-lg md:text-2xl text-brand-light w-6 md:w-8 shrink-0">
+                  <span className="text-base sm:text-lg md:text-2xl text-brand-light w-5 sm:w-6 md:w-8 shrink-0">
                     {service.icon}
                   </span>
                   <span
-                    className={`font-display font-bold text-xl sm:text-2xl md:text-4xl transition-colors duration-300 ${
+                    className={`font-display font-bold text-lg sm:text-xl md:text-4xl transition-colors duration-300 leading-tight ${
                       isOpen ? "text-white" : "text-neutral-muted group-hover:text-white"
                     }`}
                   >
@@ -104,13 +105,12 @@ export default function Services() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      {/* On mobile: no left padding. On md+: indent to align with title text */}
-                      <div className="pb-6 md:pb-8 md:pl-[88px] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                      <div className="pb-5 md:pb-8 md:pl-[88px] grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
                         <p className="text-neutral-muted text-sm md:text-base leading-relaxed">
                           {service.description}
                         </p>
                         <div>
-                          <p className="text-xs uppercase tracking-widest text-neutral-mid mb-3 md:mb-4">
+                          <p className="text-xs uppercase tracking-widest text-neutral-mid mb-3">
                             Deliverables
                           </p>
                           <ul className="flex flex-col gap-2">

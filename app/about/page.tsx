@@ -127,20 +127,21 @@ export default function AboutPage() {
             {team.map((member, i) => (
               <RevealBlock key={member.name} delay={i * 0.1}>
                 <div className="group">
-                  <div className="relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4">
+                  <div className="relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden mb-2 md:mb-4">
                     <Image
                       src={member.image}
                       alt={member.name}
                       fill
+                      loading="lazy"
                       className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                       sizes="(max-width: 768px) 50vw, 25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
-                  <h3 className="font-display font-bold text-white text-sm md:text-lg leading-tight">
+                  <h3 className="font-display font-bold text-white text-xs sm:text-sm md:text-lg leading-tight">
                     {member.name}
                   </h3>
-                  <p className="text-neutral-muted text-xs md:text-sm mt-0.5 md:mt-1">
+                  <p className="text-neutral-muted text-[10px] sm:text-xs md:text-sm mt-0.5 md:mt-1">
                     {member.role}
                   </p>
                   <p className="text-neutral-mid text-xs mt-1 leading-snug hidden md:block">

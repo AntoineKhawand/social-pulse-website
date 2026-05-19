@@ -35,34 +35,34 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-20 md:py-32 bg-dark-100 overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-32 bg-dark-100 overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
 
         {/* Header */}
-        <div className="mb-12 md:mb-16">
+        <div className="mb-10 md:mb-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-4">Client voices</p>
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-none">
             <SplitText text="What they say" />
           </h2>
         </div>
 
-        {/* Testimonial display */}
-        <div className="relative min-h-[280px] sm:min-h-[240px] mb-10">
+        {/* Testimonial */}
+        <div className="relative min-h-[260px] sm:min-h-[220px] mb-8 md:mb-10">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="text-5xl md:text-6xl text-brand-light/30 font-display leading-none mb-4">
+              <div className="text-4xl md:text-5xl text-brand-light/30 font-display leading-none mb-3">
                 &ldquo;
               </div>
-              <p className="text-white text-lg sm:text-xl md:text-2xl leading-relaxed font-light max-w-3xl">
+              <p className="text-white text-base sm:text-lg md:text-2xl leading-relaxed font-light max-w-3xl">
                 {testimonials[active].quote}
               </p>
-              <div className="mt-8 flex items-center gap-4">
+              <div className="mt-6 md:mt-8 flex items-center gap-3 md:gap-4">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-dark shrink-0"
                   style={{ backgroundColor: testimonials[active].color }}
@@ -79,29 +79,30 @@ export default function Testimonials() {
         </div>
 
         {/* Navigation */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={() => setActive((a) => (a - 1 + testimonials.length) % testimonials.length)}
-            className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-dark-300 hover:border-brand text-white flex items-center justify-center transition-colors text-sm"
+            className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-dark-300 hover:border-brand active:border-brand text-white flex items-center justify-center transition-colors text-sm shrink-0"
             aria-label="Previous testimonial"
           >
             ←
           </button>
           <button
             onClick={() => setActive((a) => (a + 1) % testimonials.length)}
-            className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-dark-300 hover:border-brand text-white flex items-center justify-center transition-colors text-sm"
+            className="w-11 h-11 md:w-12 md:h-12 rounded-full border border-dark-300 hover:border-brand active:border-brand text-white flex items-center justify-center transition-colors text-sm shrink-0"
             aria-label="Next testimonial"
           >
             →
           </button>
 
-          {/* Dots */}
-          <div className="flex items-center gap-2 ml-2">
+          {/* Dots — larger tap target wrapper */}
+          <div className="flex items-center gap-2 ml-1">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
                 aria-label={`Testimonial ${i + 1}`}
+                className="w-8 h-8 flex items-center justify-center"
               >
                 <motion.div
                   className="rounded-full"

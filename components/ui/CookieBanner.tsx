@@ -65,40 +65,40 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:bottom-6 md:w-[380px] z-[200]"
+          className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:w-[380px] z-[200]"
           role="dialog"
           aria-label="Cookie consent"
         >
-          <div className="bg-dark-100/95 border border-dark-300 rounded-2xl p-5 shadow-[0_8px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl">
+          <div className="bg-dark-100/95 border border-dark-300 rounded-2xl p-4 sm:p-5 shadow-[0_8px_40px_rgba(0,0,0,0.6)] backdrop-blur-xl">
             {/* Header */}
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-base">🍪</span>
+              <span className="text-base shrink-0">🍪</span>
               <p className="text-white text-sm font-semibold">Cookie preferences</p>
             </div>
 
             {/* Body */}
             <p className="text-neutral-muted text-xs leading-relaxed mb-4">
-              We use analytics to understand how visitors use this site and make it better.
-              No data is ever sold. This banner is required under GDPR for our EU and international clients.
+              We use analytics to understand how visitors use this site. No data is sold.
+              Required for our EU and international clients under GDPR.
             </p>
 
             {/* Actions */}
             <div className="flex items-center gap-2">
               <button
                 onClick={accept}
-                className="flex-1 px-4 py-2.5 rounded-xl bg-brand text-white text-xs font-medium hover:bg-brand-dark transition-colors duration-200"
+                className="flex-1 min-h-[40px] px-4 py-2 rounded-xl bg-brand text-white text-xs font-medium hover:bg-brand-dark active:scale-95 transition-all duration-200"
               >
                 Accept all
               </button>
               <button
                 onClick={decline}
-                className="flex-1 px-4 py-2.5 rounded-xl border border-dark-300 text-neutral-muted text-xs font-medium hover:border-neutral-mid hover:text-white transition-colors duration-200"
+                className="flex-1 min-h-[40px] px-4 py-2 rounded-xl border border-dark-300 text-neutral-muted text-xs font-medium hover:border-neutral-mid hover:text-white active:scale-95 transition-all duration-200"
               >
                 Decline
               </button>
               <Link
                 href="/privacy"
-                className="text-[10px] text-neutral-mid hover:text-white transition-colors shrink-0 underline underline-offset-2"
+                className="text-xs text-neutral-mid hover:text-white transition-colors shrink-0 px-1 min-h-[40px] flex items-center underline underline-offset-2"
               >
                 Privacy
               </Link>

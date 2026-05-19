@@ -93,7 +93,7 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         {/* Cover image — full bleed */}
-        <div className="relative h-[60vh] md:h-[80vh] overflow-hidden">
+        <div className="relative h-[45vw] min-h-[240px] max-h-[600px] md:h-[70vh] md:max-h-none overflow-hidden">
           <Image
             src={project.coverImage}
             alt={project.title}

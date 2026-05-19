@@ -8,6 +8,7 @@ export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [label, setLabel] = useState("");
+  const [mounted, setMounted] = useState(false);
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
@@ -15,11 +16,16 @@ export default function CustomCursor() {
   const springConfig = { damping: 25, stiffness: 300 };
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
-
   const trailX = useSpring(mouseX, { damping: 40, stiffness: 150 });
   const trailY = useSpring(mouseY, { damping: 40, stiffness: 150 });
 
   useEffect(() => {
+    // Don't render on touch devices — no cursor, no wasted event listeners
+    const isTouch = window.matchMedia("(hover: none)").matches;
+    if (isTouch) return;
+
+    setMounted(true);
+
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -54,6 +60,8 @@ export default function CustomCursor() {
       window.removeEventListener("mouseup", handleUp);
     };
   }, [mouseX, mouseY]);
+
+  if (!mounted) return null;
 
   return (
     <>

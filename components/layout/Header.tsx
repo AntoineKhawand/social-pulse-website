@@ -40,9 +40,13 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16 h-16 md:h-20 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 lg:px-16 h-16 md:h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0" aria-label="Social Pulse">
+          <Link
+            href="/"
+            className="flex items-center gap-2 group shrink-0 min-h-[44px]"
+            aria-label="Social Pulse — Home"
+          >
             <div className="relative w-7 h-7 md:w-8 md:h-8 shrink-0">
               <div className="absolute inset-0 rounded-full bg-brand opacity-80 group-hover:opacity-100 transition-opacity" />
               <div className="absolute inset-[2px] md:inset-[3px] rounded-full bg-dark" />
@@ -59,7 +63,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-neutral-muted hover:text-white transition-colors duration-300 tracking-wide relative group"
+                className="text-sm text-neutral-muted hover:text-white transition-colors duration-300 tracking-wide relative group py-1"
               >
                 {link.label}
                 <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-brand group-hover:w-full transition-all duration-300" />
@@ -73,26 +77,26 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Mobile Burger */}
+          {/* Mobile burger — 44×44 minimum touch target */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 z-[101] shrink-0"
+            className="md:hidden w-11 h-11 flex flex-col items-center justify-center gap-[5px] z-[101] shrink-0 rounded-lg"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
             <motion.span
-              className="block w-6 h-px bg-white origin-center"
-              animate={menuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+              className="block w-6 h-[1.5px] bg-white origin-center rounded-full"
+              animate={menuOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
-              className="block w-6 h-px bg-white"
+              className="block w-6 h-[1.5px] bg-white rounded-full"
               animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.3 }}
             />
             <motion.span
-              className="block w-6 h-px bg-white origin-center"
-              animate={menuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+              className="block w-6 h-[1.5px] bg-white origin-center rounded-full"
+              animate={menuOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3 }}
             />
           </button>
@@ -103,13 +107,13 @@ export default function Header() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[99] bg-dark flex flex-col justify-center px-8"
+            className="fixed inset-0 z-[99] bg-dark flex flex-col justify-center px-8 safe-bottom"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
           >
-            <nav className="flex flex-col gap-5 mt-16">
+            <nav className="flex flex-col gap-4 sm:gap-5 mt-16">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -120,7 +124,7 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    className="font-display text-5xl sm:text-6xl font-bold text-white hover:text-brand-light transition-colors"
+                    className="font-display text-[2.8rem] sm:text-5xl font-bold text-white hover:text-brand-light active:text-brand transition-colors block py-1"
                     onClick={() => setMenuOpen(false)}
                   >
                     {link.label}
@@ -135,7 +139,7 @@ export default function Header() {
               >
                 <Link
                   href="/contact"
-                  className="inline-block mt-4 px-7 py-3.5 rounded-full bg-brand text-white font-medium text-base"
+                  className="inline-block mt-4 px-7 py-3.5 rounded-full bg-brand text-white font-medium text-base active:bg-brand-dark transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
                   Start a project
@@ -143,13 +147,13 @@ export default function Header() {
               </motion.div>
             </nav>
 
-            <div className="mt-auto pb-12">
+            <div className="mt-auto pb-8 sm:pb-12">
               <p className="text-neutral-muted text-sm">socialpulselb@gmail.com</p>
               <a
                 href="https://www.instagram.com/socialpulse.lb/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-muted text-sm mt-1 block hover:text-white transition-colors"
+                className="text-neutral-muted text-sm mt-1 block hover:text-white transition-colors py-1"
               >
                 @socialpulse.lb
               </a>

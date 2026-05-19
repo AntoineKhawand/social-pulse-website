@@ -4,14 +4,17 @@ import { useState } from "react";
 
 const services = [
   "Branding & Identity",
-  "Social Media Management",
+  "Social Media",
   "Video & Motion",
-  "Web Design & Development",
+  "Web Design",
   "Photography",
   "Full Package",
 ];
 
 type Status = "idle" | "sending" | "success" | "error";
+
+const inputClass =
+  "w-full bg-dark-200 border border-dark-300 focus:border-brand rounded-xl px-4 py-3.5 text-white placeholder:text-neutral-mid text-sm outline-none transition-colors min-h-[48px]";
 
 export default function ContactForm() {
   const [selected, setSelected] = useState<string[]>([]);
@@ -23,28 +26,27 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate async submission — replace with your API route or Formspree endpoint
     await new Promise((r) => setTimeout(r, 1200));
     setStatus("success");
   };
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[400px] text-center">
-        <div className="w-16 h-16 rounded-full bg-brand flex items-center justify-center text-2xl mb-6 shadow-[0_0_30px_rgba(124,58,237,0.4)]">
+      <div className="flex flex-col items-center justify-center min-h-[300px] md:min-h-[400px] text-center">
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-brand flex items-center justify-center text-xl md:text-2xl mb-5 md:mb-6 shadow-[0_0_30px_rgba(124,58,237,0.4)]">
           ✓
         </div>
-        <h3 className="font-display font-bold text-2xl text-white mb-3">Message received!</h3>
-        <p className="text-neutral-muted">We&apos;ll be in touch within 24 hours.</p>
+        <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-3">Message received!</h3>
+        <p className="text-neutral-muted text-sm">We&apos;ll be in touch within 24 hours.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 md:gap-6">
       {/* Name + Email */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+        <div className="flex flex-col gap-1.5">
           <label className="text-xs uppercase tracking-widest text-neutral-mid" htmlFor="name">
             Name *
           </label>
@@ -54,10 +56,11 @@ export default function ContactForm() {
             type="text"
             required
             placeholder="Your name"
-            className="bg-dark-200 border border-dark-300 focus:border-brand rounded-xl px-5 py-4 text-white placeholder:text-neutral-mid text-sm outline-none transition-colors"
+            className={inputClass}
+            autoComplete="name"
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5">
           <label className="text-xs uppercase tracking-widest text-neutral-mid" htmlFor="email">
             Email *
           </label>
@@ -67,13 +70,15 @@ export default function ContactForm() {
             type="email"
             required
             placeholder="your@email.com"
-            className="bg-dark-200 border border-dark-300 focus:border-brand rounded-xl px-5 py-4 text-white placeholder:text-neutral-mid text-sm outline-none transition-colors"
+            className={inputClass}
+            autoComplete="email"
+            inputMode="email"
           />
         </div>
       </div>
 
       {/* Company */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         <label className="text-xs uppercase tracking-widest text-neutral-mid" htmlFor="company">
           Company / Brand
         </label>
@@ -82,22 +87,21 @@ export default function ContactForm() {
           name="company"
           type="text"
           placeholder="Your company name"
-          className="bg-dark-200 border border-dark-300 focus:border-brand rounded-xl px-5 py-4 text-white placeholder:text-neutral-mid text-sm outline-none transition-colors"
+          className={inputClass}
+          autoComplete="organization"
         />
       </div>
 
       {/* Services */}
-      <div className="flex flex-col gap-3">
-        <p className="text-xs uppercase tracking-widest text-neutral-mid">
-          Services you need
-        </p>
+      <div className="flex flex-col gap-2.5">
+        <p className="text-xs uppercase tracking-widest text-neutral-mid">Services you need</p>
         <div className="flex flex-wrap gap-2">
           {services.map((s) => (
             <button
               key={s}
               type="button"
               onClick={() => toggle(s)}
-              className={`px-4 py-2 rounded-full text-xs transition-all duration-200 ${
+              className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-200 min-h-[36px] ${
                 selected.includes(s)
                   ? "bg-brand text-white shadow-[0_0_12px_rgba(124,58,237,0.4)]"
                   : "border border-dark-300 text-neutral-muted hover:border-brand-light hover:text-white"
@@ -111,14 +115,14 @@ export default function ContactForm() {
       </div>
 
       {/* Budget */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         <label className="text-xs uppercase tracking-widest text-neutral-mid" htmlFor="budget">
           Budget range
         </label>
         <select
           id="budget"
           name="budget"
-          className="bg-dark-200 border border-dark-300 focus:border-brand rounded-xl px-5 py-4 text-white text-sm outline-none transition-colors appearance-none"
+          className={`${inputClass} appearance-none cursor-pointer`}
         >
           <option value="">Select a range</option>
           <option value="under-1k">Under $1,000</option>
@@ -130,7 +134,7 @@ export default function ContactForm() {
       </div>
 
       {/* Message */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         <label className="text-xs uppercase tracking-widest text-neutral-mid" htmlFor="message">
           Tell us about your project *
         </label>
@@ -140,14 +144,14 @@ export default function ContactForm() {
           required
           rows={5}
           placeholder="What are you looking to achieve? The more detail, the better."
-          className="bg-dark-200 border border-dark-300 focus:border-brand rounded-xl px-5 py-4 text-white placeholder:text-neutral-mid text-sm outline-none transition-colors resize-none"
+          className={`${inputClass} min-h-[120px] resize-none`}
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "sending"}
-        className="px-8 py-4 rounded-full bg-brand text-white font-medium text-sm hover:bg-brand-dark hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full sm:w-auto sm:self-start px-8 py-4 rounded-full bg-brand text-white font-medium text-sm hover:bg-brand-dark hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] active:scale-95 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed min-h-[52px]"
       >
         {status === "sending" ? "Sending…" : "Send message →"}
       </button>
