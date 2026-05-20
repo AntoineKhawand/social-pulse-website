@@ -92,7 +92,7 @@ export default function CustomCursor() {
           animate={{
             width: isHovering ? 80 : 36,
             height: isHovering ? 80 : 36,
-            backgroundColor: isHovering ? "rgba(124,58,237,0.15)" : "transparent",
+            backgroundColor: isHovering ? "rgba(124,58,237,0.15)" : "rgba(124,58,237,0)",
             borderColor: isHovering ? "rgb(167,139,250)" : "rgba(255,255,255,0.6)",
             scale: isClicking ? 0.85 : 1,
           }}

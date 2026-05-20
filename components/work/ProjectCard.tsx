@@ -20,9 +20,11 @@ export default function ProjectCard({ project, index, view = "grid" }: ProjectCa
     return (
       <motion.div
         ref={ref}
+        layout
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.05 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
         <Link
           href={`/work/${project.slug}`}
@@ -75,9 +77,11 @@ export default function ProjectCard({ project, index, view = "grid" }: ProjectCa
   return (
     <motion.div
       ref={ref}
+      layout
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: index * 0.06 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <Link
         href={`/work/${project.slug}`}

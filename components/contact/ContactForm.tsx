@@ -19,6 +19,7 @@ const inputClass =
 export default function ContactForm() {
   const [selected, setSelected] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const toggle = (s: string) =>
     setSelected((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
@@ -26,8 +27,39 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("success");
+    setErrorMessage("");
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        company: formData.get("company"),
+        services: selected.join(", "),
+        budget: formData.get("budget"),
+        message: formData.get("message"),
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message.");
+      }
+
+      setStatus("success");
+    } catch (err: any) {
+      console.error("Submit error:", err);
+      setErrorMessage(err.message || "An unexpected error occurred. Please try again.");
+      setStatus("error");
+    }
   };
 
   if (status === "success") {
@@ -147,6 +179,12 @@ export default function ContactForm() {
           className={`${inputClass} min-h-[120px] resize-none`}
         />
       </div>
+
+      {errorMessage && (
+        <div className="text-red-400 text-sm bg-red-950/40 border border-red-900/60 rounded-xl px-4 py-3">
+          ⚠️ {errorMessage}
+        </div>
+      )}
 
       <button
         type="submit"

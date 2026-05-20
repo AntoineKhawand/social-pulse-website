@@ -4,6 +4,7 @@ import Services from "@/components/home/Services";
 import ContactCTA from "@/components/home/ContactCTA";
 import RevealBlock from "@/components/ui/RevealBlock";
 import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import ProjectEstimator from "@/components/services/ProjectEstimator";
 
 export const metadata: Metadata = {
   title: "Services — Branding, Social Media, Video & Web Design | Beirut",
@@ -205,6 +206,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Estimator */}
+      <ProjectEstimator />
 
       {/* FAQ section for AEO */}
       <section className="py-20 md:py-24 bg-dark-100 border-t border-dark-200">
