@@ -389,6 +389,122 @@ export const projects: Project[] = [
     accentColor: "#EF4444",
     result: "Cause brand launched, profits to Medonations NGO",
   },
+
+  // ─── WEB DESIGN ──────────────────────────────────────────────────────────────
+  {
+    slug: "dr-chebl-azar",
+    title: "Dr. Chebl Azar",
+    client: "Dr. Chebl Azar",
+    category: "Web Design",
+    year: "2024",
+    location: "Beirut, Lebanon",
+    description:
+      "Full website design and development for Dr. Chebl Azar, aesthetic and reconstructive plastic surgeon in Beirut, at drcheblazar.com.",
+    longDescription:
+      "Dr. Chebl Azar is a leading plastic, aesthetic, and reconstructive surgeon based in Beirut. Social Pulse designed and developed his personal website at drcheblazar.com, building a clean and trust-focused online presence that communicates his expertise, procedures, and patient journey. The site features a full services overview, gallery section, and a mobile-first responsive design that reflects the precision and elegance of his practice.",
+    coverImage:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "Web Development", "Medical", "Plastic Surgery"],
+    featured: false,
+    accentColor: "#0EA5E9",
+    result: "Live at drcheblazar.com",
+  },
+  {
+    slug: "it-signal",
+    title: "IT Signal",
+    client: "IT Signal",
+    category: "Web Design",
+    year: "2024",
+    location: "Lebanon",
+    description:
+      "Website design and development for IT Signal, a Lebanese IT services and technology solutions provider, at itsignal.org.",
+    longDescription:
+      "IT Signal is a Lebanese technology company specializing in IT infrastructure, networking, and digital solutions for businesses. Social Pulse designed and developed their corporate website at itsignal.org with a structured services architecture, case study sections, and a modern tech-forward visual identity. The site was built for clarity and lead generation, presenting complex technical offerings in an accessible and credible layout.",
+    coverImage:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "Web Development", "IT Services", "Corporate"],
+    featured: false,
+    accentColor: "#10B981",
+    result: "Live at itsignal.org",
+  },
+  {
+    slug: "tiffany-saade",
+    title: "Tiffany Saade",
+    client: "Tiffany Saade",
+    category: "Web Design",
+    year: "2024",
+    location: "Lebanon",
+    description:
+      "Personal brand website design and development for Tiffany Saade at tiffanysaade.com.",
+    longDescription:
+      "Tiffany Saade is a Lebanese creative professional with a strong personal brand presence. Social Pulse designed and developed her personal website at tiffanysaade.com, creating a refined and expressive digital home that reflects her identity, work, and voice. The site combines editorial typography, smooth interactions, and a curated portfolio layout to establish her as a standout personal brand in her field.",
+    coverImage:
+      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "Web Development", "Personal Brand", "Portfolio"],
+    featured: false,
+    accentColor: "#F472B6",
+    result: "Live at tiffanysaade.com",
+  },
+  {
+    slug: "the-drop-lane",
+    title: "The Drop Lane",
+    client: "The Drop Lane",
+    category: "Web Design",
+    year: "2024",
+    location: "Lebanon",
+    description:
+      "E-commerce website design and development for The Drop Lane, a streetwear and lifestyle brand, at thedroplane.com.",
+    longDescription:
+      "The Drop Lane is a Lebanese streetwear and lifestyle brand built around exclusive drops and bold visual culture. Social Pulse designed and developed their e-commerce website at thedroplane.com, creating a high-energy shopping experience with product catalog pages, drop countdown mechanics, and a dark editorial aesthetic that speaks directly to their youth-driven audience.",
+    coverImage:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "E-commerce", "Streetwear", "Web Development"],
+    featured: false,
+    accentColor: "#F97316",
+    result: "Live at thedroplane.com",
+  },
+  {
+    slug: "heg-construction",
+    title: "HEG Construction",
+    client: "HEG Construction",
+    category: "Web Design",
+    year: "2024",
+    location: "Lebanon",
+    description:
+      "Corporate website design and development for HEG Construction, a Lebanese construction and contracting firm, at hegconstruction.com.",
+    longDescription:
+      "HEG Construction is a Lebanese construction and contracting company delivering residential, commercial, and infrastructure projects across Lebanon. Social Pulse designed and developed their corporate website at hegconstruction.com, presenting their portfolio of completed projects, services, and company profile in a structured and professional layout that builds credibility with developers, investors, and property owners.",
+    coverImage:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "Web Development", "Construction", "Corporate"],
+    featured: false,
+    accentColor: "#A78BFA",
+    result: "Live at hegconstruction.com",
+  },
+  {
+    slug: "dr-amany-sabbagh",
+    title: "Dr. Amany Sabbagh",
+    client: "Dr. Amany Sabbagh",
+    category: "Web Design",
+    year: "2024",
+    location: "Lebanon",
+    description:
+      "Medical website design and development for Dr. Amany Sabbagh at dramanysabbagh.com.",
+    longDescription:
+      "Dr. Amany Sabbagh is a Lebanese medical specialist with a practice focused on patient care and clinical excellence. Social Pulse designed and developed her professional website at dramanysabbagh.com, building a reassuring and authoritative digital presence. The site presents her specializations, clinic information, and patient resources in a clean, accessible layout designed to convert visitors into appointments.",
+    coverImage:
+      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "Web Development", "Medical", "Healthcare"],
+    featured: false,
+    accentColor: "#06B6D4",
+    result: "Live at dramanysabbagh.com",
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
