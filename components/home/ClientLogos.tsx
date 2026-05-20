@@ -26,6 +26,7 @@ const row2 = [
   "Healing Makers",
   "Gemz",
   "Dr. Chebl Azar",
+  "Nicholas Tawil",
   "Tiffany Saade",
   "The Drop Lane",
   "HEG Construction",

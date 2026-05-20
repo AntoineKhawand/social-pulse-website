@@ -411,23 +411,23 @@ export const projects: Project[] = [
     result: "Live at drcheblazar.com",
   },
   {
-    slug: "it-signal",
-    title: "IT Signal",
-    client: "IT Signal",
+    slug: "nicholas-tawil",
+    title: "Nicholas Tawil",
+    client: "Nicholas Tawil",
     category: "Web Design",
     year: "2024",
     location: "Lebanon",
     description:
-      "Website design and development for IT Signal, a Lebanese IT services and technology solutions provider, at itsignal.org.",
+      "Personal brand website design and development for Nicholas Tawil at nicholastawil.com.",
     longDescription:
-      "IT Signal is a Lebanese technology company specializing in IT infrastructure, networking, and digital solutions for businesses. Social Pulse designed and developed their corporate website at itsignal.org with a structured services architecture, case study sections, and a modern tech-forward visual identity. The site was built for clarity and lead generation, presenting complex technical offerings in an accessible and credible layout.",
+      "Nicholas Tawil is a Lebanese creative professional with a distinct personal brand. Social Pulse designed and developed his personal website at nicholastawil.com, crafting a polished and expressive digital identity that showcases his work, story, and expertise. The site combines refined typography, smooth transitions, and a curated portfolio layout to position Nicholas as a credible and memorable name in his field.",
     coverImage:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=90",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=90",
     images: [],
-    tags: ["Web Design", "Web Development", "IT Services", "Corporate"],
+    tags: ["Web Design", "Web Development", "Personal Brand", "Portfolio"],
     featured: false,
-    accentColor: "#10B981",
-    result: "Live at itsignal.org",
+    accentColor: "#6366F1",
+    result: "Live at nicholastawil.com",
   },
   {
     slug: "tiffany-saade",
@@ -504,6 +504,25 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#06B6D4",
     result: "Live at dramanysabbagh.com",
+  },
+  {
+    slug: "it-signal",
+    title: "IT Signal",
+    client: "IT Signal",
+    category: "Web Design",
+    year: "2024",
+    location: "Lebanon",
+    description:
+      "Website design and development for IT Signal, a Lebanese IT services and technology solutions provider, at itsignal.org.",
+    longDescription:
+      "IT Signal is a Lebanese technology company specializing in IT infrastructure, networking, and digital solutions for businesses. Social Pulse designed and developed their corporate website at itsignal.org with a structured services architecture, case study sections, and a modern tech-forward visual identity. The site was built for clarity and lead generation, presenting complex technical offerings in an accessible and credible layout.",
+    coverImage:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=90",
+    images: [],
+    tags: ["Web Design", "Web Development", "IT Services", "Corporate"],
+    featured: false,
+    accentColor: "#10B981",
+    result: "Live at itsignal.org",
   },
 ];
 
