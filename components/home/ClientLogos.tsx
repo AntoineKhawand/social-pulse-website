@@ -26,11 +26,11 @@ const row2 = [
   "Healing Makers",
   "Gemz",
   "Dr. Chebl Azar",
-  "IT Signal",
   "Tiffany Saade",
   "The Drop Lane",
   "HEG Construction",
   "Dr. Amany Sabbagh",
+  "IT Signal",
 ];
 
 interface TickerRowProps {
