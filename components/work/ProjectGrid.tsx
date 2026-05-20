@@ -106,7 +106,7 @@ export default function ProjectGrid() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <AnimatePresence mode="popLayout">
+              <AnimatePresence>
                 {filtered.map((p, i) => (
                   <ProjectCard key={p.slug} project={p} index={i} view="grid" />
                 ))}
@@ -121,7 +121,7 @@ export default function ProjectGrid() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <AnimatePresence mode="popLayout">
+              <AnimatePresence>
                 {filtered.map((p, i) => (
                   <ProjectCard key={p.slug} project={p} index={i} view="list" />
                 ))}
