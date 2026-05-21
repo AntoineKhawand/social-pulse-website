@@ -36,7 +36,7 @@ export const projects: Project[] = [
     longDescription:
       "Dare Advisors is a global boutique financial advisory firm dedicated to helping individuals and businesses achieve their financial goals. Social Pulse built the complete brand from the ground up including logo, identity system, and brand guidelines. We then created their ongoing Instagram content covering educational posts, investment insights, and office announcements, and designed their website at dareadvisors.com with a sleek and captivating look that matched their bold positioning: Sometimes you need to Dare take the risk.",
     coverImage:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=90",
+      "/covers/dare-advisors.svg",
     images: [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=90",
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     longDescription:
       "Kataleya is a Beirut-based upscale fashion destination offering over 40 Italian and French luxury brands since 2011, with a second location opened in 2015. Social Pulse developed a comprehensive brand portfolio covering market positioning, competitive analysis, a full visual identity refresh, and a digital marketing strategy targeting Dubai expansion. We produced the brand presentation deck, social media strategy, store layout direction, and ongoing content for their sophisticated Lebanese clientele.",
     coverImage:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=90",
+      "/covers/Kataleya.svg",
     images: [
       "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&q=90",
       "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=90",
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     longDescription:
       "Medonations is a Lebanese and French NGO with a mission to provide medical aid and relief to those in need, bringing hope to communities across Lebanon and the globe. Social Pulse managed their full Instagram presence by creating educational medical content for World Health Day, disease explainers, and free clinic announcements, running the Solar Panel Backpack awareness campaign, and producing bilingual Arabic and English posts that connected donors and patients alike. Their account reflects both the urgency and the heart of the organization.",
     coverImage:
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=90",
+      "/covers/Medonations.svg",
     images: [
       "https://images.unsplash.com/photo-1631217868264-e6cfd3b8aff0?w=1200&q=90",
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=90",
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     longDescription:
       "Gulf Central Company is a Riyadh-based food export business supplying products throughout the Kingdom of Saudi Arabia and globally with innovative food solutions. Social Pulse designed their complete brand identity including the logo and branding collateral, and produced The Food Book Catalog, a premium product catalog presentation that showcases their imported food solutions with cinematic photography and editorial layout.",
     coverImage:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=90",
+      "/covers/Gulf Central Company.svg",
     images: [
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=90",
     ],
@@ -125,7 +125,7 @@ export const projects: Project[] = [
     longDescription:
       "Platters, Taste The Passion in Every Bite, is a luxury platter and grazing experience brand based in Riyadh. Social Pulse created the brand from scratch with a refined script logo, business cards, e-voucher design, gift voucher templates, delivery box product design, and a mobile app UI/UX mockup listed on both Google Play and App Store. Every touchpoint was designed to communicate craftsmanship, elegance, and passion for food.",
     coverImage:
-      "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&q=90",
+      "/covers/Platters.svg",
     images: [
       "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=1200&q=90",
     ],
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     longDescription:
       "Gemz is a luxury online fine jewelry store based in Dubai, offering an extensive collection of traditional and contemporary diamond and gemstone pieces. Social Pulse managed their Instagram presence with editorial photography direction, mood-led content grids, and quote-driven posts, positioning Gemz as a destination for luxury jewelry discovery with the visual language of a high-end fashion house.",
     coverImage:
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=90",
+      "/covers/GemZ.svg",
     images: [
       "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1200&q=90",
     ],
@@ -167,7 +167,7 @@ export const projects: Project[] = [
     longDescription:
       "eMagine is at the forefront of transformative e-mobility solutions in the UAE, contributing to the nation's vision of a sustainable green economy. Social Pulse produced and managed their Instagram reels including educational EV content, presenter-led explainers on topics like how fast you can charge an EV and overcoming range anxiety, and their new website launch announcement, positioning eMagine as the leading voice for EV education in the Arabic market.",
     coverImage:
-      "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&q=90",
+      "/covers/Emagine - UAE.svg",
     images: [],
     tags: ["Video Reels", "Social Media", "Motion Graphics", "EV Tech"],
     featured: false,
@@ -186,7 +186,7 @@ export const projects: Project[] = [
     longDescription:
       "Metle Metlik at metlemetlik.com is a safe space for women to learn about reproductive health, sexual wellness, and life cycle challenges, founded by Dr. Sandrine Atallah and Dr. Gael Bou Ghannam. Social Pulse designed the website covering Programs, Experts, and Blog sections, produced bilingual video reels on topics like infertility, Vaginismus, and breast cancer, and managed social content by combining medical authority with empathetic and accessible visual storytelling.",
     coverImage:
-      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200&q=90",
+      "/covers/Metlé Metlik.svg",
     images: [
       "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1200&q=90",
     ],
@@ -207,7 +207,7 @@ export const projects: Project[] = [
     longDescription:
       "The Breast Clinic led by Dr. Chebl Azar in Beirut required a brand that walked the line between clinical trust and feminine warmth. Social Pulse designed the distinctive heart-shaped logo now available as a mobile app icon on iOS and Android, developed the full brand identity in pink and black, and produced outdoor billboard advertising with the brand's positioning: Live Life, Go Healthy and Happy.",
     coverImage:
-      "https://images.unsplash.com/photo-1631217868264-e6cfd3b8aff0?w=1200&q=90",
+      "/covers/The breast Clinic.svg",
     images: [
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=90",
     ],
