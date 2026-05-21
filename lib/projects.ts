@@ -228,7 +228,7 @@ export const projects: Project[] = [
     longDescription:
       "D does Business, created by Danielle Hatem in 2017, is Lebanon's go-to source for making complex financial topics accessible, from stock market analysis to GCC economic updates. Featured in L'Orient Today under Finance Made Simple, the account grew significantly during Lebanon's 2019 economic crisis. Social Pulse created the brand identity and content system including data-driven investment posts, economic explainer reels, and the visual language that made the account instantly recognizable.",
     coverImage:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=90",
+      "/covers/Ddoes Buisness.svg",
     images: [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
     ],
