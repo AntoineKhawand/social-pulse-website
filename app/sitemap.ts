@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
+import { blogPosts } from "@/lib/posts";
 
 const BASE_URL = "https://www.socialpulselb.com";
 
@@ -9,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
+  }));
+
+  const blogUrls: MetadataRoute.Sitemap = blogPosts.map((p) => ({
+    url: `${BASE_URL}/blog/${p.slug}`,
+    lastModified: new Date(p.date),
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [
@@ -42,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...blogUrls,
     ...projectUrls,
   ];
 }

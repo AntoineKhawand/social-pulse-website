@@ -4,11 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
-// ─── Swap this ID to change the background video ──────────────────────────────
-// Video only plays on desktop. Mobile shows gradient background (iOS blocks iframe autoplay).
-const YOUTUBE_VIDEO_ID = "1xYXW0RU7Do";
-// ─────────────────────────────────────────────────────────────────────────────
-
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -20,10 +15,14 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-dark"
     >
-      {/* ── YouTube video — desktop only (iOS blocks iframe autoplay) ─────── */}
-      <div className="hidden md:block absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <iframe
-          className="absolute"
+      {/* ── Background video ──────────────────────────────────────────────── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute object-cover"
           style={{
             top: "50%",
             left: "50%",
@@ -32,30 +31,10 @@ export default function Hero() {
             minHeight: "100vh",
             minWidth: "177.78vh",
             transform: "translate(-50%, -50%)",
-            border: "none",
           }}
-          src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&playlist=${YOUTUBE_VIDEO_ID}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=3`}
-          allow="autoplay; encrypted-media; picture-in-picture"
-          title="Agency showreel background"
-        />
-      </div>
-
-      {/* ── Mobile gradient background (shown when iframe is hidden) ─────── */}
-      <div className="md:hidden absolute inset-0 z-0 pointer-events-none">
-        <div
-          className="absolute top-[10%] left-[-10%] w-[70vw] h-[70vw] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(124,58,237,0.28) 0%, transparent 70%)",
-            filter: "blur(50px)",
-          }}
-        />
-        <div
-          className="absolute bottom-[10%] right-[-10%] w-[60vw] h-[60vw] rounded-full"
-          style={{
-            background: "radial-gradient(circle, rgba(196,181,253,0.18) 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
+        >
+          <source src="/Social Pulse.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* ── Shared overlay ────────────────────────────────────────────────── */}

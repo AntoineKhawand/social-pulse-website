@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SplitText from "@/components/ui/SplitText";
 import ContactForm from "@/components/contact/ContactForm";
+import BookCall from "@/components/ui/BookCall";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
@@ -67,6 +68,9 @@ export default function ContactPage() {
                 Tell us about your project and we&apos;ll get back to you within 24 hours with a
                 tailored approach for your brand.
               </p>
+
+              <BookCall variant="outline" size="md" label="Book a free consultation →" className="mb-10 md:mb-12 w-full sm:w-auto" />
+
               <div className="flex flex-col gap-5 md:gap-8">
                 {details.map((d) => (
                   <div key={d.label} className="border-b border-dark-200 pb-4 md:pb-6">

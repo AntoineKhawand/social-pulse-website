@@ -11,6 +11,7 @@ const footerLinks = {
   Agency: [
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
+    { label: "Insights", href: "/blog" },
     { label: "Our Process", href: "/about#process" },
   ],
   Connect: [

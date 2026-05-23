@@ -5,6 +5,26 @@ export type ProjectCategory =
   | "Web Design"
   | "Photography";
 
+export interface PageScreenshot {
+  label: string;
+  desktop: string;
+  mobile?: string;
+}
+
+export interface BeforeAfterPair {
+  label: string;
+  before: string;
+  after: string;
+}
+
+export interface SocialPost {
+  src: string;
+  type?: "post" | "reel" | "carousel";
+  videoSrc?: string;
+  instagramUrl?: string;
+  slides?: string[];
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -20,6 +40,13 @@ export interface Project {
   featured: boolean;
   accentColor: string;
   result?: string;
+  websiteUrl?: string;
+  screenshots?: PageScreenshot[];
+  techStack?: string[];
+  features?: string[];
+  instagramHandle?: string;
+  socialPosts?: SocialPost[];
+  beforeAfter?: BeforeAfterPair[];
 }
 
 export const projects: Project[] = [
@@ -45,6 +72,27 @@ export const projects: Project[] = [
     featured: true,
     accentColor: "#1B6B47",
     result: "Full digital presence built from zero",
+    websiteUrl: "https://www.dareadvisors.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/dare-advisors/home-desktop.jpg", mobile: "/projects/dare-advisors/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Financial advisory presence", "Brand identity showcase", "Mobile-first responsive", "SEO optimized"],
+    instagramHandle: "dareadvisors_official",
+    socialPosts: [
+      { src: "/projects/dare-advisors/social/post-1.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DMxwcUzsrnY/" },
+      { src: "/projects/dare-advisors/social/post-2.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DMfpU1PMxtG/" },
+      { src: "/projects/dare-advisors/social/post-3.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DMF7PKcMHTW/" },
+      { src: "/projects/dare-advisors/social/post-4.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DL5CjshMBxb/" },
+      { src: "/projects/dare-advisors/social/post-5.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DLz4Mp4MkrC/" },
+      { src: "/projects/dare-advisors/social/post-6.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/Ctvioe7spMV/", slides: ["/projects/dare-advisors/social/post-6-slide-2.jpg", "/projects/dare-advisors/social/post-6-slide-3.jpg", "/projects/dare-advisors/social/post-6-slide-4.jpg", "/projects/dare-advisors/social/post-6-slide-5.jpg", "/projects/dare-advisors/social/post-6-slide-6.jpg", "/projects/dare-advisors/social/post-6-slide-7.jpg", "/projects/dare-advisors/social/post-6-slide-8.jpg"] },
+      { src: "/projects/dare-advisors/social/post-7.jpg",  type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtiwYP1LC1y/" },
+      { src: "/projects/dare-advisors/social/post-8.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtdoVjiLvEy/", slides: ["/projects/dare-advisors/social/post-8-slide-2.jpg", "/projects/dare-advisors/social/post-8-slide-3.jpg", "/projects/dare-advisors/social/post-8-slide-4.jpg", "/projects/dare-advisors/social/post-8-slide-5.jpg", "/projects/dare-advisors/social/post-8-slide-6.jpg", "/projects/dare-advisors/social/post-8-slide-7.jpg"] },
+      { src: "/projects/dare-advisors/social/post-9.jpg",  type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtGfM1XLnPs/" },
+      { src: "/projects/dare-advisors/social/post-10.jpg", type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/CtGb6o9uFVH/" },
+      { src: "/projects/dare-advisors/social/post-11.jpg", type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtGV2AZt0Tz/" },
+      { src: "/projects/dare-advisors/social/post-12.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtBDswStgKo/", slides: ["/projects/dare-advisors/social/post-12-slide-2.jpg", "/projects/dare-advisors/social/post-12-slide-3.jpg"] },
+    ],
   },
   {
     slug: "kataleya",
@@ -194,6 +242,13 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#C084FC",
     result: "Women's health platform launched",
+    websiteUrl: "https://metlemetlik.com",
+    screenshots: [
+      { label: "Home",    desktop: "/projects/metle-metlik/home-desktop.jpg",    mobile: "/projects/metle-metlik/home-mobile.jpg" },
+      { label: "Experts", desktop: "/projects/metle-metlik/experts-desktop.jpg", mobile: "/projects/metle-metlik/experts-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Bilingual Arabic & English", "Programs & experts directory", "Video reels integration", "Mobile-first responsive"],
   },
   {
     slug: "the-breast-clinic",
@@ -203,18 +258,36 @@ export const projects: Project[] = [
     year: "2024",
     location: "Beirut, Lebanon",
     description:
-      "Logo design, mobile app mockup, and billboard advertising for The Breast Clinic, Where Health and Beauty Unite, led by Dr. Chebl Azar.",
+      "Full brand identity, mobile app, billboard advertising, and website design for The Breast Clinic, Where Health and Beauty Unite, led by Dr. Chebl Azar.",
     longDescription:
-      "The Breast Clinic led by Dr. Chebl Azar in Beirut required a brand that walked the line between clinical trust and feminine warmth. Social Pulse designed the distinctive heart-shaped logo now available as a mobile app icon on iOS and Android, developed the full brand identity in pink and black, and produced outdoor billboard advertising with the brand's positioning: Live Life, Go Healthy and Happy.",
+      "The Breast Clinic led by Dr. Chebl Azar in Beirut required a brand that walked the line between clinical trust and feminine warmth. Social Pulse designed the distinctive heart-shaped logo now available as a mobile app icon on iOS and Android, developed the full brand identity in pink and black, and produced outdoor billboard advertising with the brand's positioning: Live Life, Go Healthy and Happy. We also designed and developed the clinic's website at drcheblazar.com, creating a clean, trust-building online presence that presents his specialties, patient journey, and booking flow.",
     coverImage:
       "/covers/The breast Clinic.svg",
     images: [
       "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=90",
     ],
-    tags: ["Logo Design", "App Design", "Outdoor Advertising", "Healthcare"],
+    tags: ["Logo Design", "App Design", "Outdoor Advertising", "Web Design", "Healthcare"],
     featured: false,
     accentColor: "#EC4899",
-    result: "Full brand and app icon launched",
+    result: "Full brand, app, and website launched",
+    beforeAfter: [
+      {
+        label: "Brand Identity",
+        before: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&q=90",
+        after: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=90",
+      },
+      {
+        label: "Website Design",
+        before: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
+        after: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=90",
+      },
+    ],
+    websiteUrl: "https://drcheblazar.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/the-breast-clinic/home-desktop.jpg", mobile: "/projects/the-breast-clinic/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Clinic services overview", "Patient journey flow", "Mobile-first responsive", "SEO optimized"],
   },
   {
     slug: "ddoesbusiness",
@@ -238,25 +311,6 @@ export const projects: Project[] = [
     result: "Nearly 50,000 followers, featured in L'Orient Today",
   },
   {
-    slug: "prairie-trading",
-    title: "Prairie Trading Service",
-    client: "Prairie Trading Service Inc.",
-    category: "Branding",
-    year: "2022",
-    location: "Riyadh, Saudi Arabia",
-    description:
-      "Logo development with three options, packaging design, and brand identity for a US food export and labeling company operating in Saudi Arabia.",
-    longDescription:
-      "Prairie Trading Service Inc., US Foods Worldwide, is a niche food export and labeling specialist serving the food and beverage industry with premium imported ingredients. Social Pulse delivered three logo concept directions ranging from bold typographic to illustrated, and designed the full brand packaging system including eye-catching product packaging featuring the brand's Illinois state identity and American flag imagery.",
-    coverImage:
-      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=90",
-    images: [],
-    tags: ["Logo Design", "Packaging Design", "Brand Identity", "Food and Beverage"],
-    featured: false,
-    accentColor: "#C0392B",
-    result: "Three logo concepts and full packaging system delivered",
-  },
-  {
     slug: "stretch-in",
     title: "Stretch'In",
     client: "Stretch'In",
@@ -268,7 +322,7 @@ export const projects: Project[] = [
     longDescription:
       "Stretch'In is a Beirut-based studio specializing in assisted stretching techniques tailored to each client's specific needs and goals, located at Utb One Center in Hazmieh. Social Pulse designed their fluid script logo, created the e-voucher and gift voucher system, produced the Valentine's Couple Package campaign, and managed ongoing Instagram content covering wellness benefits, skincare education with jade rollers, and studio lifestyle content at Stretchin.lb.",
     coverImage:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1200&q=90",
+      "/covers/Stretch In.svg",
     images: [],
     tags: ["Logo Design", "Social Media", "Wellness", "Instagram"],
     featured: false,
@@ -287,7 +341,7 @@ export const projects: Project[] = [
     longDescription:
       "The Ministry of Education and Higher Education in Lebanon oversees the country's educational system from primary to higher education levels. Social Pulse managed their Instagram account at Mehe_lebanon, producing bilingual Arabic and English content including the 16 Days Against Violence campaign, Back to School posts, Eid and seasonal greetings, and official ministry announcements. We also designed a hardcover ministry publication with a clean geometric layout reflecting the institution's credibility and reach.",
     coverImage:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&q=90",
+      "/covers/MEHE Lebanon.svg",
     images: [],
     tags: ["Social Media", "Government", "Bilingual Content", "Publication Design"],
     featured: false,
@@ -306,31 +360,12 @@ export const projects: Project[] = [
     longDescription:
       "Michelle Tueini is a prominent Lebanese journalist and TV host known for her show Beit El Sha'er broadcast on both Al Jadeed TV and An-Nahar. Social Pulse produced her Instagram reels covering political analysis, interview teasers with public figures including George Khabbaz, current affairs explainers like the UN 1947 Proposal, and cultural commentary pieces, creating content that extended her television influence into the digital space.",
     coverImage:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=90",
+      "/covers/Michelle Tueini.svg",
     images: [],
     tags: ["Video Reels", "Media", "Journalism", "Instagram"],
     featured: false,
     accentColor: "#64748B",
     result: "TV presence extended to digital reels",
-  },
-  {
-    slug: "cirrus-shield",
-    title: "Cirrus Shield",
-    client: "Cirrus Shield",
-    category: "Social Media",
-    year: "2023",
-    location: "Paris, France",
-    description:
-      "Social media management in French for a Paris-based cloud CRM and low-code platform company serving training organizations across Europe.",
-    longDescription:
-      "Cirrus Shield is a leading provider of cloud-based CRM and low-code platform solutions based in Paris, helping businesses streamline operations and maximize their potential. Social Pulse created and managed their French-language Instagram content including educational posts on Qualiopi certification compliance, animated explainers on complaint management for training organizations, and campaign content like the four effective methods to save admin time series for their account at Cirrus.shield.",
-    coverImage:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
-    images: [],
-    tags: ["Social Media", "French Content", "SaaS", "B2B"],
-    featured: false,
-    accentColor: "#3B82F6",
-    result: "French B2B social media presence built",
   },
   {
     slug: "singureni-manor",
@@ -344,7 +379,7 @@ export const projects: Project[] = [
     longDescription:
       "Singureni Manor is a luxury hotel complex offering a unique and heartfelt experience in nature, emphasizing authentic connections with horses and animals. Social Pulse designed the prestigious gold and red crest logo with equestrian motifs, and managed their Instagram at singureni.manor, producing content that captured the outdoor dining experience in the forest, seasonal landscapes, curated dessert plating, and the serene interiors of the manor.",
     coverImage:
-      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=90",
+      "/covers/Singureni Manor.svg",
     images: [],
     tags: ["Logo Design", "Social Media", "Luxury Hospitality", "Eco Tourism"],
     featured: false,
@@ -363,7 +398,7 @@ export const projects: Project[] = [
     longDescription:
       "The Lavender Project is an eco-friendly lodge built in 2022 in Kfarmishki, West Beqaa, a 55 square meter space for up to 5 guests, built entirely from eco-friendly materials with a full view of Mount Hermon and its own lavender field. Social Pulse created the nature-inspired logo and managed their Instagram at lavenderprojectlb, capturing the village roads, seasonal landscapes, local Mouneh produce, and the serene experience of the Kfarmishki village.",
     coverImage:
-      "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=1200&q=90",
+      "/covers/Lavender Project.svg",
     images: [],
     tags: ["Logo Design", "Social Media", "Tourism", "Lebanon"],
     featured: false,
@@ -382,34 +417,69 @@ export const projects: Project[] = [
     longDescription:
       "Healing Makers is a brand of self-designed apparel whose entire profit goes toward providing free medical support for families in Lebanon through the Medonations NGO. Social Pulse designed the elegant script logo, created the brand system, and produced large-format billboard advertising with the campaign tagline Unite in Style, Create Change, encouraging Lebanese cloth production and factory employment while building a movement for positive community impact.",
     coverImage:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&q=90",
+      "/covers/Healing Makers.svg",
     images: [],
     tags: ["Logo Design", "Billboard Advertising", "Social Cause", "Apparel"],
     featured: false,
     accentColor: "#EF4444",
     result: "Cause brand launched, profits to Medonations NGO",
   },
-
-  // ─── WEB DESIGN ──────────────────────────────────────────────────────────────
   {
-    slug: "dr-chebl-azar",
-    title: "Dr. Chebl Azar",
-    client: "Dr. Chebl Azar",
-    category: "Web Design",
+    slug: "bordon-lebanon",
+    title: "Bordon Lebanon",
+    client: "Bordon Lebanon",
+    category: "Social Media",
+    year: "2025",
+    location: "Lebanon",
+    description:
+      "Social media management and content creation for Bordon Lebanon.",
+    longDescription:
+      "Bordon Lebanon is a Lebanese brand with a growing digital community. Social Pulse managed their social media presence, creating engaging content that reflects the brand's identity and connects with their target audience across Instagram and other platforms.",
+    coverImage:
+      "/covers/Bordon Lebanon.svg",
+    images: [],
+    tags: ["Social Media", "Content Creation", "Instagram", "Lebanon"],
+    featured: false,
+    accentColor: "#F59E0B",
+  },
+  {
+    slug: "saladitos-lebanon",
+    title: "Saladitos Lebanon",
+    client: "Saladitos Lebanon",
+    category: "Social Media",
+    year: "2025",
+    location: "Lebanon",
+    description:
+      "Social media management and content creation for Saladitos Lebanon.",
+    longDescription:
+      "Saladitos Lebanon is a Lebanese food brand offering fresh and vibrant options to a health-conscious audience. Social Pulse managed their social media presence with appetizing visual content, product highlights, and community-driven posts that grew their following and drove customer engagement.",
+    coverImage:
+      "/covers/Saladitos Lebanon.svg",
+    images: [],
+    tags: ["Social Media", "Content Creation", "Food", "Instagram"],
+    featured: false,
+    accentColor: "#22C55E",
+  },
+  {
+    slug: "esa-business-school",
+    title: "ESA Business School",
+    client: "ESA Business School",
+    category: "Social Media",
     year: "2024",
     location: "Beirut, Lebanon",
     description:
-      "Full website design and development for Dr. Chebl Azar, aesthetic and reconstructive plastic surgeon in Beirut, at drcheblazar.com.",
+      "Social media management and content creation for ESA Business School, one of Lebanon's leading business schools.",
     longDescription:
-      "Dr. Chebl Azar is a leading plastic, aesthetic, and reconstructive surgeon based in Beirut. Social Pulse designed and developed his personal website at drcheblazar.com, building a clean and trust-focused online presence that communicates his expertise, procedures, and patient journey. The site features a full services overview, gallery section, and a mobile-first responsive design that reflects the precision and elegance of his practice.",
+      "ESA Business School is one of Lebanon's most prestigious business schools, training the next generation of business leaders. Social Pulse managed their social media presence with content covering academic programs, student life, faculty highlights, and institutional announcements, positioning ESA as the leading business education destination in Lebanon.",
     coverImage:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&q=90",
+      "/covers/ESA Business School.svg",
     images: [],
-    tags: ["Web Design", "Web Development", "Medical", "Plastic Surgery"],
+    tags: ["Social Media", "Education", "Content Creation", "Instagram"],
     featured: false,
-    accentColor: "#0EA5E9",
-    result: "Live at drcheblazar.com",
+    accentColor: "#3B82F6",
   },
+
+  // ─── WEB DESIGN ──────────────────────────────────────────────────────────────
   {
     slug: "nicholas-tawil",
     title: "Nicholas Tawil",
@@ -422,12 +492,34 @@ export const projects: Project[] = [
     longDescription:
       "Nicholas Tawil is a Lebanese creative professional with a distinct personal brand. Social Pulse designed and developed his personal website at nicholastawil.com, crafting a polished and expressive digital identity that showcases his work, story, and expertise. The site combines refined typography, smooth transitions, and a curated portfolio layout to position Nicholas as a credible and memorable name in his field.",
     coverImage:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=90",
+      "/covers/Nicholas Tawil.svg",
     images: [],
     tags: ["Web Design", "Web Development", "Personal Brand", "Portfolio"],
     featured: false,
     accentColor: "#6366F1",
     result: "Live at nicholastawil.com",
+    websiteUrl: "https://nicholastawil.com",
+    screenshots: [
+      { label: "Home",  desktop: "/projects/nicholas-tawil/home-desktop.jpg",  mobile: "/projects/nicholas-tawil/home-mobile.jpg" },
+      { label: "About", desktop: "/projects/nicholas-tawil/about-desktop.jpg", mobile: "/projects/nicholas-tawil/about-mobile.jpg" },
+    ],
+    techStack: ["Next.js", "Tailwind CSS", "Framer Motion", "Figma"],
+    features: ["Personal brand showcase", "Smooth page animations", "Portfolio & case studies", "Mobile-first responsive", "SEO optimized"],
+    instagramHandle: "nicholastawil",
+    socialPosts: [
+      { src: "/projects/nicholas-tawil/social/post-1.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-2.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-3.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-4.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-5.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-6.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-7.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-8.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-9.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-10.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-11.jpg" },
+      { src: "/projects/nicholas-tawil/social/post-12.jpg" },
+    ],
   },
   {
     slug: "tiffany-saade",
@@ -441,12 +533,18 @@ export const projects: Project[] = [
     longDescription:
       "Tiffany Saade is a Lebanese creative professional with a strong personal brand presence. Social Pulse designed and developed her personal website at tiffanysaade.com, creating a refined and expressive digital home that reflects her identity, work, and voice. The site combines editorial typography, smooth interactions, and a curated portfolio layout to establish her as a standout personal brand in her field.",
     coverImage:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=90",
+      "/covers/Tiffany Saade.svg",
     images: [],
     tags: ["Web Design", "Web Development", "Personal Brand", "Portfolio"],
     featured: false,
     accentColor: "#F472B6",
     result: "Live at tiffanysaade.com",
+    websiteUrl: "https://tiffanysaade.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/tiffany-saade/home-desktop.jpg", mobile: "/projects/tiffany-saade/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Personal brand presence", "Portfolio showcase", "Mobile-first responsive", "SEO optimized"],
   },
   {
     slug: "the-drop-lane",
@@ -460,12 +558,19 @@ export const projects: Project[] = [
     longDescription:
       "The Drop Lane is a Lebanese streetwear and lifestyle brand built around exclusive drops and bold visual culture. Social Pulse designed and developed their e-commerce website at thedroplane.com, creating a high-energy shopping experience with product catalog pages, drop countdown mechanics, and a dark editorial aesthetic that speaks directly to their youth-driven audience.",
     coverImage:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1200&q=90",
+      "/covers/The Drop Lane.svg",
     images: [],
     tags: ["Web Design", "E-commerce", "Streetwear", "Web Development"],
     featured: false,
     accentColor: "#F97316",
     result: "Live at thedroplane.com",
+    websiteUrl: "https://thedroplane.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/the-drop-lane/home-desktop.jpg", mobile: "/projects/the-drop-lane/home-mobile.jpg" },
+      { label: "Shop", desktop: "/projects/the-drop-lane/shop-desktop.jpg", mobile: "/projects/the-drop-lane/shop-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "WooCommerce", "Figma"],
+    features: ["E-commerce product catalog", "Exclusive drop pages", "Checkout & payments", "Dark editorial design", "Mobile-first responsive"],
   },
   {
     slug: "heg-construction",
@@ -479,12 +584,18 @@ export const projects: Project[] = [
     longDescription:
       "HEG Construction is a Lebanese construction and contracting company delivering residential, commercial, and infrastructure projects across Lebanon. Social Pulse designed and developed their corporate website at hegconstruction.com, presenting their portfolio of completed projects, services, and company profile in a structured and professional layout that builds credibility with developers, investors, and property owners.",
     coverImage:
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=90",
+      "/covers/HEG Construction.svg",
     images: [],
     tags: ["Web Design", "Web Development", "Construction", "Corporate"],
     featured: false,
     accentColor: "#A78BFA",
     result: "Live at hegconstruction.com",
+    websiteUrl: "https://hegconstruction.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/heg-construction/home-desktop.jpg", mobile: "/projects/heg-construction/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Project portfolio gallery", "Services overview", "Company credibility layout", "Mobile-first responsive", "SEO optimized"],
   },
   {
     slug: "dr-amany-sabbagh",
@@ -498,12 +609,18 @@ export const projects: Project[] = [
     longDescription:
       "Dr. Amany Sabbagh is a Lebanese medical specialist with a practice focused on patient care and clinical excellence. Social Pulse designed and developed her professional website at dramanysabbagh.com, building a reassuring and authoritative digital presence. The site presents her specializations, clinic information, and patient resources in a clean, accessible layout designed to convert visitors into appointments.",
     coverImage:
-      "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=1200&q=90",
+      "/covers/Amany Sabbagh.svg",
     images: [],
     tags: ["Web Design", "Web Development", "Medical", "Healthcare"],
     featured: false,
     accentColor: "#06B6D4",
     result: "Live at dramanysabbagh.com",
+    websiteUrl: "https://dramanysabbagh.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/dr-amany-sabbagh/home-desktop.jpg", mobile: "/projects/dr-amany-sabbagh/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Medical professional profile", "Specializations overview", "Appointment booking flow", "Mobile-first responsive", "SEO structured data"],
   },
   {
     slug: "it-signal",
@@ -517,12 +634,66 @@ export const projects: Project[] = [
     longDescription:
       "IT Signal is a Lebanese technology company specializing in IT infrastructure, networking, and digital solutions for businesses. Social Pulse designed and developed their corporate website at itsignal.org with a structured services architecture, case study sections, and a modern tech-forward visual identity. The site was built for clarity and lead generation, presenting complex technical offerings in an accessible and credible layout.",
     coverImage:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=90",
+      "/covers/IT Signal.svg",
     images: [],
     tags: ["Web Design", "Web Development", "IT Services", "Corporate"],
     featured: false,
     accentColor: "#10B981",
     result: "Live at itsignal.org",
+    websiteUrl: "https://itsignal.org",
+    screenshots: [
+      { label: "Home", desktop: "/projects/it-signal/home-desktop.jpg", mobile: "/projects/it-signal/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["IT services architecture", "Case studies section", "Lead generation layout", "Mobile-first responsive", "SEO optimized"],
+  },
+  {
+    slug: "forearms-security",
+    title: "Forearms Security",
+    client: "Forearms Security",
+    category: "Web Design",
+    year: "2026",
+    location: "Lebanon",
+    description:
+      "Website design and development for Forearms Security, a professional security services company.",
+    longDescription:
+      "Forearms Security is a professional security services provider delivering protection solutions for businesses and individuals. Social Pulse designed and developed their corporate website, creating a strong, authoritative digital presence that communicates their expertise, service offerings, and commitment to safety through a clean and credible layout.",
+    coverImage:
+      "/covers/Forarms Security.svg",
+    images: [],
+    tags: ["Web Design", "Web Development", "Security", "Corporate"],
+    featured: false,
+    accentColor: "#1E293B",
+    websiteUrl: "https://forearmssecurity.com",
+    screenshots: [
+      { label: "Home", desktop: "/projects/forearms-security/home-desktop.jpg", mobile: "/projects/forearms-security/home-mobile.jpg" },
+    ],
+    techStack: ["WordPress", "Figma"],
+    features: ["Security services overview", "Company credibility layout", "Contact & inquiry flow", "Mobile-first responsive", "SEO optimized"],
+  },
+  {
+    slug: "imtihan",
+    title: "Imtihan",
+    client: "Imtihan",
+    category: "Web Design",
+    year: "2026",
+    location: "Lebanon",
+    description:
+      "Website design and development for Imtihan, a Lebanese digital platform.",
+    longDescription:
+      "Imtihan is a Lebanese digital platform built to serve its audience with a clean, modern, and fast web experience. Social Pulse designed and developed their website at imtihan.live using Next.js, delivering a performance-first build with smooth interactions, mobile responsiveness, and a scalable architecture.",
+    coverImage:
+      "/covers/Imtihan.svg",
+    images: [],
+    tags: ["Web Design", "Web Development", "Next.js"],
+    featured: false,
+    accentColor: "#7C3AED",
+    websiteUrl: "https://imtihan.live",
+    screenshots: [
+      { label: "Home", desktop: "/projects/imtihan/home-desktop.jpg", mobile: "/projects/imtihan/home-mobile.jpg" },
+    ],
+    techStack: ["Next.js", "Tailwind CSS", "Figma"],
+    features: ["Performance-first build", "Smooth interactions", "Mobile-first responsive", "SEO optimized", "Scalable architecture"],
   },
 ];
 

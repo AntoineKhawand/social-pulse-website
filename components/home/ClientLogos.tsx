@@ -16,22 +16,26 @@ const row1 = [
 ];
 
 const row2 = [
-  "Prairie Trading Service",
+
   "Stretch'In",
   "MEHE Lebanon",
   "Michelle Tueini",
-  "Cirrus Shield",
+
   "Singureni Manor",
   "Lavender Project",
   "Healing Makers",
   "Gemz",
-  "Dr. Chebl Azar",
   "Nicholas Tawil",
+  "Bordon Lebanon",
+  "Saladitos Lebanon",
+  "ESA Business School",
   "Tiffany Saade",
   "The Drop Lane",
   "HEG Construction",
   "Dr. Amany Sabbagh",
   "IT Signal",
+  "Forearms Security",
+  "Imtihan",
 ];
 
 interface TickerRowProps {

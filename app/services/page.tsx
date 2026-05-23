@@ -3,6 +3,7 @@ import SplitText from "@/components/ui/SplitText";
 import Services from "@/components/home/Services";
 import ContactCTA from "@/components/home/ContactCTA";
 import RevealBlock from "@/components/ui/RevealBlock";
+import BookCall from "@/components/ui/BookCall";
 import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import ProjectEstimator from "@/components/services/ProjectEstimator";
 
@@ -204,6 +205,23 @@ export default function ServicesPage() {
               </RevealBlock>
             ))}
           </div>
+
+          {/* CTA */}
+          <RevealBlock className="mt-10 md:mt-12">
+            <div className="text-center p-8 md:p-12 rounded-2xl md:rounded-3xl border border-dark-300 bg-dark-100">
+              <p className="text-xs uppercase tracking-widest text-brand-light mb-3">
+                Not sure which package fits?
+              </p>
+              <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+                Let&apos;s talk about your project
+              </h3>
+              <p className="text-neutral-muted text-sm md:text-base max-w-md mx-auto mb-6 leading-relaxed">
+                Every brand is unique. Tell us about your goals and we&apos;ll build a custom
+                package that fits your budget and ambitions.
+              </p>
+              <BookCall variant="primary" size="lg" label="Book a free consultation →" />
+            </div>
+          </RevealBlock>
         </div>
       </section>
 

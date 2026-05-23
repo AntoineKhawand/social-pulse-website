@@ -5,6 +5,9 @@ import Link from "next/link";
 import { projects, getProjectBySlug } from "@/lib/projects";
 import ContactCTA from "@/components/home/ContactCTA";
 import RevealBlock from "@/components/ui/RevealBlock";
+import BrowserMockup from "@/components/work/BrowserMockup";
+import SocialGrid from "@/components/work/SocialGrid";
+import BeforeAfterSlider from "@/components/work/BeforeAfterSlider";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -106,6 +109,63 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Live website mockup — any project with a websiteUrl */}
+      {project.websiteUrl && (
+          <section className="py-20 md:py-28 bg-dark border-t border-dark-200">
+            <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+              <RevealBlock>
+                <div className="flex items-center gap-4 mb-10">
+                  <p className="text-xs uppercase tracking-widest text-brand-light">Live Website</p>
+                  <div className="flex-1 h-px bg-dark-200" />
+                  <a
+                    href={project.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-neutral-muted hover:text-white transition-colors"
+                  >
+                    {project.websiteUrl.replace(/^https?:\/\//, "")} ↗
+                  </a>
+                </div>
+                <BrowserMockup
+                  url={project.websiteUrl}
+                  title={project.title}
+                  screenshots={project.screenshots ?? []}
+                  accentColor={project.accentColor}
+                  techStack={project.techStack}
+                  features={project.features}
+                />
+              </RevealBlock>
+            </div>
+          </section>
+        )}
+
+      {/* Social media grid */}
+      {project.instagramHandle && project.socialPosts && project.socialPosts.length > 0 && (
+        <section className="py-20 md:py-28 bg-dark border-t border-dark-200">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+            <RevealBlock>
+              <div className="flex items-center gap-4 mb-10">
+                <p className="text-xs uppercase tracking-widest text-brand-light">Social Media</p>
+                <div className="flex-1 h-px bg-dark-200" />
+                <a
+                  href={`https://www.instagram.com/${project.instagramHandle}/`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-neutral-muted hover:text-white transition-colors"
+                >
+                  @{project.instagramHandle} ↗
+                </a>
+              </div>
+              <SocialGrid
+                handle={project.instagramHandle}
+                posts={project.socialPosts}
+                accentColor={project.accentColor}
+              />
+            </RevealBlock>
+          </div>
+        </section>
+      )}
+
       {/* Long description */}
       <section className="py-24 bg-dark">
         <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
@@ -123,25 +183,17 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Image gallery */}
-      {project.images.length > 0 && (
-        <section className="pb-24 bg-dark">
+      {/* Before/After comparison */}
+      {project.beforeAfter && project.beforeAfter.length > 0 && (
+        <section className="py-20 md:py-28 bg-dark-100 border-t border-dark-200">
           <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.images.map((src, i) => (
-                <RevealBlock key={i} delay={i * 0.1} className={i === 0 ? "md:col-span-2" : ""}>
-                  <div className={`relative overflow-hidden rounded-2xl ${i === 0 ? "h-[50vh]" : "h-[40vh]"}`}>
-                    <Image
-                      src={src}
-                      alt={`${project.title} ${i + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  </div>
-                </RevealBlock>
-              ))}
-            </div>
+            <RevealBlock>
+              <div className="flex items-center gap-4 mb-10">
+                <p className="text-xs uppercase tracking-widest text-brand-light">Before & After</p>
+                <div className="flex-1 h-px bg-dark-200" />
+              </div>
+              <BeforeAfterSlider items={project.beforeAfter} accentColor={project.accentColor} />
+            </RevealBlock>
           </div>
         </section>
       )}
