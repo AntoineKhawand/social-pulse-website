@@ -182,7 +182,7 @@ function ImageLightbox({ post, index, total, onClose, onPrev, onNext }: {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.92, opacity: 0 }}
         transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-        className="relative max-w-lg w-full aspect-square rounded-2xl overflow-hidden shadow-2xl"
+        className="relative max-w-lg w-full rounded-2xl overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <AnimatePresence mode="wait">
@@ -190,7 +190,8 @@ function ImageLightbox({ post, index, total, onClose, onPrev, onNext }: {
             key={currentSlide}
             src={currentSlide}
             alt={`Post ${index + 1}${isCarousel ? ` slide ${slideIdx + 1}` : ""}`}
-            className="w-full h-full object-cover"
+            className="w-full block"
+            style={{ maxHeight: "82vh", objectFit: "contain" }}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
