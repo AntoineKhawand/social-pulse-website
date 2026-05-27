@@ -373,6 +373,7 @@ export const projects: Project[] = [
       { src: "/projects/the-breast-clinic/social/post-9.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/C8T8lT6M3aA/",  slides: ["/projects/the-breast-clinic/social/post-9-slide-3.jpg", "/projects/the-breast-clinic/social/post-9-slide-4.jpg", "/projects/the-breast-clinic/social/post-9-slide-5.jpg", "/projects/the-breast-clinic/social/post-9-slide-6.jpg", "/projects/the-breast-clinic/social/post-9-slide-7.jpg", "/projects/the-breast-clinic/social/post-9-slide-8.jpg"] },
       { src: "/projects/the-breast-clinic/social/post-12.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/C9SdPprslGI/" },
       { src: "/projects/the-breast-clinic/social/post-13.jpg", type: "reel",     instagramUrl: "https://www.instagram.com/reel/C9z7AonMP-H/" },
+      { src: "/projects/the-breast-clinic/social/post-14.jpg", type: "reel",     instagramUrl: "https://www.instagram.com/reel/C8obqOCu0F-/" },
     ],
     overviewParagraphs: [
       "The Breast Clinic, led by Dr. Chebl Azar in Beirut, needed a brand that walked the line between clinical authority and feminine warmth — Where Health and Beauty Unite.",
