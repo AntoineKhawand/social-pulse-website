@@ -111,19 +111,12 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
       instagramUrl: postUrl,
     };
 
-    // ── Always use the grid cover thumbnail as the cover image ───────────────
+    // ── Temporary cover: use grid thumbnail as fallback, will be overwritten
+    //    by the full-quality post-page image for posts and carousel slide 1.
     if (gridThumb && (gridThumb.includes("cdninstagram") || gridThumb.includes("fbcdn"))) {
       try {
         await downloadUrl(gridThumb, thumbPath);
-        console.log(`  ✓ cover        ${baseName}.jpg  (grid thumbnail)`);
-      } catch {
-        // fallback to screenshot
-        await page.screenshot({ path: thumbPath, type: "jpeg", quality: 85 });
-        console.log(`  ✓ cover        ${baseName}.jpg  (screenshot fallback)`);
-      }
-    } else {
-      await page.screenshot({ path: thumbPath, type: "jpeg", quality: 85 });
-      console.log(`  ✓ cover        ${baseName}.jpg  (screenshot)`);
+      } catch { /* ignore — post-page image will overwrite */ }
     }
 
     // ── Detect reel ─────────────────────────────────────────────────────────
@@ -187,15 +180,26 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
           (u) => !u.includes("s150x150") && !u.includes("s320x320")
         );
 
-        if (mainImg && slideIdx > 0 && mainImg !== prevImgUrl) {
-          const slideName = `${baseName}-slide-${slideIdx + 1}.jpg`;
-          const slidePath = path.join(OUTPUT_DIR, slideName);
-          try {
-            await downloadUrl(mainImg, slidePath);
-            slideImages.push(`/projects/${slug}/social/${slideName}`);
-            console.log(`  ✓ carousel     ${slideName}`);
-          } catch {
-            console.warn(`  ⚠ slide ${slideIdx + 1} download failed`);
+        if (mainImg && mainImg !== prevImgUrl) {
+          if (slideIdx === 0) {
+            // Slide 1 is the cover — overwrite the (potentially cropped) grid thumbnail
+            // with the full-quality uncropped image from the post page.
+            try {
+              await downloadUrl(mainImg, thumbPath);
+              console.log(`  ✓ cover        ${baseName}.jpg  (slide 1, full quality)`);
+            } catch {
+              console.warn(`  ⚠ slide 1 cover download failed`);
+            }
+          } else {
+            const slideName = `${baseName}-slide-${slideIdx + 1}.jpg`;
+            const slidePath = path.join(OUTPUT_DIR, slideName);
+            try {
+              await downloadUrl(mainImg, slidePath);
+              slideImages.push(`/projects/${slug}/social/${slideName}`);
+              console.log(`  ✓ carousel     ${slideName}`);
+            } catch {
+              console.warn(`  ⚠ slide ${slideIdx + 1} download failed`);
+            }
           }
         }
 
@@ -213,13 +217,16 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
       return result;
     }
 
-    // ── Regular post ─────────────────────────────────────────────────────────
+    // ── Regular post — overwrite grid thumbnail with full-quality post image ──
     const imgs = await extractInstagramImages(page);
     const mainImg = imgs.find((u) => !u.includes("s150x150") && !u.includes("s320x320")) || imgs[0];
     if (mainImg) {
-      const thumbPath = path.join(OUTPUT_DIR, `${baseName}.jpg`);
-      await downloadUrl(mainImg, thumbPath);
-      console.log(`  ✓ post         ${baseName}.jpg`);
+      try {
+        await downloadUrl(mainImg, thumbPath);
+        console.log(`  ✓ cover        ${baseName}.jpg  (post, full quality)`);
+      } catch {
+        console.warn(`  ⚠ post image download failed — keeping grid thumbnail`);
+      }
     }
 
     return result;
