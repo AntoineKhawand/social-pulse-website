@@ -133,8 +133,19 @@ async function run() {
       try {
         const ctx = await browser.newContext({ viewport: DESKTOP });
         const tab = await ctx.newPage();
-        await tab.goto(fullUrl, { waitUntil: "load", timeout: 60_000 });
+        await tab.goto(fullUrl, { waitUntil: "networkidle", timeout: 90_000 });
         await tab.waitForTimeout(1500);
+        // Scroll through the page to trigger lazy-loaded images/sections
+        await tab.evaluate(async () => {
+          const totalHeight = document.body.scrollHeight;
+          const step = Math.ceil(window.innerHeight * 0.8);
+          for (let y = 0; y < totalHeight; y += step) {
+            window.scrollTo(0, y);
+            await new Promise((r) => setTimeout(r, 120));
+          }
+          window.scrollTo(0, 0);
+          await new Promise((r) => setTimeout(r, 800));
+        });
         const desktopPath = path.join(dir, `${name}-desktop.jpg`);
         await tab.screenshot({ path: desktopPath, type: "jpeg", quality: 90, fullPage: true });
         await ctx.close();
@@ -143,8 +154,19 @@ async function run() {
         // ── Mobile ────────────────────────────────────────────────────
         const mCtx = await browser.newContext({ viewport: MOBILE });
         const mTab = await mCtx.newPage();
-        await mTab.goto(fullUrl, { waitUntil: "load", timeout: 60_000 });
+        await mTab.goto(fullUrl, { waitUntil: "networkidle", timeout: 90_000 });
         await mTab.waitForTimeout(1500);
+        // Scroll to trigger lazy loading before the viewport screenshot
+        await mTab.evaluate(async () => {
+          const totalHeight = document.body.scrollHeight;
+          const step = Math.ceil(window.innerHeight * 0.8);
+          for (let y = 0; y < totalHeight; y += step) {
+            window.scrollTo(0, y);
+            await new Promise((r) => setTimeout(r, 120));
+          }
+          window.scrollTo(0, 0);
+          await new Promise((r) => setTimeout(r, 800));
+        });
         const mobilePath = path.join(dir, `${name}-mobile.jpg`);
         await mTab.screenshot({ path: mobilePath, type: "jpeg", quality: 90 });
         await mCtx.close();
