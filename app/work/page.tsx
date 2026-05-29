@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ProjectGrid from "@/components/work/ProjectGrid";
-import ClientCards from "@/components/work/ClientCards";
 import SplitText from "@/components/ui/SplitText";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
@@ -55,8 +54,6 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Additional clients without case studies */}
-      <ClientCards />
     </>
   );
 }
