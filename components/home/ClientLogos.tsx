@@ -16,11 +16,9 @@ const row1 = [
 ];
 
 const row2 = [
-
   "Stretch'In",
   "MEHE Lebanon",
   "Michelle Tueini",
-
   "Singureni Manor",
   "Lavender Project",
   "Healing Makers",
@@ -36,6 +34,22 @@ const row2 = [
   "IT Signal",
   "Forearms Security",
   "Imtihan",
+];
+
+const row3 = [
+  "OBJETI",
+  "Mira Tueny",
+  "SkyBond Travel",
+  "Curaloop",
+  "International Maritime Academy",
+  "Overseas Travel",
+  "Dr. Joseph Ghanimeh",
+  "Céline",
+  "Dr. Rita Sammour",
+  "International Masters in Orthodontics",
+  "Dr. Jean-Paul Abboud",
+  "Marijo Samneh",
+  "Stellar Gems",
 ];
 
 interface TickerRowProps {
@@ -78,7 +92,8 @@ export default function ClientLogos() {
         </p>
       </div>
       <TickerRow items={row1} reverse={false} speed={40} />
-      <TickerRow items={row2} reverse={true} speed={35} />
+      <TickerRow items={row2} reverse={true}  speed={35} />
+      <TickerRow items={row3} reverse={false} speed={45} />
     </section>
   );
 }

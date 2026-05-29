@@ -886,7 +886,7 @@ export const projects: Project[] = [
     images: [],
     tags: ["Web Design", "Web Development", "IT Services", "Corporate"],
     featured: false,
-    accentColor: "#10B981",
+    accentColor: "#29ABE2",
     result: "Live at itsignal.org",
     websiteUrl: "https://itsignal.org",
     screenshots: [
@@ -921,7 +921,7 @@ export const projects: Project[] = [
     images: [],
     tags: ["Web Design", "Web Development", "Security", "Corporate"],
     featured: false,
-    accentColor: "#1E293B",
+    accentColor: "#F5A500",
     websiteUrl: "https://forearmssecurity.com",
     screenshots: [
       { label: "Home", desktop: "/projects/forearms-security/home-desktop.jpg", mobile: "/projects/forearms-security/home-mobile.jpg" },
@@ -954,7 +954,7 @@ export const projects: Project[] = [
     images: [],
     tags: ["Web Design", "Web Development", "Next.js"],
     featured: false,
-    accentColor: "#7C3AED",
+    accentColor: "#2D6A4F",
     websiteUrl: "https://imtihan.live",
     screenshots: [
       { label: "Home", desktop: "/projects/imtihan/home-desktop.jpg", mobile: "/projects/imtihan/home-mobile.jpg" },
