@@ -3,7 +3,17 @@
     "allow": [
       "Bash(npm run *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\Administrateur\\\\.local\\\\bin;$env:Path\"; Start-Process -FilePath \"fcc-server\" -WindowStyle Hidden -PassThru | Select-Object Id)",
+      "PowerShell(Start-Sleep -Seconds 3; try { \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8082/admin\" -UseBasicParsing -TimeoutSec 5\\).StatusCode } catch { \"not ready yet: $_\" })",
+      "PowerShell($env:Path = \"C:\\\\Users\\\\Administrateur\\\\.local\\\\bin;$env:Path\"; Start-Process -FilePath \"powershell\" -ArgumentList \"-NoProfile\", \"-Command\", \"fcc-server\" -WindowStyle Normal -PassThru | Select-Object Id)",
+      "PowerShell(Start-Sleep -Seconds 5; try { \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8082/admin\" -UseBasicParsing -TimeoutSec 5\\).StatusCode } catch { \"still not ready: $_\" })",
+      "PowerShell(try { \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8082/admin/settings\" -UseBasicParsing -TimeoutSec 5\\).Content | ConvertFrom-Json | ConvertTo-Json -Depth 3 } catch { $_ })",
+      "PowerShell(try { \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8082/api/settings\" -UseBasicParsing -TimeoutSec 5\\).Content } catch { try { \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8082/api/config\" -UseBasicParsing -TimeoutSec 5\\).Content } catch { \"both failed\" } })",
+      "PowerShell(try { \\(Invoke-WebRequest -Uri \"http://127.0.0.1:8082/openapi.json\" -UseBasicParsing -TimeoutSec 5\\).Content | ConvertFrom-Json | Select-Object -ExpandProperty paths | Get-Member -MemberType NoteProperty | Select-Object -ExpandProperty Name } catch { $_ })"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\Administrateur\\AppData\\Roaming\\Code\\User"
     ]
   }
 }
