@@ -191,11 +191,7 @@ export const projects: Project[] = [
       { src: "/projects/medonations/social/post-4.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/CqvfVKJsHRL/" },
       { src: "/projects/medonations/social/post-5.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/ClQVte9sD3d/" },
       { src: "/projects/medonations/social/post-6.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/CiIjGBqM2mt/" },
-      { src: "/projects/medonations/social/post-7.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/CYerEXMsJXs/", slides: ["/projects/medonations/social/post-7-slide-3.jpg", "/projects/medonations/social/post-7-slide-4.jpg", "/projects/medonations/social/post-7-slide-6.jpg", "/projects/medonations/social/post-7-slide-7.jpg"] },
-      { src: "/projects/medonations/social/post-8.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/CcnypzrsrE0/" },
-      { src: "/projects/medonations/social/post-9.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/Crn6Z4TsLgn/" },
-      { src: "/projects/medonations/social/post-10.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/p/CsBr_qbsxfl/" },
-      { src: "/projects/medonations/social/post-11.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/p/CsWVAJltHGV/" },
+      { src: "/projects/medonations/social/post-7-slide-3.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/p/CYerEXMsJXs/", slides: ["/projects/medonations/social/post-7-slide-4.jpg", "/projects/medonations/social/post-7-slide-6.jpg", "/projects/medonations/social/post-7-slide-7.jpg"] },
     ],
     overviewParagraphs: [
       "Medonations is a Lebanese and French NGO with a single purpose — to bring free medical aid to those who need it most, across Lebanon and beyond.",
