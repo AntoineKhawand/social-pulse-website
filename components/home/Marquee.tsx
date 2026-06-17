@@ -5,9 +5,6 @@ import { cn } from "@/lib/utils";
 const items = [
   "Branding",
   "Social Media",
-  "Video Production",
-  "Web Design",
-  "Photography",
   "Motion Graphics",
   "Strategy",
   "Content Creation",

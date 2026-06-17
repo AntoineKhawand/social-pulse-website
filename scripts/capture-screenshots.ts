@@ -129,22 +129,45 @@ async function run() {
       const name  = safeName(page.label);
       const fullUrl = `${project.url.replace(/\/$/, "")}${page.path}`;
 
-      // ── Desktop ────────────────────────────────────────────────────
+        // ── Desktop ────────────────────────────────────────────────────
       try {
         const ctx = await browser.newContext({ viewport: DESKTOP });
         const tab = await ctx.newPage();
         await tab.goto(fullUrl, { waitUntil: "networkidle", timeout: 90_000 });
-        await tab.waitForTimeout(1500);
+        // Ensure the page is fully rendered before scrolling
+        await tab.evaluate(async () => {
+          // Wait for fonts to load
+          await document.fonts.ready;
+          // Wait for all images to load
+          await Promise.allSettled(
+            Array.from(document.images)
+              .filter((img) => !img.complete)
+              .map((img) => new Promise((r) => { img.onload = r; img.onerror = r; }))
+          );
+        });
+        await tab.waitForTimeout(2000);
         // Scroll through the page to trigger lazy-loaded images/sections
         await tab.evaluate(async () => {
-          const totalHeight = document.body.scrollHeight;
+          const totalHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+          );
           const step = Math.ceil(window.innerHeight * 0.8);
           for (let y = 0; y < totalHeight; y += step) {
             window.scrollTo(0, y);
-            await new Promise((r) => setTimeout(r, 120));
+            await new Promise((r) => setTimeout(r, 200));
           }
+          // Scroll back to top and wait for everything to settle
           window.scrollTo(0, 0);
-          await new Promise((r) => setTimeout(r, 800));
+          await new Promise((r) => setTimeout(r, 1500));
+          // Re-check fonts and images after lazy loads
+          await document.fonts.ready;
+          await Promise.allSettled(
+            Array.from(document.images)
+              .filter((img) => !img.complete)
+              .map((img) => new Promise((r) => { img.onload = r; img.onerror = r; }))
+          );
+          await new Promise((r) => setTimeout(r, 500));
         });
         const desktopPath = path.join(dir, `${name}-desktop.jpg`);
         await tab.screenshot({ path: desktopPath, type: "jpeg", quality: 90, fullPage: true });
@@ -155,17 +178,36 @@ async function run() {
         const mCtx = await browser.newContext({ viewport: MOBILE });
         const mTab = await mCtx.newPage();
         await mTab.goto(fullUrl, { waitUntil: "networkidle", timeout: 90_000 });
-        await mTab.waitForTimeout(1500);
+        // Ensure full render before scrolling
+        await mTab.evaluate(async () => {
+          await document.fonts.ready;
+          await Promise.allSettled(
+            Array.from(document.images)
+              .filter((img) => !img.complete)
+              .map((img) => new Promise((r) => { img.onload = r; img.onerror = r; }))
+          );
+        });
+        await mTab.waitForTimeout(2000);
         // Scroll to trigger lazy loading before the viewport screenshot
         await mTab.evaluate(async () => {
-          const totalHeight = document.body.scrollHeight;
+          const totalHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+          );
           const step = Math.ceil(window.innerHeight * 0.8);
           for (let y = 0; y < totalHeight; y += step) {
             window.scrollTo(0, y);
-            await new Promise((r) => setTimeout(r, 120));
+            await new Promise((r) => setTimeout(r, 200));
           }
           window.scrollTo(0, 0);
-          await new Promise((r) => setTimeout(r, 800));
+          await new Promise((r) => setTimeout(r, 1500));
+          await document.fonts.ready;
+          await Promise.allSettled(
+            Array.from(document.images)
+              .filter((img) => !img.complete)
+              .map((img) => new Promise((r) => { img.onload = r; img.onerror = r; }))
+          );
+          await new Promise((r) => setTimeout(r, 500));
         });
         const mobilePath = path.join(dir, `${name}-mobile.jpg`);
         await mTab.screenshot({ path: mobilePath, type: "jpeg", quality: 90 });

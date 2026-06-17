@@ -1,6 +1,5 @@
 import Hero from "@/components/home/Hero";
 import ClientLogos from "@/components/home/ClientLogos";
-import Marquee from "@/components/home/Marquee";
 import FeaturedWork from "@/components/home/FeaturedWork";
 import Services from "@/components/home/Services";
 import Stats from "@/components/home/Stats";
@@ -12,10 +11,8 @@ export default function HomePage() {
     <>
       <Hero />
       <ClientLogos />
-      <Marquee />
       <FeaturedWork />
       <Stats />
-      <Marquee reverse accent speed={25} className="border-dark-300" />
       <Services />
       <Testimonials />
       <ContactCTA />

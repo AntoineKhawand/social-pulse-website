@@ -15,14 +15,10 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-dark"
     >
-      {/* ── Background video ──────────────────────────────────────────────── */}
+      {/* ── YouTube video background ──────────────────────────────────────── */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute object-cover"
+        <iframe
+          className="absolute"
           style={{
             top: "50%",
             left: "50%",
@@ -31,10 +27,12 @@ export default function Hero() {
             minHeight: "100vh",
             minWidth: "177.78vh",
             transform: "translate(-50%, -50%)",
+            border: "none",
           }}
-        >
-          <source src="/Social Pulse.mp4" type="video/mp4" />
-        </video>
+          src="https://www.youtube-nocookie.com/embed/1xYXW0RU7Do?autoplay=1&mute=1&loop=1&playlist=1xYXW0RU7Do&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=3"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          title="Agency showreel background"
+        />
       </div>
 
       {/* ── Shared overlay ────────────────────────────────────────────────── */}

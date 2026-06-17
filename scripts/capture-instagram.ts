@@ -27,11 +27,12 @@ import fs from "fs";
 import https from "https";
 import http from "http";
 
-const [, , handle, slug, maxStr] = process.argv;
-const MAX_POSTS = parseInt(maxStr ?? "12", 10);
+const [, , handle, slug, maxStr, offsetStr] = process.argv;
+const MAX_POSTS = parseInt(maxStr    ?? "12", 10);
+const OFFSET    = parseInt(offsetStr ?? "0",  10);
 
 if (!handle || !slug) {
-  console.error("Usage: npx tsx scripts/capture-instagram.ts <handle> <project-slug> [max-posts]");
+  console.error("Usage: npx tsx scripts/capture-instagram.ts <handle> <project-slug> [max-posts] [offset]");
   process.exit(1);
 }
 
@@ -241,11 +242,18 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
 async function run() {
   console.log(`\n📱  @${handle}  →  public/projects/${slug}/social/\n`);
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: false,
+    args: ["--no-sandbox", "--disable-blink-features=AutomationControlled"],
+  });
   const ctx = await browser.newContext({
-    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36",
+    userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     viewport: { width: 1280, height: 900 },
     locale: "en-US",
+    extraHTTPHeaders: { "Accept-Language": "en-US,en;q=0.9" },
+  });
+  await ctx.addInitScript(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => undefined });
   });
 
   const profilePage = await ctx.newPage();
@@ -255,6 +263,32 @@ async function run() {
   await profilePage.goto(`https://www.instagram.com/${handle}/`, { waitUntil: "load", timeout: 60_000 });
   await dismissOverlays(profilePage);
   await profilePage.waitForTimeout(3_000);
+
+  // Detect login wall — pause so the user can log in manually
+  const isLoginWall = await profilePage.locator('input[name="username"]').isVisible({ timeout: 3_000 }).catch(() => false);
+  if (isLoginWall) {
+    console.log(
+      "\n  ⚠️  Instagram is showing a login wall.\n" +
+      "      Log in manually in the browser window, navigate back to the profile, then press Enter here...\n"
+    );
+    await new Promise<void>((resolve) => { process.stdin.once("data", () => resolve()); });
+    await profilePage.waitForTimeout(2_000);
+    await dismissOverlays(profilePage);
+  }
+
+  // Scroll aggressively to load all post rows, waiting for DOM updates between passes
+  await profilePage.evaluate(async () => {
+    let lastCount = 0;
+    for (let pass = 0; pass < 12; pass++) {
+      window.scrollBy(0, window.innerHeight);
+      await new Promise((r) => setTimeout(r, 1_200));
+      const count = document.querySelectorAll('a[href*="/p/"], a[href*="/reel/"]').length;
+      if (count === lastCount && pass > 3) break; // no new posts appeared — stop early
+      lastCount = count;
+    }
+    window.scrollTo(0, 0);
+    await new Promise((r) => setTimeout(r, 800));
+  });
 
   // Extract post URLs paired with their grid cover thumbnails
   const postData: { url: string; thumb: string }[] = await profilePage.evaluate(() => {
@@ -291,15 +325,18 @@ async function run() {
     return;
   }
 
-  console.log(`  Found ${postUrls.length} posts — processing up to ${MAX_POSTS}\n`);
+  const total   = Math.min(postUrls.length - OFFSET, MAX_POSTS);
+  console.log(`  Found ${postUrls.length} posts — capturing ${total} starting at offset ${OFFSET} (file numbering starts at post-${OFFSET + 1})\n`);
 
   // ── Step 2: scrape each post ──────────────────────────────────────────────
   const results: PostResult[] = [];
   const postPage = await ctx.newPage();
 
-  for (let i = 0; i < Math.min(postUrls.length, MAX_POSTS); i++) {
-    console.log(`\n  [${i + 1}/${Math.min(postUrls.length, MAX_POSTS)}] ${postUrls[i]}`);
-    const r = await scrapePost(postPage, postUrls[i], i, gridThumbs[i] ?? "");
+  for (let i = 0; i < total; i++) {
+    const globalIdx = OFFSET + i;          // index into postUrls[]
+    const fileIdx   = OFFSET + i;          // determines post-N.jpg filename (1-based in scrapePost)
+    console.log(`\n  [${i + 1}/${total}] post-${fileIdx + 1}  ${postUrls[globalIdx]}`);
+    const r = await scrapePost(postPage, postUrls[globalIdx], fileIdx, gridThumbs[globalIdx] ?? "");
     if (r) results.push(r);
   }
 

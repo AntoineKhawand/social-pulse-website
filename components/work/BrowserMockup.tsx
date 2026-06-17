@@ -159,7 +159,7 @@ export default function BrowserMockup({
                   </div>
                 ) : (
                   /* Desktop auto-scroll */
-                  <div className="absolute inset-0 overflow-hidden bg-white">
+                  <div className="absolute inset-0 overflow-hidden" style={{ background: "rgba(8,8,10,0.97)" }}>
                     <motion.div animate={scrollControls} className="absolute inset-x-0 top-0" style={{ willChange: "transform" }}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={current.desktop} alt={`${title} — ${current.label}`} className="w-full h-auto block" draggable={false} />

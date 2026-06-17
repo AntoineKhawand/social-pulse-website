@@ -19,6 +19,12 @@ export interface SocialPost {
   slides?: string[];
 }
 
+export interface Presentation {
+  pages: string[];
+  pdfUrl?: string;
+  aspectRatio?: "landscape" | "portrait";
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -45,6 +51,7 @@ export interface Project {
   quote?: string;
   testimonial?: { quote: string; author: string; role?: string };
   comingSoon?: boolean;
+  presentation?: Presentation;
 }
 
 export const projects: Project[] = [
@@ -82,13 +89,13 @@ export const projects: Project[] = [
       { src: "/projects/dare-advisors/social/post-3.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DMF7PKcMHTW/" },
       { src: "/projects/dare-advisors/social/post-4.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DL5CjshMBxb/" },
       { src: "/projects/dare-advisors/social/post-5.jpg",  type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/DLz4Mp4MkrC/" },
-      { src: "/projects/dare-advisors/social/post-6.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/Ctvioe7spMV/", slides: ["/projects/dare-advisors/social/post-6-slide-4.jpg", "/projects/dare-advisors/social/post-6-slide-5.jpg", "/projects/dare-advisors/social/post-6-slide-6.jpg", "/projects/dare-advisors/social/post-6-slide-7.jpg", "/projects/dare-advisors/social/post-6-slide-8.jpg"] },
+      { src: "/projects/dare-advisors/social/post-6.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/Ctvioe7spMV/", slides: ["/projects/dare-advisors/social/post-6-slide-2.jpg", "/projects/dare-advisors/social/post-6-slide-3.jpg", "/projects/dare-advisors/social/post-6-slide-4.jpg", "/projects/dare-advisors/social/post-6-slide-5.jpg", "/projects/dare-advisors/social/post-6-slide-6.jpg", "/projects/dare-advisors/social/post-6-slide-7.jpg", "/projects/dare-advisors/social/post-6-slide-8.jpg"] },
       { src: "/projects/dare-advisors/social/post-7.jpg",  type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtiwYP1LC1y/" },
-      { src: "/projects/dare-advisors/social/post-8.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtdoVjiLvEy/", slides: ["/projects/dare-advisors/social/post-8-slide-4.jpg", "/projects/dare-advisors/social/post-8-slide-5.jpg", "/projects/dare-advisors/social/post-8-slide-6.jpg", "/projects/dare-advisors/social/post-8-slide-7.jpg"] },
+      { src: "/projects/dare-advisors/social/post-8.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtdoVjiLvEy/", slides: ["/projects/dare-advisors/social/post-8-slide-2.jpg", "/projects/dare-advisors/social/post-8-slide-3.jpg", "/projects/dare-advisors/social/post-8-slide-4.jpg", "/projects/dare-advisors/social/post-8-slide-5.jpg", "/projects/dare-advisors/social/post-8-slide-6.jpg", "/projects/dare-advisors/social/post-8-slide-7.jpg"] },
       { src: "/projects/dare-advisors/social/post-9.jpg",  type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtGfM1XLnPs/" },
       { src: "/projects/dare-advisors/social/post-10.jpg", type: "reel",     instagramUrl: "https://www.instagram.com/dareadvisors_official/reel/CtGb6o9uFVH/" },
       { src: "/projects/dare-advisors/social/post-11.jpg", type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtGV2AZt0Tz/" },
-      { src: "/projects/dare-advisors/social/post-12.jpg", type: "post",     instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtBDswStgKo/" },
+      { src: "/projects/dare-advisors/social/post-12.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/dareadvisors_official/p/CtBDswStgKo/", slides: ["/projects/dare-advisors/social/post-12-slide-2.jpg", "/projects/dare-advisors/social/post-12-slide-3.jpg"] },
     ],
     overviewParagraphs: [
       "Dare Advisors is a global boutique financial advisory firm built on a single conviction — that the right move, made with confidence, changes everything.",
@@ -116,22 +123,22 @@ export const projects: Project[] = [
     year: "2023",
     location: "Beirut, Lebanon",
     description:
-      "Brand strategy, marketing plan, and digital presence for Beirut's upscale Italian and French fashion boutique, founded in 2011 by Carla Hanna.",
+      "Brand strategy, marketing plan, and brand presentation deck for Beirut's upscale Italian and French fashion boutique, founded in 2011 by Carla Hanna.",
     longDescription:
-      "Kataleya is a Beirut-based upscale fashion destination offering over 40 Italian and French luxury brands since 2011, with a second location opened in 2015. Social Pulse developed a comprehensive brand portfolio covering market positioning, competitive analysis, a full visual identity refresh, and a digital marketing strategy targeting Dubai expansion. We produced the brand presentation deck, social media strategy, store layout direction, and ongoing content for their sophisticated Lebanese clientele.",
+      "Kataleya is a Beirut-based upscale fashion destination offering over 40 Italian and French luxury brands since 2011, with a second location opened in 2015. Social Pulse developed a comprehensive brand portfolio covering market positioning, competitive analysis, a full visual identity refresh, and a digital marketing strategy targeting Dubai expansion. We produced the brand presentation deck and store layout direction for their sophisticated Lebanese clientele.",
     coverImage: "/covers/Kataleya.svg",
     images: [
       "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&q=90",
       "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=90",
     ],
-    tags: ["Brand Strategy", "Visual Identity", "Marketing Plan", "Social Media"],
+    tags: ["Brand Strategy", "Visual Identity", "Marketing Plan", "Presentation Deck"],
     featured: true,
     accentColor: "#C9A96E",
     result: "Dubai expansion strategy delivered",
     overviewParagraphs: [
       "Kataleya is Beirut's most refined fashion destination — home to over 40 Italian and French luxury brands since 2011, with a clientele that knows the difference between fashion and style.",
       "Social Pulse developed a full brand portfolio for Kataleya's next chapter: market positioning analysis, competitive benchmarking, a visual identity refresh, and a digital marketing strategy aimed squarely at Dubai expansion.",
-      "From the brand presentation deck to social media strategy and store layout direction, every element was crafted to carry a legacy boutique into its boldest territory yet.",
+      "From the brand presentation deck to store layout direction, every element was crafted to carry a legacy boutique into its boldest territory yet.",
     ],
     highlights: [
       "over 40 Italian and French luxury brands",
@@ -139,6 +146,22 @@ export const projects: Project[] = [
       "visual identity refresh",
     ],
     quote: "Luxury is not a style — it's a standard.",
+    presentation: {
+      pages: [
+        "/projects/kataleya/presentation/page-1.png",
+        "/projects/kataleya/presentation/page-2.png",
+        "/projects/kataleya/presentation/page-3.png",
+        "/projects/kataleya/presentation/page-4.png",
+        "/projects/kataleya/presentation/page-5.png",
+        "/projects/kataleya/presentation/page-6.png",
+        "/projects/kataleya/presentation/page-7.png",
+        "/projects/kataleya/presentation/page-8.png",
+        "/projects/kataleya/presentation/page-9.png",
+        "/projects/kataleya/presentation/page-10.png",
+        "/projects/kataleya/presentation/page-11.png",
+      ],
+      aspectRatio: "landscape",
+    },
   },
   {
     slug: "medonations",
@@ -160,6 +183,20 @@ export const projects: Project[] = [
     featured: true,
     accentColor: "#00B4D8",
     result: "10,468 patients covered across Lebanon",
+    instagramHandle: "medonations",
+    socialPosts: [
+      { src: "/projects/medonations/social/post-1.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/Cx_FPXBMEbY/" },
+      { src: "/projects/medonations/social/post-2.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/Cv7qvImMeEI/" },
+      { src: "/projects/medonations/social/post-3.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/CoQAfLsMHpv/" },
+      { src: "/projects/medonations/social/post-4.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/CqvfVKJsHRL/" },
+      { src: "/projects/medonations/social/post-5.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/ClQVte9sD3d/" },
+      { src: "/projects/medonations/social/post-6.jpg", type: "post",     instagramUrl: "https://www.instagram.com/p/CiIjGBqM2mt/" },
+      { src: "/projects/medonations/social/post-7.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/CYerEXMsJXs/", slides: ["/projects/medonations/social/post-7-slide-3.jpg", "/projects/medonations/social/post-7-slide-4.jpg", "/projects/medonations/social/post-7-slide-6.jpg", "/projects/medonations/social/post-7-slide-7.jpg"] },
+      { src: "/projects/medonations/social/post-8.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/CcnypzrsrE0/" },
+      { src: "/projects/medonations/social/post-9.jpg",  type: "carousel", instagramUrl: "https://www.instagram.com/p/Crn6Z4TsLgn/" },
+      { src: "/projects/medonations/social/post-10.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/p/CsBr_qbsxfl/" },
+      { src: "/projects/medonations/social/post-11.jpg", type: "carousel", instagramUrl: "https://www.instagram.com/p/CsWVAJltHGV/" },
+    ],
     overviewParagraphs: [
       "Medonations is a Lebanese and French NGO with a single purpose — to bring free medical aid to those who need it most, across Lebanon and beyond.",
       "Social Pulse managed their full Instagram presence with educational content for World Health Day, disease explainers, free clinic announcements, and the Solar Panel Backpack awareness campaign.",
@@ -225,6 +262,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#D4A853",
     result: "Full brand and app launched in KSA",
+    instagramHandle: "platters.riyadh",
+    socialPosts: [],
     overviewParagraphs: [
       "Platters is a luxury platter and grazing experience brand in Riyadh — built on a single belief: that every bite should taste like passion.",
       "Social Pulse created the brand from the ground up: a refined script logo, premium business cards, e-voucher and gift voucher templates, luxury delivery box packaging, and a mobile app UI/UX now available on Google Play and the App Store.",
@@ -256,6 +295,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#C9A96E",
     result: "Premium luxury feed established",
+    instagramHandle: "gemz_dubai",
+    socialPosts: [],
     overviewParagraphs: [
       "Gemz is a luxury fine jewelry brand based in Dubai — a digital destination for diamonds, gemstones, and the kind of pieces that outlast trends.",
       "Social Pulse managed their Instagram presence with editorial photography direction, mood-led content grids, and quote-driven posts that positioned Gemz as more than a store — a destination for luxury jewelry discovery.",
@@ -285,6 +326,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#3B9EE8",
     result: "EV education hub built on Instagram",
+    instagramHandle: "emagine.uae",
+    socialPosts: [],
     overviewParagraphs: [
       "eMagine is at the forefront of transformative e-mobility solutions in the UAE — contributing to the nation's vision of a sustainable green economy.",
       "Social Pulse produced and managed their Instagram reels: presenter-led explainers on EV charging speeds, range anxiety, and the future of clean transportation, positioning eMagine as the leading Arabic voice for EV education.",
@@ -409,6 +452,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#F59E0B",
     result: "Nearly 50,000 followers, featured in L'Orient Today",
+    instagramHandle: "ddoesbusiness",
+    socialPosts: [],
     overviewParagraphs: [
       "D Does Business is Lebanon's go-to source for making complex financial topics accessible — from stock market analysis to GCC economic updates, created by Danielle Hatem in 2017.",
       "Social Pulse built the brand identity and content system that grew the account through Lebanon's most turbulent economic moments: data-driven investment posts, economic explainer reels, and a visual language that made the account instantly recognizable.",
@@ -439,6 +484,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#60A5FA",
     result: "Full brand identity and social presence launched",
+    instagramHandle: "stretchin.lb",
+    socialPosts: [],
     overviewParagraphs: [
       "Stretch'In is a Beirut-based wellness studio specializing in assisted stretching — tailored to each client's specific needs and goals, located at Utb One Center in Hazmieh.",
       "Social Pulse designed their fluid script logo, created the e-voucher and gift voucher system, and produced the Valentine's Couple Package campaign that turned a wellness service into a shared experience.",
@@ -469,6 +516,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#16A34A",
     result: "Official government social presence managed",
+    instagramHandle: "mehe_lebanon",
+    socialPosts: [],
     overviewParagraphs: [
       "The Ministry of Education and Higher Education in Lebanon oversees the country's educational system from primary to higher education — and needed a digital voice to match its institutional reach.",
       "Social Pulse managed their Instagram account at Mehe_lebanon with bilingual Arabic and English content: the 16 Days Against Violence campaign, Back to School posts, Eid and seasonal greetings, and official ministry announcements.",
@@ -499,6 +548,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#64748B",
     result: "TV presence extended to digital reels",
+    instagramHandle: "michelletueini",
+    socialPosts: [],
     overviewParagraphs: [
       "Michelle Tueini is a prominent Lebanese journalist and TV host — known for Beit El Sha'er, broadcast on both Al Jadeed TV and An-Nahar.",
       "Social Pulse produced her Instagram reels covering political analysis, interview teasers with public figures including George Khabbaz, current affairs explainers like the UN 1947 Proposal, and cultural commentary pieces.",
@@ -528,6 +579,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#B8952A",
     result: "Luxury brand identity and social presence established",
+    instagramHandle: "singureni.manor",
+    socialPosts: [],
     overviewParagraphs: [
       "Singureni Manor is a luxury hotel complex in Moldova offering a heartfelt experience in nature — built around authentic connections with horses, animals, and the land.",
       "Social Pulse designed the prestigious gold and red crest logo with equestrian motifs, then managed their Instagram at singureni.manor with content that captured outdoor forest dining, seasonal landscapes, curated dessert plating, and the serene interiors of the manor.",
@@ -557,6 +610,8 @@ export const projects: Project[] = [
     featured: false,
     accentColor: "#8B5CF6",
     result: "Eco-lodge brand and social launched",
+    instagramHandle: "lavenderprojectlb",
+    socialPosts: [],
     overviewParagraphs: [
       "The Lavender Project is an eco-friendly mountain lodge in Kfarmishki, West Beqaa — 55 square meters of thoughtfully built space for up to 5 guests, with a full view of Mount Hermon and its own lavender field.",
       "Social Pulse created the nature-inspired logo and managed their Instagram at lavenderprojectlb, capturing village roads, seasonal landscapes, local Mouneh produce, and the quiet magic of life in the Kfarmishki village.",
@@ -615,6 +670,8 @@ export const projects: Project[] = [
     tags: ["Social Media", "Content Creation", "Instagram", "Lebanon"],
     featured: false,
     accentColor: "#F59E0B",
+    instagramHandle: "bordonlebanon",
+    socialPosts: [],
     overviewParagraphs: [
       "Bordon Lebanon is a Lebanese brand with a growing digital community and a clear identity to express.",
       "Social Pulse managed their social media presence with engaging content that reflects the brand's character and connects authentically with their audience across Instagram.",
@@ -641,6 +698,8 @@ export const projects: Project[] = [
     tags: ["Social Media", "Content Creation", "Food", "Instagram"],
     featured: false,
     accentColor: "#22C55E",
+    instagramHandle: "saladitos_lb",
+    socialPosts: [],
     overviewParagraphs: [
       "Saladitos Lebanon is a Lebanese food brand bringing fresh, vibrant options to a health-conscious audience that knows what it wants.",
       "Social Pulse managed their social media with appetizing visual content, product highlights, and community-driven posts that grew their following and drove real customer engagement.",
@@ -667,6 +726,8 @@ export const projects: Project[] = [
     tags: ["Social Media", "Education", "Content Creation", "Instagram"],
     featured: false,
     accentColor: "#3B82F6",
+    instagramHandle: "esa_liban",
+    socialPosts: [],
     overviewParagraphs: [
       "ESA Business School is one of Lebanon's most prestigious institutions — training the next generation of business leaders since its founding.",
       "Social Pulse managed their social media presence with content covering academic programs, student life, faculty highlights, and institutional announcements, positioning ESA as the leading business education destination in Lebanon.",

@@ -7,6 +7,7 @@ import ContactCTA from "@/components/home/ContactCTA";
 import RevealBlock from "@/components/ui/RevealBlock";
 import BrowserMockup from "@/components/work/BrowserMockup";
 import SocialGrid from "@/components/work/SocialGrid";
+import PresentationViewer from "@/components/work/PresentationViewer";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -178,8 +179,27 @@ export default async function ProjectPage({ params }: Props) {
           </section>
         )}
 
+      {/* Presentation viewer */}
+      {project.presentation && (
+        <section className="py-20 md:py-28 bg-dark border-t border-dark-200">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+            <RevealBlock>
+              <div className="flex items-center gap-4 mb-10">
+                <p className="text-xs uppercase tracking-widest text-brand-light">Presentation</p>
+                <div className="flex-1 h-px bg-dark-200" />
+              </div>
+              <PresentationViewer
+                presentation={project.presentation}
+                accentColor={project.accentColor}
+                title={project.title}
+              />
+            </RevealBlock>
+          </div>
+        </section>
+      )}
+
       {/* Social media grid */}
-      {project.instagramHandle && project.socialPosts && project.socialPosts.length > 0 && (
+      {project.instagramHandle && (
         <section className="py-20 md:py-28 bg-dark border-t border-dark-200">
           <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
             <RevealBlock>
@@ -197,7 +217,7 @@ export default async function ProjectPage({ params }: Props) {
               </div>
               <SocialGrid
                 handle={project.instagramHandle}
-                posts={project.socialPosts}
+                posts={project.socialPosts ?? []}
                 accentColor={project.accentColor}
               />
             </RevealBlock>
