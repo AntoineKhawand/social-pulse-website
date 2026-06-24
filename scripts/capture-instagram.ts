@@ -244,6 +244,7 @@ async function run() {
 
   const browser = await chromium.launch({
     headless: false,
+    channel: "chrome",
     args: ["--no-sandbox", "--disable-blink-features=AutomationControlled"],
   });
   const ctx = await browser.newContext({

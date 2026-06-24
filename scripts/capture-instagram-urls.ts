@@ -135,8 +135,12 @@ async function capturePost(page: Page, url: string, idx: number): Promise<PostRe
     const isReel = url.includes("/reel/") || await page.evaluate(() => !!document.querySelector("video"));
 
     if (isReel) {
-      // Use thumbnail image for cover
-      const imgSrc = await extractMainImage(page);
+      // Prefer og:image meta tag — works without login and gives the real thumbnail
+      const ogImage = await page.evaluate(() => {
+        const el = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
+        return el?.content ?? null;
+      });
+      const imgSrc = (ogImage && ogImage.startsWith("http")) ? ogImage : await extractMainImage(page);
       if (imgSrc) {
         await downloadUrl(imgSrc, thumbPath).catch(() => {});
         console.log(`  ✓ reel cover   ${baseName}.jpg`);
@@ -239,6 +243,7 @@ async function capturePost(page: Page, url: string, idx: number): Promise<PostRe
 async function run() {
   const browser = await chromium.launch({
     headless: false,
+    channel: "chrome",
     args: ["--no-sandbox", "--disable-blink-features=AutomationControlled"],
   });
   const ctx = await browser.newContext({
@@ -253,7 +258,7 @@ async function run() {
     Object.defineProperty(navigator, "webdriver", { get: () => undefined });
   });
 
-  // Check for login wall on first load
+  // Only prompt for login if Instagram shows a login wall
   const checkPage = await ctx.newPage();
   await checkPage.goto("https://www.instagram.com/", { waitUntil: "load", timeout: 30_000 });
   await checkPage.waitForTimeout(1_500);

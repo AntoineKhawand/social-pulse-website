@@ -382,7 +382,7 @@ export default function SocialGrid({ handle, posts, accentColor }: SocialGridPro
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={post.src}
-                    alt={`@${handle} ${post.type ?? "post"} ${i + 1}`}
+                    alt=""
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
