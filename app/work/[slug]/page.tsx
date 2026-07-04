@@ -8,6 +8,7 @@ import RevealBlock from "@/components/ui/RevealBlock";
 import BrowserMockup from "@/components/work/BrowserMockup";
 import SocialGrid from "@/components/work/SocialGrid";
 import PresentationViewer from "@/components/work/PresentationViewer";
+import { BreadcrumbJsonLd, CreativeWorkJsonLd } from "@/components/seo/JsonLd";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -21,14 +22,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
   if (!project) return {};
+  const canonical = `https://www.socialpulselb.com/work/${project.slug}`;
+  const hasCover = Boolean(project.coverImage);
   return {
     title: project.title,
     description: project.description,
+    keywords: project.tags,
+    alternates: { canonical },
     openGraph: {
       title: `${project.title} | Social Pulse`,
       description: project.description,
-      images: [{ url: project.coverImage }],
+      ...(hasCover ? { images: [{ url: project.coverImage }] } : {}),
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | Social Pulse`,
+      description: project.description,
+      ...(hasCover ? { images: [project.coverImage] } : {}),
+    },
+    ...(project.comingSoon ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -80,8 +92,28 @@ export default async function ProjectPage({ params }: Props) {
     .filter((p) => p.slug !== project.slug && p.category === project.category)
     .slice(0, 3);
 
+  const pageUrl = `https://www.socialpulselb.com/work/${project.slug}`;
+
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "https://www.socialpulselb.com" },
+          { name: "Work", url: "https://www.socialpulselb.com/work" },
+          { name: project.title, url: pageUrl },
+        ]}
+      />
+      {!project.comingSoon && (
+        <CreativeWorkJsonLd
+          url={pageUrl}
+          name={project.title}
+          description={project.description}
+          image={project.coverImage}
+          tags={project.tags}
+          testimonial={project.testimonial}
+        />
+      )}
+
       {/* Hero */}
       <section className="pt-32 pb-0 bg-dark">
         <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">

@@ -140,6 +140,10 @@ const websiteSchema = {
     },
     "query-input": "required name=search_term_string",
   },
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1"],
+  },
 };
 
 export default function JsonLd() {
@@ -190,6 +194,97 @@ export function BreadcrumbJsonLd({
       name: item.name,
       item: item.url,
     })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+/** BlogPosting schema for /blog/[slug] articles — the strongest AEO signal for article content. */
+export function ArticleJsonLd({
+  url,
+  title,
+  description,
+  image,
+  datePublished,
+  author,
+  tags,
+}: {
+  url: string;
+  title: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  author: string;
+  tags?: string[];
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    headline: title,
+    description,
+    image,
+    datePublished,
+    dateModified: datePublished,
+    author: { "@type": "Person", name: author },
+    publisher: { "@id": "https://www.socialpulselb.com/#organization" },
+    ...(tags && tags.length ? { keywords: tags.join(", ") } : {}),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+/** CreativeWork schema for /work/[slug] case studies, with an embedded Review when a testimonial exists. */
+export function CreativeWorkJsonLd({
+  url,
+  name,
+  description,
+  image,
+  tags,
+  testimonial,
+}: {
+  url: string;
+  name: string;
+  description: string;
+  image: string;
+  tags?: string[];
+  testimonial?: { quote: string; author: string; role?: string };
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `${url}#creativework`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    name,
+    description,
+    image,
+    creator: { "@id": "https://www.socialpulselb.com/#organization" },
+    publisher: { "@id": "https://www.socialpulselb.com/#organization" },
+    ...(tags && tags.length ? { keywords: tags.join(", ") } : {}),
+    ...(testimonial
+      ? {
+          review: {
+            "@type": "Review",
+            reviewBody: testimonial.quote,
+            author: {
+              "@type": "Person",
+              name: testimonial.author,
+              ...(testimonial.role ? { jobTitle: testimonial.role } : {}),
+            },
+          },
+        }
+      : {}),
   };
 
   return (

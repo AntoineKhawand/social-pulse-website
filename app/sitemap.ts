@@ -5,7 +5,7 @@ import { blogPosts } from "@/lib/posts";
 const BASE_URL = "https://www.socialpulselb.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const projectUrls: MetadataRoute.Sitemap = projects.map((p) => ({
+  const projectUrls: MetadataRoute.Sitemap = projects.filter((p) => !p.comingSoon).map((p) => ({
     url: `${BASE_URL}/work/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",

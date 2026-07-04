@@ -89,7 +89,6 @@ export const metadata: Metadata = {
     canonical: "https://www.socialpulselb.com",
     languages: {
       "en-US": "https://www.socialpulselb.com",
-      "ar-LB": "https://www.socialpulselb.com/ar",
     },
   },
   verification: {
@@ -101,7 +100,6 @@ export const metadata: Metadata = {
     "geo.placename": "Beirut, Lebanon",
     "geo.position": "33.8938;35.5018",
     ICBM: "33.8938, 35.5018",
-    // AEO — Speakable and entity hints
     "theme-color": "#7C3AED",
   },
 };
@@ -110,7 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <JsonLd />

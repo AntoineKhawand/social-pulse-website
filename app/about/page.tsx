@@ -83,7 +83,7 @@ export default function AboutPage() {
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-dark">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-6">About us</p>
-          <h1 className="font-display font-bold text-[clamp(2.5rem,8vw,8rem)] text-white leading-[0.95] mb-8 md:mb-10">
+          <h1 className="font-display font-bold text-[clamp(2.5rem,8vw,8rem)] text-white leading-[0.95] mb-8 md:mb-10 break-words">
             <SplitText text="We make brands" />
             <br />
             <SplitText text="impossible to ignore." delay={0.3} className="text-gradient" />

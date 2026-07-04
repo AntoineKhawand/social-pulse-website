@@ -48,7 +48,7 @@ export default function BlogPage() {
             <span className="w-8 h-px bg-brand-light/50" />
             <p className="text-xs md:text-sm uppercase tracking-[0.3em] text-brand-light font-medium">Insights & News</p>
           </div>
-          <h1 className="font-display font-bold text-[clamp(3rem,8vw,8.5rem)] text-white leading-[0.95] mb-8 md:mb-10 tracking-tight">
+          <h1 className="font-display font-bold text-[clamp(3rem,8vw,8.5rem)] text-white leading-[0.95] mb-8 md:mb-10 tracking-tight break-words">
             <SplitText text="Stories & Strategy" />
           </h1>
           <p className="text-neutral-400 text-lg md:text-2xl max-w-2xl leading-relaxed font-light">

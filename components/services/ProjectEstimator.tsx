@@ -472,7 +472,7 @@ ${message}
           </div>
 
           {/* Sidebar Receipt Card */}
-          <div className="border border-dark-300 bg-dark-100 rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between sticky top-28 min-h-[480px]">
+          <div className="border border-dark-300 bg-dark-100 rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col justify-between lg:sticky lg:top-28 min-h-[480px]">
             <div>
               <h3 className="font-display font-semibold text-lg text-white mb-6 pb-4 border-b border-dark-200/50">
                 Estimate Summary

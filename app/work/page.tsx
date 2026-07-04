@@ -37,7 +37,7 @@ export default function WorkPage() {
       <section className="pt-32 md:pt-40 pb-12 md:pb-20 bg-dark border-b border-dark-200">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-6">Portfolio</p>
-          <h1 className="font-display font-bold text-[clamp(2.8rem,9vw,8rem)] text-white leading-none mb-6 md:mb-8">
+          <h1 className="font-display font-bold text-[clamp(2.8rem,9vw,8rem)] text-white leading-none mb-6 md:mb-8 break-words">
             <SplitText text="Our Work" />
           </h1>
           <p className="text-neutral-muted text-base md:text-lg max-w-xl leading-relaxed">

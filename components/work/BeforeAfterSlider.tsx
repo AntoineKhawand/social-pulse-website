@@ -19,6 +19,8 @@ export default function BeforeAfterSlider({ items, accentColor }: BeforeAfterSli
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const touchIsDrag = useRef(false);
 
   const current = items[activeIndex];
 
@@ -34,8 +36,25 @@ export default function BeforeAfterSlider({ items, accentColor }: BeforeAfterSli
   const handleMouseMove = (e: React.MouseEvent) => {
     if (isDragging.current) updatePosition(e.clientX);
   };
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0];
+    touchStart.current = { x: t.clientX, y: t.clientY };
+    touchIsDrag.current = false;
+  };
   const handleTouchMove = (e: React.TouchEvent) => {
-    updatePosition(e.touches[0].clientX);
+    const t = e.touches[0];
+    if (!touchStart.current) { updatePosition(t.clientX); return; }
+    if (!touchIsDrag.current) {
+      const dx = t.clientX - touchStart.current.x;
+      const dy = t.clientY - touchStart.current.y;
+      if (Math.abs(dx) <= Math.abs(dy)) return; // vertical scroll intent — let the page scroll
+      touchIsDrag.current = true;
+    }
+    updatePosition(t.clientX);
+  };
+  const handleTouchEnd = () => {
+    touchStart.current = null;
+    touchIsDrag.current = false;
   };
 
   return (
@@ -70,12 +89,15 @@ export default function BeforeAfterSlider({ items, accentColor }: BeforeAfterSli
           aspectRatio: "16/10",
           border: `1px solid ${accentColor}20`,
           boxShadow: `0 0 0 1px ${accentColor}10, 0 24px 64px rgba(0,0,0,0.45)`,
+          touchAction: "pan-y",
         }}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {/* After image (full) */}
         <div className="absolute inset-0 bg-cover bg-center"

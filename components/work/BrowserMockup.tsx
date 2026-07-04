@@ -129,7 +129,7 @@ export default function BrowserMockup({
         </div>
 
         {/* Screenshot / placeholder viewport */}
-        <div className="relative overflow-hidden" style={{ aspectRatio: "16/10" }}>
+        <div className="relative overflow-hidden" style={{ aspectRatio: view === "mobile" ? "3/4" : "16/10" }}>
 
           {hasScreenshots && current ? (
             <AnimatePresence mode="wait" custom={direction}>

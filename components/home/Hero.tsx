@@ -81,7 +81,7 @@ export default function Hero() {
         {/* Main headline */}
         <div className="mb-4 sm:mb-6 overflow-hidden">
           <motion.h1
-            className="font-display font-bold text-[clamp(2.6rem,10vw,9rem)] leading-[0.9] tracking-tight text-white"
+            className="font-display font-bold text-[clamp(2.6rem,10vw,9rem)] leading-[0.9] tracking-tight text-white break-words"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.6 }}

@@ -356,7 +356,7 @@ export default function SocialGrid({ handle, posts, accentColor }: SocialGridPro
 
         {/* ── Grid ───────────────────────────────────────────────────────────── */}
         <div
-          className={`grid gap-[2px] p-[2px] ${currentTab === "reel" ? "grid-cols-3" : "grid-cols-3"}`}
+          className="grid gap-[2px] p-[2px] grid-cols-3 sm:grid-cols-4 md:grid-cols-5"
           style={{ background: `${accentColor}08` }}
         >
           <AnimatePresence mode="popLayout">

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { blogPosts, getPostBySlug } from "@/lib/posts";
 import ContactCTA from "@/components/home/ContactCTA";
-import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
+import { BreadcrumbJsonLd, ArticleJsonLd } from "@/components/seo/JsonLd";
 import ReadingProgress from "@/components/blog/ReadingProgress";
 import ShareButtons from "@/components/blog/ShareButtons";
 
@@ -19,13 +19,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
+  const canonical = `https://www.socialpulselb.com/blog/${post.slug}`;
+  const publishedTime = new Date(post.date).toISOString();
   return {
     title: `${post.title} | Social Pulse Insights`,
     description: post.excerpt,
+    keywords: post.tags,
+    alternates: { canonical },
     openGraph: {
+      type: "article",
       title: `${post.title} | Social Pulse`,
       description: post.excerpt,
       images: [{ url: post.coverImage }],
+      publishedTime,
+      authors: [post.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Social Pulse`,
+      description: post.excerpt,
+      images: [post.coverImage],
     },
   };
 }
@@ -191,6 +204,15 @@ export default async function BlogPostPage({ params }: Props) {
           { name: post.title, url: pageUrl },
         ]}
       />
+      <ArticleJsonLd
+        url={pageUrl}
+        title={post.title}
+        description={post.excerpt}
+        image={post.coverImage}
+        datePublished={new Date(post.date).toISOString()}
+        author={post.author}
+        tags={post.tags}
+      />
 
       <ReadingProgress />
 
@@ -213,7 +235,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display font-black text-[clamp(2.2rem,6vw,5rem)] text-white leading-[1.0] tracking-tight uppercase mb-6 max-w-5xl">
+            <h1 className="font-display font-black text-[clamp(2.2rem,6vw,5rem)] text-white leading-[1.0] tracking-tight uppercase mb-6 max-w-5xl break-words">
               {post.title}
             </h1>
 

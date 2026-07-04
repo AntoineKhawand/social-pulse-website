@@ -82,7 +82,7 @@ function Lightbox({ pages, startIndex, aspectRatio, accentColor, onClose }: {
         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="relative rounded-xl overflow-hidden shadow-2xl"
         style={{
-          maxWidth: aspectRatio === "landscape" ? "88vw" : "54vw",
+          maxWidth: aspectRatio === "landscape" ? "88vw" : "clamp(280px, 54vw, 640px)",
           maxHeight: "82vh",
           width: "100%",
           boxShadow: `0 0 0 1px ${accentColor}25, 0 32px 80px rgba(0,0,0,0.7)`,

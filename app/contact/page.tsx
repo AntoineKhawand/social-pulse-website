@@ -54,7 +54,7 @@ export default function ContactPage() {
           {/* Header */}
           <div className="mb-14 md:mb-20">
             <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-6">Get in touch</p>
-            <h1 className="font-display font-bold text-[clamp(2.2rem,7vw,7rem)] text-white leading-none">
+            <h1 className="font-display font-bold text-[clamp(2.2rem,7vw,7rem)] text-white leading-none break-words">
               <SplitText text="Let's build" />
               <br />
               <SplitText text="something great." delay={0.2} className="text-gradient" />

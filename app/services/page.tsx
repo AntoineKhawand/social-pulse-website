@@ -115,7 +115,7 @@ export default function ServicesPage() {
       <section className="pt-32 md:pt-40 pb-16 md:pb-24 bg-dark border-b border-dark-200">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
           <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-6">Services</p>
-          <h1 className="font-display font-bold text-[clamp(2.5rem,8vw,8rem)] text-white leading-none">
+          <h1 className="font-display font-bold text-[clamp(2.5rem,8vw,8rem)] text-white leading-none break-words">
             <SplitText text="What we offer" />
           </h1>
           <p className="text-neutral-muted text-base md:text-xl max-w-xl mt-6 md:mt-8 leading-relaxed">
