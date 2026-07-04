@@ -13,7 +13,9 @@
       "PowerShell(New-Item *)",
       "Bash(git -C \"C:/Users/Administrateur/social-pulse-website\" status)",
       "Bash(git -C \"C:/Users/Administrateur/social-pulse-website\" diff --stat)",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Skill(claude-in-chrome)",
+      "Bash(Get-Content \"C:\\\\Users\\\\ADMINI~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Administrateur-social-pulse-website\\\\a9392317-65a6-4440-b3a8-574d227b29c3\\\\tasks\\\\b7yo5l10k.output\")"
     ]
   }
 }

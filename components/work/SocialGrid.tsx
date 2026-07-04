@@ -372,7 +372,7 @@ export default function SocialGrid({ handle, posts, accentColor }: SocialGridPro
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.22, delay: i * 0.025 }}
-                  className={`relative cursor-pointer overflow-hidden group ${isReel ? "aspect-[9/16]" : "aspect-square"}`}
+                  className="relative cursor-pointer overflow-hidden group"
                   style={{ background: "rgba(15,15,18,0.8)" }}
                   onMouseEnter={() => setHovered(i)}
                   onMouseLeave={() => setHovered(null)}
@@ -383,7 +383,7 @@ export default function SocialGrid({ handle, posts, accentColor }: SocialGridPro
                   <img
                     src={post.src}
                     alt=""
-                    className="w-full h-full object-cover"
+                    className="w-full block"
                     loading="lazy"
                   />
 

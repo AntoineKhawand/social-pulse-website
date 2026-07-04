@@ -2,6 +2,8 @@
 
 How to capture posts, carousels, and reels from Instagram and wire them into the site.
 
+> Adding a brand-new client? Start with **`NEW-CLIENT-WORKFLOW.md`** at the repo root — it's the full end-to-end checklist (project entry, cover, screenshots, socials, logo, presentation, verification). This file covers the Instagram/screenshot scripts in more detail.
+
 ---
 
 ## Overview of scripts
@@ -142,15 +144,4 @@ To add a new website to the capture list, add an entry to the `PROJECTS` array i
 
 ## Adding a completely new client
 
-1. Add the project to `lib/projects.ts` (copy an existing entry as a template).
-2. Run the Instagram capture if they have social posts:
-   ```bash
-   npx tsx scripts/capture-instagram.ts <handle> <slug> 12
-   ```
-3. Run the website screenshot capture if they have a website:
-   ```bash
-   npx tsx scripts/capture-screenshots.ts <slug>
-   ```
-   (First add the entry to `scripts/capture-screenshots.ts`.)
-4. Paste the printed arrays into `lib/projects.ts`.
-5. Add the cover SVG to `public/covers/`.
+See **`NEW-CLIENT-WORKFLOW.md`** at the repo root for the full checklist (project entry fields, cover image, screenshots, socials, logo, presentation deck, and local verification).

@@ -145,7 +145,7 @@ async function run() {
               .map((img) => new Promise((r) => { img.onload = r; img.onerror = r; }))
           );
         });
-        await tab.waitForTimeout(2000);
+        await tab.waitForTimeout(10000);
         // Scroll through the page to trigger lazy-loaded images/sections
         await tab.evaluate(async () => {
           const totalHeight = Math.max(
@@ -187,7 +187,7 @@ async function run() {
               .map((img) => new Promise((r) => { img.onload = r; img.onerror = r; }))
           );
         });
-        await mTab.waitForTimeout(2000);
+        await mTab.waitForTimeout(10000);
         // Scroll to trigger lazy loading before the viewport screenshot
         await mTab.evaluate(async () => {
           const totalHeight = Math.max(
