@@ -18,7 +18,7 @@ const OUTPUT_DIR = path.join(process.cwd(), "public", "clients");
 fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 const CLIENTS = [
-  { name: "OBJETI",                              handle: "objtei_lb" },
+  { name: "OBJETI",                              handle: "objeti_lb" },
   { name: "Mira Tueny",                          handle: "miratueny_hq" },
   { name: "SkyBond Travel",                      handle: "skybondtravel.lb" },
   { name: "Curaloop",                            handle: "curaloopglobal" },

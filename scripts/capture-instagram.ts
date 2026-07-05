@@ -2,13 +2,14 @@
  * Enhanced Instagram capture script
  *
  * Usage:
- *   npx tsx scripts/capture-instagram.ts <handle> <project-slug> [max-posts]
+ *   npx tsx scripts/capture-instagram.ts <handle> <project-slug> [max-posts] [offset] [mode]
  *
  * Example:
  *   npx tsx scripts/capture-instagram.ts dareadvisors_official dare-advisors 12
+ *   npx tsx scripts/capture-instagram.ts objeti_lb objeti 10 0 reels   — reels tab only
  *
  * What it does:
- *   1. Opens the Instagram profile and grabs post URLs
+ *   1. Opens the Instagram profile (or its Reels tab, when mode=reels) and grabs post URLs
  *   2. For each post — detects type: post / reel / carousel
  *   3. Posts    → saves thumbnail
  *   4. Carousels→ clicks through every slide and saves each image
@@ -27,12 +28,13 @@ import fs from "fs";
 import https from "https";
 import http from "http";
 
-const [, , handle, slug, maxStr, offsetStr] = process.argv;
+const [, , handle, slug, maxStr, offsetStr, modeArg] = process.argv;
 const MAX_POSTS = parseInt(maxStr    ?? "12", 10);
 const OFFSET    = parseInt(offsetStr ?? "0",  10);
+const MODE      = (modeArg ?? "all").toLowerCase(); // "all" | "reels"
 
 if (!handle || !slug) {
-  console.error("Usage: npx tsx scripts/capture-instagram.ts <handle> <project-slug> [max-posts] [offset]");
+  console.error("Usage: npx tsx scripts/capture-instagram.ts <handle> <project-slug> [max-posts] [offset] [mode: all|reels]");
   process.exit(1);
 }
 
@@ -125,6 +127,28 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
 
     if (isReel) {
       result.type = "reel";
+
+      // The Reels-tab grid doesn't expose <img> thumbnails the way the main
+      // grid does, so the temporary gridThumb download above often has
+      // nothing to work with. Fall back to the page's own og:image, which
+      // Instagram populates server-side for every reel permalink.
+      if (!fs.existsSync(thumbPath)) {
+        const ogImage = await page.evaluate(() => {
+          const meta = document.querySelector<HTMLMetaElement>('meta[property="og:image"]');
+          return meta?.content || null;
+        });
+        if (ogImage) {
+          try {
+            await downloadUrl(ogImage, thumbPath);
+            console.log(`  ✓ cover        ${baseName}.jpg  (reel, og:image fallback)`);
+          } catch {
+            console.warn(`  ⚠ reel cover download failed`);
+          }
+        } else {
+          console.warn(`  ⚠ no cover image found for reel`);
+        }
+      }
+
       // Try to get the video source URL for direct playback
       const videoSrc = await page.evaluate(() => {
         const v = document.querySelector<HTMLVideoElement>("video");
@@ -139,6 +163,8 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
         } catch {
           console.warn(`  ⚠ reel video download failed`);
         }
+      } else {
+        console.warn(`  ⚠ no video source found for reel — thumbnail only`);
       }
       return result;
     }
@@ -240,7 +266,7 @@ async function scrapePost(page: Page, postUrl: string, idx: number, gridThumb: s
 // ── Main ───────────────────────────────────────────────────────────────────────
 
 async function run() {
-  console.log(`\n📱  @${handle}  →  public/projects/${slug}/social/\n`);
+  console.log(`\n📱  @${handle}${MODE === "reels" ? " (Reels tab)" : ""}  →  public/projects/${slug}/social/\n`);
 
   const browser = await chromium.launch({
     headless: false,
@@ -261,7 +287,8 @@ async function run() {
   await profilePage.route("**/*.{woff,woff2,otf,ttf}", (r) => r.abort());
 
   // ── Step 1: collect post URLs + grid thumbnails from profile ─────────────
-  await profilePage.goto(`https://www.instagram.com/${handle}/`, { waitUntil: "load", timeout: 60_000 });
+  const profileUrl = `https://www.instagram.com/${handle}/${MODE === "reels" ? "reels/" : ""}`;
+  await profilePage.goto(profileUrl, { waitUntil: "load", timeout: 60_000 });
   await dismissOverlays(profilePage);
   await profilePage.waitForTimeout(3_000);
 
