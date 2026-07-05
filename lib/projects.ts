@@ -1176,14 +1176,27 @@ export const projects: Project[] = [
     category: "Social Media",
     year: "2024",
     location: "Lebanon",
-    description: "Social media management for OBJETI.",
-    longDescription: "Social media management for OBJETI.",
+    description:
+      "Social media management for OBJETI, a Lebanese home decor and lifestyle brand, on Instagram.",
+    longDescription:
+      "OBJETI is a Lebanese home decor and lifestyle brand curating pieces that turn everyday spaces into something worth noticing. Social Pulse manages @objeti_lb on Instagram, producing short-form reels that put every piece in motion — styled, paced, and built for a feed people actually stop to watch.",
     coverImage: "/projects/objeti/social/post-1.jpg",
     images: [],
     tags: ["Social Media"],
     featured: false,
     accentColor: "#A78BFA",
     instagramHandle: "objeti_lb",
+    overviewParagraphs: [
+      "OBJETI is a Lebanese home decor and lifestyle brand, curating pieces that turn everyday spaces into something worth noticing.",
+      "Social Pulse manages @objeti_lb on Instagram, producing short-form reels that put every piece in motion — styled, paced, and built for a feed people actually stop to watch.",
+      "Home decor, told through content that moves.",
+    ],
+    highlights: [
+      "OBJETI",
+      "@objeti_lb",
+      "reels",
+    ],
+    quote: "Every object tells a story — we just make sure people stop to hear it.",
     socialPosts: [
       { src: "/projects/objeti/social/post-1.jpg", type: "reel", instagramUrl: "https://www.instagram.com/objeti_lb/reel/DYEfigtiDar/" },
       { src: "/projects/objeti/social/post-2.jpg", type: "reel", instagramUrl: "https://www.instagram.com/objeti_lb/reel/DXqr9eCgrD7/" },
@@ -1204,14 +1217,27 @@ export const projects: Project[] = [
     category: "Social Media",
     year: "2024",
     location: "Lebanon",
-    description: "Social media management for SkyBond Travel.",
-    longDescription: "Social media management for SkyBond Travel.",
+    description:
+      "Social media management for SkyBond Travel, a Lebanese travel agency, on Instagram.",
+    longDescription:
+      "SkyBond Travel is a Lebanese travel agency booking flights, packages, and getaways for clients across the region. Social Pulse manages @skybondtravel.lb on Instagram, producing a steady stream of reels that turn destinations and deals into content people want to book on the spot.",
     coverImage: "/projects/skybond-travel/social/post-1.jpg",
     images: [],
     tags: ["Social Media"],
     featured: false,
     accentColor: "#38BDF8",
     instagramHandle: "skybondtravel.lb",
+    overviewParagraphs: [
+      "SkyBond Travel is a Lebanese travel agency, booking flights, packages, and getaways for clients across the region.",
+      "Social Pulse manages @skybondtravel.lb on Instagram, producing a steady stream of reels that turn destinations and deals into content people want to book on the spot.",
+      "Every trip starts with a scroll.",
+    ],
+    highlights: [
+      "SkyBond Travel",
+      "@skybondtravel.lb",
+      "reels",
+    ],
+    quote: "We don't just sell tickets — we sell the trip before you've packed a bag.",
     socialPosts: [
       { src: "/projects/skybond-travel/social/post-1.jpg", type: "reel", videoSrc: "/projects/skybond-travel/social/post-1.mp4", instagramUrl: "https://www.instagram.com/skybondtravel.lb/reel/DUnShJIiOGR/" },
       { src: "/projects/skybond-travel/social/post-2.jpg", type: "reel", instagramUrl: "https://www.instagram.com/skybondtravel.lb/reel/C3hwe2-LYmt/" },
@@ -1234,14 +1260,27 @@ export const projects: Project[] = [
     category: "Social Media",
     year: "2024",
     location: "Global",
-    description: "Social media management for Curaloop.",
-    longDescription: "Social media management for Curaloop.",
+    description:
+      "Social media management for Curaloop, a global healthcare and patient care platform, on Instagram.",
+    longDescription:
+      "Curaloop is a healthcare technology company building patient care solutions for providers and patients around the world. Social Pulse manages @curaloopglobal on Instagram, producing reels that translate complex care technology into content that's easy to trust and easy to share.",
     coverImage: "/projects/curaloop/social/post-1.jpg",
     images: [],
     tags: ["Social Media"],
     featured: false,
     accentColor: "#06B6D4",
     instagramHandle: "curaloopglobal",
+    overviewParagraphs: [
+      "Curaloop is a healthcare technology company, building patient care solutions for providers and patients around the world.",
+      "Social Pulse manages @curaloopglobal on Instagram, producing reels that translate complex care technology into content that's easy to trust and easy to share.",
+      "Patient care, made visible.",
+    ],
+    highlights: [
+      "Curaloop",
+      "@curaloopglobal",
+      "patient care",
+    ],
+    quote: "Care shouldn't be complicated — and neither should explaining it.",
     socialPosts: [
       { src: "/projects/curaloop/social/post-1.jpg", type: "reel", instagramUrl: "https://www.instagram.com/curaloopglobal/reel/DWf_XqzDfUa/" },
       { src: "/projects/curaloop/social/post-2.jpg", type: "reel", instagramUrl: "https://www.instagram.com/curaloopglobal/reel/DWPFjVojViw/" },
