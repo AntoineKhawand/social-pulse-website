@@ -2,10 +2,7 @@ import type { Metadata } from "next";
 import SplitText from "@/components/ui/SplitText";
 import Services from "@/components/home/Services";
 import ContactCTA from "@/components/home/ContactCTA";
-import RevealBlock from "@/components/ui/RevealBlock";
-import BookCall from "@/components/ui/BookCall";
 import { FaqJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
-import ProjectEstimator from "@/components/services/ProjectEstimator";
 
 export const metadata: Metadata = {
   title: "Services — Branding, Social Media, Video & Web Design | Beirut",
@@ -56,50 +53,6 @@ const faqs = [
   },
 ];
 
-const packages = [
-  {
-    name: "Launch",
-    price: "from $1,200/mo",
-    desc: "Perfect for new brands or businesses starting or refreshing their digital presence.",
-    features: [
-      "Brand identity (logo + basic guidelines)",
-      "Social media setup on 2 platforms",
-      "12 content pieces per month",
-      "Basic reel production (2/month)",
-      "Monthly performance report",
-    ],
-    highlight: false,
-  },
-  {
-    name: "Grow",
-    price: "from $2,800/mo",
-    desc: "For established brands ready to scale their digital footprint across Lebanon and the GCC.",
-    features: [
-      "Everything in Launch",
-      "4 professional reels per month",
-      "Paid social campaign management",
-      "Website design or redesign",
-      "Bi-weekly strategy calls",
-      "Community management (DMs + comments)",
-    ],
-    highlight: true,
-  },
-  {
-    name: "Dominate",
-    price: "Custom",
-    desc: "Full-service creative partnership for brands that want to own their category.",
-    features: [
-      "Everything in Grow",
-      "Monthly cinematic brand film",
-      "Influencer & PR outreach",
-      "Dedicated account team",
-      "24-hour priority support",
-      "Quarterly brand audits",
-    ],
-    highlight: false,
-  },
-];
-
 export default function ServicesPage() {
   return (
     <>
@@ -127,106 +80,6 @@ export default function ServicesPage() {
 
       {/* Services accordion */}
       <Services />
-
-      {/* Pricing packages */}
-      <section className="py-20 md:py-32 bg-dark border-t border-dark-200">
-        <div className="max-w-[1440px] mx-auto px-5 sm:px-8 md:px-10 lg:px-16">
-          <div className="mb-12 md:mb-16">
-            <p className="text-xs uppercase tracking-[0.3em] text-brand-light mb-4">Packages</p>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-none">
-              <SplitText text="Simple pricing" />
-            </h2>
-            <p className="text-neutral-muted text-base mt-4 max-w-md">
-              Transparent, scalable packages. No hidden fees, just results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {packages.map((pkg, i) => (
-              <RevealBlock key={pkg.name} delay={i * 0.1}>
-                <div
-                  className={`rounded-2xl md:rounded-3xl p-6 md:p-8 flex flex-col h-full ${
-                    pkg.highlight
-                      ? "bg-brand border border-brand shadow-[0_0_60px_rgba(124,58,237,0.3)]"
-                      : "border border-dark-300 bg-dark-100"
-                  }`}
-                >
-                  <div className="mb-6 md:mb-8">
-                    <p
-                      className={`text-xs uppercase tracking-widest mb-3 ${
-                        pkg.highlight ? "text-violet-200" : "text-neutral-mid"
-                      }`}
-                    >
-                      {pkg.name}
-                    </p>
-                    <p className="font-display font-bold text-2xl md:text-3xl text-white mb-3">
-                      {pkg.price}
-                    </p>
-                    <p
-                      className={`text-sm leading-relaxed ${
-                        pkg.highlight ? "text-violet-200" : "text-neutral-muted"
-                      }`}
-                    >
-                      {pkg.desc}
-                    </p>
-                  </div>
-
-                  <ul className="flex flex-col gap-2.5 md:gap-3 flex-1 mb-6 md:mb-8">
-                    {pkg.features.map((f) => (
-                      <li
-                        key={f}
-                        className={`flex items-start gap-3 text-sm ${
-                          pkg.highlight ? "text-white" : "text-neutral-muted"
-                        }`}
-                      >
-                        <span
-                          className={`mt-0.5 shrink-0 text-xs ${
-                            pkg.highlight ? "text-violet-200" : "text-brand-light"
-                          }`}
-                        >
-                          ✓
-                        </span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a
-                    href="/contact"
-                    className={`w-full text-center px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-                      pkg.highlight
-                        ? "bg-white text-brand hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-                        : "border border-dark-300 text-white hover:border-brand hover:shadow-[0_0_15px_rgba(124,58,237,0.25)]"
-                    }`}
-                  >
-                    Get started
-                  </a>
-                </div>
-              </RevealBlock>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <RevealBlock className="mt-10 md:mt-12">
-            <div className="text-center p-8 md:p-12 rounded-2xl md:rounded-3xl border border-dark-300 bg-dark-100">
-              <p className="text-xs uppercase tracking-widest text-brand-light mb-3">
-                Not sure which package fits?
-              </p>
-              <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
-                Let&apos;s talk about your project
-              </h3>
-              <p className="text-neutral-muted text-sm md:text-base max-w-md mx-auto mb-6 leading-relaxed">
-                Every brand is unique. Tell us about your goals and we&apos;ll build a custom
-                package that fits your budget and ambitions.
-              </p>
-              <BookCall variant="primary" size="lg" label="Book a free consultation →" />
-            </div>
-          </RevealBlock>
-        </div>
-      </section>
-
-      {/* Estimator */}
-      <ProjectEstimator />
 
       {/* FAQ section for AEO */}
       <section className="py-20 md:py-24 bg-dark-100 border-t border-dark-200">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -45,17 +46,17 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group shrink-0 min-h-[44px]"
+            className="flex items-center group shrink-0 min-h-[44px]"
             aria-label="Social Pulse — Home"
           >
-            <div className="relative w-7 h-7 md:w-8 md:h-8 shrink-0">
-              <div className="absolute inset-0 rounded-full bg-brand opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute inset-[2px] md:inset-[3px] rounded-full bg-dark" />
-              <div className="absolute inset-[5px] md:inset-[6px] rounded-full bg-brand-light" />
-            </div>
-            <span className="font-display font-bold text-xs md:text-sm tracking-wider uppercase text-white">
-              Social Pulse
-            </span>
+            <Image
+              src="/logo-wordmark.png"
+              alt="Social Pulse"
+              width={740}
+              height={106}
+              priority
+              className="h-6 sm:h-7 md:h-8 w-auto transition-opacity group-hover:opacity-90"
+            />
           </Link>
 
           {/* Desktop Nav */}

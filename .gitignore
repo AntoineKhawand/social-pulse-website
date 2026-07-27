@@ -33,3 +33,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 *.mp4
+
+# Accidental unrelated project drop — not part of this site
+public/covers/ruvo/

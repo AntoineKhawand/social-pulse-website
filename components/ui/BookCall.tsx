@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Calendar, Send } from "react-iconly";
 
 // ← Replace with your Cal.com username once you create an account at cal.com
 const CAL_USERNAME = "social-pulse";
@@ -86,9 +87,9 @@ export default function BookCall({
                         className="w-9 h-9 rounded-xl bg-brand/15 flex items-center justify-center shrink-0"
                         style={{ boxShadow: "0 0 20px rgba(124,58,237,0.15)" }}
                       >
-                        <svg className="w-5 h-5 text-brand-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                        </svg>
+                        <span className="text-brand-light">
+                          <Calendar set="light" size={20} primaryColor="currentColor" />
+                        </span>
                       </div>
                       <div>
                         <h3 className="font-display font-bold text-lg text-white leading-tight">
@@ -113,9 +114,9 @@ export default function BookCall({
                   <div className="w-12 h-12 rounded-2xl bg-brand/15 flex items-center justify-center mb-5"
                     style={{ boxShadow: "0 0 30px rgba(124,58,237,0.15)" }}
                   >
-                    <svg className="w-6 h-6 text-brand-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                    </svg>
+                    <span className="text-brand-light">
+                      <Calendar set="light" size={24} primaryColor="currentColor" />
+                    </span>
                   </div>
 
                   <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-2">
@@ -151,9 +152,7 @@ export default function BookCall({
                     className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-dark-300 text-neutral-muted hover:text-white hover:border-brand-light text-sm font-medium transition-all duration-300"
                   >
                     Email us directly
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                    </svg>
+                    <Send set="light" size={16} primaryColor="currentColor" />
                   </a>
                 </div>
               )}

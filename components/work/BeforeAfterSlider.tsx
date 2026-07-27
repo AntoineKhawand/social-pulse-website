@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "react-iconly";
 
 interface BeforeAfterPair {
   label: string;
@@ -132,12 +133,10 @@ export default function BeforeAfterSlider({ items, accentColor }: BeforeAfterSli
             boxShadow: `0 0 20px ${accentColor}60, 0 0 40px ${accentColor}30`,
           }}
         >
-          <svg className="w-4 h-4 text-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-            <path d="M8 3L3 8L8 13" />
-            <path d="M16 3L21 8L16 13" />
-            <path d="M8 11L3 16L8 21" />
-            <path d="M16 11L21 16L16 21" />
-          </svg>
+          <div className="flex items-center -mx-0.5 text-dark">
+            <ChevronLeft set="bold" size={14} primaryColor="currentColor" />
+            <ChevronRight set="bold" size={14} primaryColor="currentColor" />
+          </div>
         </div>
 
         {/* Labels */}

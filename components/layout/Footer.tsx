@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import RevealBlock from "@/components/ui/RevealBlock";
 
 const footerLinks = {
@@ -55,16 +56,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-10 mb-10 md:mb-16">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
-            <div className="flex items-center gap-2 mb-3 md:mb-4">
-              <div className="relative w-6 h-6 shrink-0">
-                <div className="absolute inset-0 rounded-full bg-brand opacity-80" />
-                <div className="absolute inset-[2px] rounded-full bg-dark-100" />
-                <div className="absolute inset-[4px] rounded-full bg-brand-light" />
-              </div>
-              <span className="font-display font-bold text-sm tracking-wider uppercase text-white">
-                Social Pulse
-              </span>
-            </div>
+            <Image
+              src="/logo-wordmark.png"
+              alt="Social Pulse"
+              width={740}
+              height={106}
+              className="h-6 md:h-7 w-auto mb-3 md:mb-4"
+            />
+
             <p className="text-neutral-muted text-sm leading-relaxed max-w-[200px]">
               The Heartbeat of your Brand. Lebanon · KSA · UAE · USA.
             </p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "@/components/ui/icons";
 import { blogPosts, getPostBySlug } from "@/lib/posts";
 import ContactCTA from "@/components/home/ContactCTA";
 import { BreadcrumbJsonLd, ArticleJsonLd } from "@/components/seo/JsonLd";
@@ -418,9 +419,9 @@ export default async function BlogPostPage({ params }: Props) {
                   <div className="relative z-10 p-6 md:p-7 flex flex-col h-full min-h-[160px]">
                     {/* Direction label */}
                     <div className="flex items-center gap-2 mb-4">
-                      <svg className="w-4 h-4 text-brand-light group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                      </svg>
+                      <span className="inline-flex text-brand-light group-hover:text-white transition-colors">
+                        <ChevronLeft set="bold" size={16} primaryColor="currentColor" />
+                      </span>
                       <span className="text-[10px] uppercase tracking-[0.25em] text-brand-light group-hover:text-white transition-colors font-semibold">Previous</span>
                     </div>
 
@@ -455,9 +456,9 @@ export default async function BlogPostPage({ params }: Props) {
                     {/* Direction label */}
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-[10px] uppercase tracking-[0.25em] text-brand-light group-hover:text-white transition-colors font-semibold">Next</span>
-                      <svg className="w-4 h-4 text-brand-light group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
+                      <span className="inline-flex text-brand-light group-hover:text-white transition-colors">
+                        <ChevronRight set="bold" size={16} primaryColor="currentColor" />
+                      </span>
                     </div>
 
                     {/* Category */}

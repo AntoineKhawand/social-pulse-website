@@ -1070,6 +1070,164 @@ AI is a productivity multiplier, not a creativity replacement. The agencies and 
 
 Lebanese brands that embrace AI tools now will have a significant competitive advantage over those that wait.`,
   },
+  {
+    slug: "social-commerce-2026",
+    title: "Social Commerce in 2026: Turning Instagram and TikTok Into Checkout Pages",
+    excerpt: "In-app checkout, live shopping, and AI product tagging are collapsing the gap between discovery and purchase. Here's what Lebanese and GCC brands need to set up now.",
+    category: "Social Media",
+    author: "Social Pulse Team",
+    authorBio: "Social Pulse is a full-service creative agency in Beirut, Lebanon — specializing in branding, social media, video production, and web design for brands across Lebanon and the GCC.",
+    date: "June 12, 2026",
+    readTime: "7 min read",
+    coverImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&q=90",
+    tags: ["Social Commerce", "Instagram", "TikTok", "Trends", "GCC"],
+    featured: true,
+    content: `The line between "scrolling" and "shopping" has essentially disappeared. In 2026, the brands winning on social media aren't just posting great content — they're turning every post into a potential transaction.
+
+## Why Social Commerce Is Accelerating Now
+
+Instagram and TikTok have spent the last two years building out native shopping infrastructure — product tags, in-app checkout, live shopping events, and AI-powered product recognition that can tag items directly from video. For Lebanese and GCC brands, this closes a gap that used to cost sales: the extra step of leaving the app to visit a website.
+
+## What Changed in the Last Year
+
+- **AI product tagging** — Platforms now auto-detect products in reels and suggest tags, cutting manual catalog work
+- **Live shopping matured** — What was a novelty in 2023 is now a recurring monthly event for brands with real inventory to move
+- **Creator-linked storefronts** — Influencers can now attach their own storefront to sponsored content, splitting commission automatically
+- **Shorter purchase paths** — Fewer taps between "I want this" and "I bought this" consistently lifts conversion
+
+## Setting Up Social Commerce for a Lebanese or GCC Business
+
+### 1. Clean Product Catalog
+Every product needs a clear photo, price, and description synced to your Instagram/TikTok Shop. This is foundational — broken or outdated catalogs kill trust instantly.
+
+### 2. Native Checkout Where Available
+In markets where in-app checkout isn't fully supported, a fast WhatsApp or DM handoff is the next best thing. The goal is minimizing friction, not forcing a specific checkout flow.
+
+### 3. Live Shopping Events
+A monthly or seasonal live event — new drops, restocks, or limited releases — builds urgency and gives your community a reason to show up at a specific time.
+
+### 4. Creator Partnerships With Trackable Links
+Every partnership should have a discount code or trackable link. Without this, you're guessing at ROI.
+
+## What We're Seeing With Our Own Clients
+
+Several of the brands we manage — from artisan food businesses to lifestyle and travel accounts — are shifting reel content toward product-forward storytelling: showing the item in use, in context, styled, before the caption ever asks for a sale. That shift alone improves save and share rates, which social commerce algorithms increasingly reward.
+
+## The Mistake Most Brands Still Make
+
+Treating social commerce as a bolt-on feature instead of a content strategy. A product tag on a boring video won't convert. The content still has to earn the stop-scroll — commerce tools only remove the friction after that happens.
+
+## Getting Started This Quarter
+
+- Audit your product catalog for accuracy and photo quality
+- Enable shopping tags on your top 10 performing post formats
+- Plan one live shopping event within the next 60 days
+- Track every creator partnership with a unique code or link
+
+Social commerce isn't a future trend anymore — it's the current baseline. Brands that treat their feed as a storefront, not just a billboard, are the ones capturing the sale before the scroll moves on.`,
+  },
+  {
+    slug: "linkedin-b2b-lebanon-gcc",
+    title: "LinkedIn for Lebanese and GCC Businesses: The B2B Platform Everyone's Ignoring",
+    excerpt: "While every brand fights for attention on Instagram and TikTok, LinkedIn remains wide open for B2B companies, consultants, and service businesses in the region.",
+    category: "Social Media",
+    author: "Social Pulse Team",
+    authorBio: "Social Pulse is a full-service creative agency in Beirut, Lebanon — specializing in branding, social media, video production, and web design for brands across Lebanon and the GCC.",
+    date: "May 28, 2026",
+    readTime: "6 min read",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=90",
+    tags: ["LinkedIn", "B2B", "Lebanon", "GCC", "Social Media"],
+    featured: false,
+    content: `Ask most Lebanese business owners about their social media strategy, and they'll talk about Instagram. Ask about LinkedIn, and the answer is usually "we have a page, but nobody manages it." That gap is exactly why LinkedIn is one of the most underpriced opportunities in the region right now.
+
+## The Regional Attention Imbalance
+
+Instagram and TikTok are saturated with brands competing for the same scroll. LinkedIn, by contrast, has a fraction of the organic competition in Lebanon and the GCC — even though decision-makers, business owners, and investors are actively using it daily.
+
+## Who Should Be Prioritizing LinkedIn
+
+- **B2B service companies** — consulting, finance, legal, logistics
+- **Founders and executives** building a personal brand alongside their company
+- **Recruitment-driven businesses** — training academies, staffing agencies, education providers
+- **Anyone selling into the GCC** — LinkedIn is where cross-border business relationships actually start
+
+## What Works on LinkedIn in 2026
+
+### 1. Founder-Led Content
+Posts from a named person consistently outperform posts from a faceless company page. Decision-makers want to see who they're doing business with before the first call.
+
+### 2. Native Video, Not Reposted Reels
+LinkedIn's algorithm favors video uploaded directly to the platform over links or repurposed Instagram content. Short, talking-head explainer videos perform especially well for service businesses.
+
+### 3. Case Studies as Content
+Unlike Instagram, LinkedIn audiences want the details — the process, the numbers, the outcome. A results-driven case study post can outperform a polished brand video here.
+
+### 4. Comment Engagement Over Follower Count
+On LinkedIn, a thoughtful comment on the right person's post can generate more qualified visibility than a week of your own posts. Engagement is a distribution strategy, not just a courtesy.
+
+## A Simple Weekly Framework
+
+- **1 founder-voice post** — a lesson, opinion, or behind-the-scenes insight
+- **1 case study or results post** — proof of work, told in specifics
+- **2–3 days of active commenting** — on clients, partners, and industry voices
+
+## The Honest Trade-Off
+
+LinkedIn moves slower than Instagram. Growth is steadier, less viral, and more relationship-driven. For a Lebanese or GCC business selling to other businesses, that's exactly the trade-off worth making — slower reach, higher-intent audience.
+
+## Getting Started
+
+If your business sells to other businesses, or if your founder's personal credibility drives sales, LinkedIn deserves a real content plan — not an afterthought page that hasn't posted since 2022.`,
+  },
+  {
+    slug: "ai-avatars-ugc-ads-2026",
+    title: "AI Avatars and UGC-Style Ads: What Business Owners Need to Know in 2026",
+    excerpt: "AI-generated presenters and synthetic UGC ads are showing up in more feeds every month. Here's when they work, when they backfire, and how to use them responsibly.",
+    category: "Social Media",
+    author: "Social Pulse Team",
+    authorBio: "Social Pulse is a full-service creative agency in Beirut, Lebanon — specializing in branding, social media, video production, and web design for brands across Lebanon and the GCC.",
+    date: "July 3, 2026",
+    readTime: "6 min read",
+    coverImage: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&q=90",
+    tags: ["AI", "UGC", "Social Media", "Trends", "Advertising"],
+    featured: false,
+    content: `Scroll through Instagram or TikTok ads today and there's a decent chance the "customer" reviewing a product on camera isn't a real customer at all. AI-generated avatars and synthetic UGC-style ads have moved from novelty to a real line item in performance marketing budgets — and Lebanese and GCC brands are starting to ask whether they should use them.
+
+## Why This Trend Took Off
+
+Authentic UGC (user-generated content) has consistently outperformed polished brand ads for years — it feels native, unscripted, and trustworthy. AI avatar tools let brands produce that same look and pacing without booking a creator, a shoot, or waiting on turnaround. For lean marketing budgets, the appeal is obvious.
+
+## Where It Genuinely Works
+
+- **Rapid A/B testing** — generating dozens of hook variations to find what resonates before investing in real production
+- **Multilingual ad variants** — the same script delivered in Arabic, English, and French without separate shoots
+- **Early-stage products** — testing offer angles before a brand has real customers to film testimonials with
+
+## Where It Backfires
+
+- **Healthcare, finance, and trust-driven categories** — audiences are increasingly good at spotting synthetic presenters, and getting caught erodes credibility fast, especially for medical and professional service brands
+- **Long-term brand building** — synthetic content can win a click but rarely builds the kind of community and loyalty that real creator relationships do
+- **Markets with strong personal-relationship culture** — in Lebanon and the GCC, where trust is relationship-driven, an obviously fake "customer" can do more damage than a lower-production real one
+
+## Disclosure Matters More Than Ever
+
+Platforms are moving toward requiring disclosure for AI-generated people in ads. Beyond the compliance question, transparency is simply the safer long-term bet — audiences forgive AI-assisted content; they don't forgive being deceived by it.
+
+## Our Approach at Social Pulse
+
+We use AI avatar and synthetic UGC tools for testing and iteration — never as the final face of a client's brand. Real creators, real patients, real customers still do the heavy lifting when it comes to actual trust-building, particularly for the healthcare and personal-brand clients we manage.
+
+## A Practical Framework
+
+1. **Use AI-generated content to test hooks and angles fast and cheap**
+2. **Scale winning angles with real people once you know what resonates**
+3. **Disclose AI use where required, and lean toward disclosure even where it isn't**
+4. **Never use synthetic testimonials for anything health, finance, or trust-critical**
+
+## The Bottom Line
+
+AI avatars are a legitimate tool for speed and testing — not a replacement for the real relationships that make Lebanese and GCC audiences actually buy. Use the technology to move faster toward the right message, not to fake the messenger.`,
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
