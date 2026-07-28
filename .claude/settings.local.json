@@ -41,7 +41,10 @@
       "Bash(npm view *)",
       "Bash(echo 'blog post -> __CMDSUB_OUTPUT__')",
       "Read(//tmp/**)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(node -e \"console.log\\(require\\('./package.json'\\).engines\\)\")",
+      "PowerShell(Get-CimInstance *)",
+      "Bash(PORT=3005 node server.js)"
     ]
   }
 }
