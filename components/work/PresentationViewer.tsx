@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Scan, Document } from "react-iconly";
 import { Presentation } from "@/lib/projects";
@@ -132,8 +133,7 @@ function Lightbox({ pages, startIndex, aspectRatio, accentColor, onClose }: {
               opacity: i === index ? 1 : 0.45,
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="" className="w-full h-full object-cover" />
+            <Image src={src} alt="" fill className="object-cover" sizes="32px" />
           </button>
         ))}
       </div>
@@ -240,8 +240,7 @@ export default function PresentationViewer({ presentation, accentColor, title }:
               className={`relative cursor-pointer overflow-hidden rounded-xl group ${thumbAspect}`}
               onClick={() => setLightboxIndex(0)}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={coverPage} alt="Slide 1" className="w-full h-full object-cover" />
+              <Image src={coverPage} alt="Slide 1" fill className="object-cover" sizes="(max-width: 768px) 100vw, 1000px" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/30">
                 <div className="w-12 h-12 rounded-full bg-white/20 border border-white/30 flex items-center justify-center">
                   <ExpandIcon />
@@ -257,8 +256,7 @@ export default function PresentationViewer({ presentation, accentColor, title }:
                 onMouseEnter={() => setHovered(0)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={coverPage} alt="Slide 1" className="w-full h-full object-cover" />
+                <Image src={coverPage} alt="Slide 1" fill className="object-cover" sizes="(max-width: 768px) 100vw, 66vw" />
                 <div
                   className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm rounded-full px-2.5 py-1 text-[10px] text-white/70 font-mono"
                 >
@@ -296,8 +294,7 @@ export default function PresentationViewer({ presentation, accentColor, title }:
                       onMouseEnter={() => setHovered(pageIndex)}
                       onMouseLeave={() => setHovered(null)}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={src} alt={`Slide ${pageIndex + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                      <Image src={src} alt={`Slide ${pageIndex + 1}`} fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" loading="lazy" />
                       <div className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm rounded-full px-2 py-0.5 text-[9px] text-white/60 font-mono">
                         {String(pageIndex + 1).padStart(2, "0")}
                       </div>
@@ -339,8 +336,7 @@ export default function PresentationViewer({ presentation, accentColor, title }:
                     onMouseEnter={() => setHovered(pageIndex)}
                     onMouseLeave={() => setHovered(null)}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={src} alt={`Slide ${pageIndex + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                    <Image src={src} alt={`Slide ${pageIndex + 1}`} fill className="object-cover" sizes="(max-width: 640px) 33vw, (max-width: 768px) 25vw, (max-width: 1024px) 20vw, 16vw" loading="lazy" />
                     <div className="absolute bottom-1.5 left-1.5 bg-black/60 backdrop-blur-sm rounded-full px-1.5 py-0.5 text-[9px] text-white/60 font-mono">
                       {String(pageIndex + 1).padStart(2, "0")}
                     </div>
