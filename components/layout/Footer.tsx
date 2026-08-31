@@ -65,7 +65,7 @@ export default function Footer() {
             />
 
             <p className="text-neutral-muted text-sm leading-relaxed max-w-[200px]">
-              The Heartbeat of your Brand. Lebanon · KSA · UAE · USA.
+              The Heartbeat of your Brand. Lebanon · KSA · UAE · USA · Canada.
             </p>
           </div>
 

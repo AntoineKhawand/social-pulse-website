@@ -82,7 +82,7 @@ export default function Hero() {
         >
           <span className="w-5 sm:w-6 md:w-8 h-px bg-brand-light shrink-0" />
           <span className="text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-brand-light font-medium">
-            Lebanon · KSA · UAE · USA
+            Lebanon · KSA · UAE · USA · Canada
           </span>
         </motion.div>
 

@@ -34,7 +34,7 @@ const details = [
     href: "https://www.linkedin.com/company/socialpulselb",
   },
   { label: "Based in", value: "Beirut, Lebanon", href: null },
-  { label: "Serving", value: "Lebanon · KSA · UAE · USA · Global", href: null },
+  { label: "Serving", value: "Lebanon · KSA · UAE · USA · Canada · Global", href: null },
   { label: "Response time", value: "Within 24 hours", href: null },
 ];
 
