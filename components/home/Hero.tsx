@@ -17,7 +17,7 @@ export default function Hero() {
     >
       {/* ── YouTube video background ──────────────────────────────────────── */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <iframe
+        <div
           className="absolute"
           style={{
             top: "50%",
@@ -27,12 +27,20 @@ export default function Hero() {
             minHeight: "100vh",
             minWidth: "177.78vh",
             transform: "translate(-50%, -50%)",
-            border: "none",
           }}
-          src="https://www.youtube-nocookie.com/embed/1xYXW0RU7Do?autoplay=1&mute=1&loop=1&playlist=1xYXW0RU7Do&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=3"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          title="Agency showreel background"
-        />
+        >
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            style={{ border: "none" }}
+            src="https://www.youtube-nocookie.com/embed/1xYXW0RU7Do?autoplay=1&mute=1&loop=1&playlist=1xYXW0RU7Do&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=3"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            title="Agency showreel background"
+          />
+          {/* Masks YouTube's title/branding overlay that flashes in on autoplay start.
+              Sized as a % of the video box (not a fixed px height) so it stays covered
+              at any viewport size. */}
+          <div className="absolute top-0 left-0 right-0 h-[16%] bg-gradient-to-b from-dark via-dark/80 to-transparent" />
+        </div>
       </div>
 
       {/* ── Shared overlay ────────────────────────────────────────────────── */}
