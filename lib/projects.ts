@@ -552,7 +552,7 @@ export const projects: Project[] = [
       "Social media management for Céline, a Lebanese artisan bakery, on Instagram.",
     longDescription:
       "Céline is a Lebanese artisan bakery crafting pastries and baked goods by hand. Social Pulse manages @celine.artisans on Instagram, producing posts, carousels, and reels that showcase every bake in detail — from the first proof to the final bite.",
-    coverImage: "/covers/Celine.artisans.png",
+    coverImage: "/projects/celine/social/post-10.jpg",
     images: [],
     tags: ["Social Media"],
     featured: false,
