@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "react-iconly";
 
@@ -101,18 +102,27 @@ export default function BeforeAfterSlider({ items, accentColor }: BeforeAfterSli
         onTouchEnd={handleTouchEnd}
       >
         {/* After image (full) */}
-        <div className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${current.after})` }}
+        <Image
+          src={current.after}
+          alt={`${current.label} after`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 800px"
         />
 
         {/* Before image (clipped) */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${current.before})`,
-            clipPath: `inset(0 ${100 - sliderPos}% 0 0)`,
-          }}
-        />
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+        >
+          <Image
+            src={current.before}
+            alt={`${current.label} before`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+        </div>
 
         {/* Divider line */}
         <div

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { PageScreenshot } from "@/lib/projects";
 
@@ -153,8 +154,7 @@ export default function BrowserMockup({
                     >
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 rounded-b-2xl z-20"
                         style={{ background: "rgba(8,8,10,0.98)", borderBottom: `1.5px solid ${accentColor}20` }} />
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={current.mobile} alt={`${title} mobile`} className="w-full h-full object-cover object-top" draggable={false} />
+                      <Image src={current.mobile} alt={`${title} mobile`} fill className="object-cover object-top" sizes="(max-width: 768px) 90vw, 400px" draggable={false} />
                     </div>
                   </div>
                 ) : (

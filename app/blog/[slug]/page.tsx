@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "@/components/ui/icons";
 import { blogPosts, getPostBySlug } from "@/lib/posts";
 import ContactCTA from "@/components/home/ContactCTA";
@@ -259,9 +260,13 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* ── Cover image ─────────────────────────────────────────────────── */}
         <div className="relative w-full h-[40vh] md:h-[55vh] border-b border-dark-200 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${post.coverImage})` }}
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
           />
           {/* Left fade */}
           <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-dark to-transparent" />
@@ -354,10 +359,9 @@ export default async function BlogPostPage({ params }: Props) {
                       href={`/blog/${p.slug}`}
                       className="group flex items-start gap-3 py-3"
                     >
-                      <div
-                        className="w-12 h-12 shrink-0 bg-cover bg-center"
-                        style={{ backgroundImage: `url(${p.coverImage})` }}
-                      />
+                      <div className="relative w-12 h-12 shrink-0 overflow-hidden">
+                        <Image src={p.coverImage} alt={p.title} fill className="object-cover" sizes="48px" />
+                      </div>
                       <div className="min-w-0">
                         <span className="text-[9px] uppercase tracking-widest text-brand-light/60">{p.category}</span>
                         <p className="text-[11px] text-white/70 group-hover:text-white transition-colors leading-snug line-clamp-3 font-medium mt-0.5">
@@ -386,7 +390,9 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="grid sm:grid-cols-2 gap-4">
               {others.slice(0, 6).map((p) => (
                 <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex items-start gap-3 py-3 border-b border-dark-200 last:border-0">
-                  <div className="w-14 h-14 shrink-0 bg-cover bg-center" style={{ backgroundImage: `url(${p.coverImage})` }} />
+                  <div className="relative w-14 h-14 shrink-0 overflow-hidden">
+                    <Image src={p.coverImage} alt={p.title} fill className="object-cover" sizes="56px" />
+                  </div>
                   <div className="min-w-0">
                     <span className="text-[9px] uppercase tracking-widest text-brand-light/60">{p.category}</span>
                     <p className="text-xs font-bold text-white/75 group-hover:text-white transition-colors leading-snug line-clamp-2 mt-0.5">{p.title}</p>
@@ -410,9 +416,12 @@ export default async function BlogPostPage({ params }: Props) {
                   className="group relative overflow-hidden rounded-2xl border border-dark-300 hover:border-brand/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.5)]"
                 >
                   {/* Background cover image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500 scale-105 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${prevPost.coverImage})` }}
+                  <Image
+                    src={prevPost.coverImage}
+                    alt=""
+                    fill
+                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500 scale-105 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark/80 to-transparent" />
 
@@ -446,9 +455,12 @@ export default async function BlogPostPage({ params }: Props) {
                   className="group relative overflow-hidden rounded-2xl border border-dark-300 hover:border-brand/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.5)]"
                 >
                   {/* Background cover image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity duration-500 scale-105 group-hover:scale-110"
-                    style={{ backgroundImage: `url(${nextPost.coverImage})` }}
+                  <Image
+                    src={nextPost.coverImage}
+                    alt=""
+                    fill
+                    className="object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500 scale-105 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-bl from-dark via-dark/80 to-transparent" />
 

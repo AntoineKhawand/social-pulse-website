@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import type { BlogPost } from "@/lib/posts";
@@ -29,9 +30,12 @@ export default function BlogCard({ post, featured = false, index = 0 }: BlogCard
         >
           <div className="grid md:grid-cols-2 gap-0 h-full">
             <div className="relative h-64 md:h-auto min-h-[320px] overflow-hidden">
-              <div
-                className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                style={{ backgroundImage: `url(${post.coverImage})` }}
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent md:bg-gradient-to-r md:from-dark md:via-transparent md:to-transparent opacity-80 md:opacity-100" />
             </div>
@@ -82,9 +86,12 @@ export default function BlogCard({ post, featured = false, index = 0 }: BlogCard
         className="group block h-full rounded-3xl overflow-hidden border border-dark-300 hover:border-brand/40 transition-all duration-500 bg-dark hover:shadow-2xl hover:shadow-brand/5 hover:-translate-y-1 flex flex-col"
       >
         <div className="relative h-56 overflow-hidden shrink-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700 ease-out"
-            style={{ backgroundImage: `url(${post.coverImage})` }}
+          <Image
+            src={post.coverImage}
+            alt={post.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            sizes="(max-width: 768px) 100vw, 33vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-transparent opacity-90" />
           <div className="absolute top-4 left-4">
