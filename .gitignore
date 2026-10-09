@@ -36,3 +36,9 @@ next-env.d.ts
 
 # Accidental unrelated project drop — not part of this site
 public/covers/ruvo/
+
+# browser automation profiles — never commit browser session data
+.chrome-user-data/
+**/chrome-user-data/
+.chrome-profile/
+**/chrome-profile/
